@@ -7,7 +7,7 @@ const fs = require('fs');
 module.exports = merge(common, {
     mode : "development",
     output: {
-        path: path.resolve(__dirname,'dist'),
+        path: path.resolve(__dirname,'build'),
         filename: "app.bundle.dev.js",
         publicPath: "/"
     },
@@ -82,7 +82,7 @@ module.exports = merge(common, {
         liveReload: true,
         allowedHosts: 'all',
         static: {
-            directory: path.resolve(__dirname, "dist"),
+            directory: path.resolve(__dirname, "build"),
             publicPath: "/"
         },
         historyApiFallback: true,
