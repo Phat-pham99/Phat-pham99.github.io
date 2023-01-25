@@ -3,7 +3,7 @@ import {Link } from 'react-router-dom';
 import { Navbar, Nav } from 'rsuite';
 
 const NavBar = () => (
-<div className="NavPage-level flex flex-row justify-center p-4 h-full w-full bg-gradient-to-r from-cyan-200 to-blue-200">
+<div className="NavPage-level flex flex-row justify-center p-4 h-full w-full bg-gradient-to-r from-cyan-300 to-green-300">
 <Navbar className='w-full'>
     <Nav className='w-full'>
         <div className="NavBar flex flex-row justify-between">
