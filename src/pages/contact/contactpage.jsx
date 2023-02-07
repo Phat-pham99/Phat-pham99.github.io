@@ -4,7 +4,7 @@ import ContactPageComponent from '../../components/contact/contactpage_component
 const ContactPage = () =>{
 
     return (
-        <div className='body_home h-[1000px] w-full'>
+        <div className='body_home w-full'>
                 <ContactPageComponent/>
         </div>
     );
