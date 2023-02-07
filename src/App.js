@@ -6,6 +6,7 @@ import ExperiencePage from "./pages/experience/experiencepage.jsx";
 import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
+import Footer from "./components/footer/footer.jsx"
 import {Helmet} from "react-helmet";
 
  const App = () => {
@@ -22,6 +23,7 @@ import {Helmet} from "react-helmet";
             <Route path="contact" element={<ContactPage/>}/>
         </Routes>
       </Router>
+      <Footer/>
     </>
   );
 };
