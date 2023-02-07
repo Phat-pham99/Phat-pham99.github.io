@@ -9,7 +9,7 @@ const ContactPageComponent = () =>{
         </div>
         <div>
             <h2 className='flex flex-row justify-center text-3xl text-red'>Email : Hphat99@gmail.com</h2>
-            <h2 className='flex flex-row justify-between text-3xl hover:text-pink'><a href="https://www.linkedin.com/in/hphat99/">LinkedIn</a></h2>
+            <h2 className='flex flex-row justify-center text-3xl hover:text-pink'><a href="https://www.linkedin.com/in/hphat99/">LinkedIn</a></h2>
         </div>
     </>
     );

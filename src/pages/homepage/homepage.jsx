@@ -5,7 +5,7 @@ import Phat from "../../../Assets/phat.jpeg"
 const HomePage = () =>{
 
     return (
-        <div className='body_home h-[1000px] w-full'>
+        <div className='body_home w-full'>
             <div className="flex flex-row justify-center">
                 <HomePageComponent/>
             </div>
