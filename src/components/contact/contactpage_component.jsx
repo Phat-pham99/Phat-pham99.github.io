@@ -7,8 +7,9 @@ const ContactPageComponent = () =>{
         <div className='flex flex-row justify-center'>
             <h1 className=" text-3xl text-blue-900">Contact Page</h1>
         </div>
-        <div className='flex flex-row justify-center text-3xl text-brown-500'>
-            <h2>Email : Hphat99@gmail.com</h2>
+        <div>
+            <h2 className='flex flex-row justify-center text-3xl text-red'>Email : Hphat99@gmail.com</h2>
+            <h2 className='flex flex-row justify-between text-3xl hover:text-pink'><a href="https://www.linkedin.com/in/hphat99/">LinkedIn</a></h2>
         </div>
     </>
     );
