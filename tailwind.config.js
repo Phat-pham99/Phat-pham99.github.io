@@ -21,7 +21,13 @@ module.exports = {
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
       },
-    extend: {},
+    extend: {
+      animation: {
+        cursor: 'cursor .6s linear infinite alternate',
+        type: 'type 1.8s ease-out .8s 1 normal both',
+        'type-reverse': 'type 1.8s ease-out 0s infinite alternate-reverse both',
+      },
+    },
   },
   plugins: [],
 }
