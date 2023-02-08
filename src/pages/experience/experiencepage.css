@@ -1,0 +1,19 @@
+/* body {
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  
+  .my-container div {
+    background: pink;
+    border-radius: 30px;
+    width: 150px;
+    height: 150px;
+  }
+  
