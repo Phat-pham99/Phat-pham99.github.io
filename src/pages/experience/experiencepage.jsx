@@ -47,6 +47,7 @@ const ExperiencePage = () =>{
     <div className='body_experience flex flex-row justify-center'>
         <ExperiencePageComponent/>
     </div>
+    <br/>
     <Element/>
     </>
     );
