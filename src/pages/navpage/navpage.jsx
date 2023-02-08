@@ -10,11 +10,6 @@ const NavBar = () => (
             <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/home">Home</Link></Nav.Item></div>
             <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/experience">Experience</Link></Nav.Item></div>
             <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/projects">Projects</Link></Nav.Item></div>
-        {/* <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600"><Nav.Menu title="About">
-            <Nav.Item>About me</Nav.Item>
-            <Nav.Item>Team</Nav.Item>
-        </Nav.Menu></div>
-        <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600"><Nav.Item><Link to="/contact">Contact</Link></Nav.Item></div> */}
         </div>
     </Nav>
 </Navbar>
