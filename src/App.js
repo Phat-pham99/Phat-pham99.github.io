@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage.jsx";
 import AboutPage from "./pages/about/aboutpage.jsx";
 import ExperiencePage from "./pages/experience/experiencepage.jsx";
@@ -15,7 +15,7 @@ const App = () => {
         <Router>
           <div className="">
             <NavBar />
-            <Routes>
+            <Routes >
               <Route index element={<HomePage />} />
               <Route path="home" element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />
@@ -24,7 +24,6 @@ const App = () => {
               <Route path="contact" element={<ContactPage />} />
             </Routes>
           </div>
-
           <Footer />
         </Router>
       </div>
