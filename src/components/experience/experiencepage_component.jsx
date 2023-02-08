@@ -4,7 +4,7 @@ const ExperiencePageComponent = () =>{
 
     return (
     <div className='flex flex-row justify-between'>
-        <h1 className=" text-3xl text-blue-900">Experience Page</h1>
+        <h1 className="lg:text-4xl md:text-xl sm:text-base text-blue">Experience Page</h1>
     </div>
     );
 }

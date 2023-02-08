@@ -75,7 +75,7 @@ module.exports = merge(common, {
             },
             minify: true,
             showErrors: true,
-            template: path.resolve(__dirname, 'src/template.html')
+            template: path.resolve(__dirname, 'src/index.html')
         }),
     ],
     devtool: "cheap-module-source-map",

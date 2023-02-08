@@ -3,32 +3,17 @@ import {Link } from 'react-router-dom';
 import { Navbar, Nav } from 'rsuite';
 
 const NavBar = () => (
-<div className="NavPage-level flex flex-row justify-center p-4 h-full w-full bg-gradient-to-r from-cyan-300 to-green-300">
+<div className="NavPage-level sticky top-0 backdrop-filter backdrop-blur-sm hover:backdrop-blur bg-opacity-30 border-b border-[#f2f2f2] flex flex-row justify-center p-4 w-full bg-gradient-to-r from-cyan-300 to-green-300">
 <Navbar className='w-full'>
-    <Nav className='w-full'>
+    <Nav className='w-[60%] justify-center'>
         <div className="NavBar flex flex-row justify-between">
-            <div className="text-2xl text-green-500 hover:text-green-600"><Nav.Item><Link to="/home">Home</Link></Nav.Item></div>
-            <div className="text-2xl text-green-500 hover:text-green-600"><Nav.Item><Link to="/experience">Experience</Link></Nav.Item></div>
-            <div className="text-2xl text-green-500 hover:text-green-600"><Nav.Item><Link to="/projects">Projects</Link></Nav.Item></div>
-        <div className="text-2xl text-green-500 hover:text-green-600"><Nav.Menu title="About">
-            <Nav.Item>About me</Nav.Item>
-            <Nav.Item>Team</Nav.Item>
-        </Nav.Menu></div>
-        <div className="text-2xl text-green-500 hover:text-green-600"><Nav.Item><Link to="/contact">Contact</Link></Nav.Item></div>
+            <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/home">Home</Link></Nav.Item></div>
+            <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/experience">Experience</Link></Nav.Item></div>
+            <div className="lg:text-2xl md:text-sm text-green-500 hover:text-green-600 hover:font-bold"><Nav.Item><Link to="/projects">Projects</Link></Nav.Item></div>
         </div>
     </Nav>
 </Navbar>
 </div>
 )
 
-// const NavBar = () => (
-//     <NavBar>   
-//      <Nav>
-//       <Link to="/home">Home</Link>
-//       {/* <Link to="/about">About</Link> */}
-//       <Link to="/experience">Experience</Link>
-//     </Nav>
-//     </NavBar>
-
-//   );
 export default NavBar;

@@ -4,7 +4,9 @@ import ContactPageComponent from '../../components/contact/contactpage_component
 const ContactPage = () =>{
 
     return (
-            <ContactPageComponent/>
+        <div className='body_home w-full'>
+                <ContactPageComponent/>
+        </div>
     );
 }
 export default ContactPage;

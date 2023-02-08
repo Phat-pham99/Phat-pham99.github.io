@@ -25,16 +25,14 @@ const ExperiencePage = () =>{
     };
     const Element = () => {
         return(
-        <>
         <Collapse defaultActiveKey={['1']}>
         <Panel header="Languages" key="1">
           <h2>{temp.current}</h2>
         </Panel>
+        <Panel header="Languages" key="2">
+          <h2>{temp.current}</h2>
+        </Panel>
         </Collapse>
-            <Panel header="Languages" key="2">
-            <h2>{temp.current}</h2>
-            </Panel>
-        </>
         )
     };
 
