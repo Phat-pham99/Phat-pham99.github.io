@@ -25,9 +25,22 @@ const ExperiencePage = () =>{
     };
     const Element = () => {
         return(
-        <Collapse defaultActiveKey={['1']}>
+        <Collapse className ="text-2xl" defaultActiveKey={['1']}>
         <Panel header="Languages" key="1">
-          <h2>{temp.current}</h2>
+          <h2>English</h2>
+          <h2>Japanese</h2>
+          <h2>Vietnamese</h2>
+        </Panel>
+        <Panel header="Skills" key="2">
+          <h2>Python</h2>
+          <h2>ReactJs</h2>
+        </Panel>
+        <Panel header="Skills" key="3">
+          <h2>Python</h2>
+          <h2>ReactJs</h2>
+        </Panel>
+        <Panel header="Work" key="4">
+          <h2>Terralogic Inc,</h2>
         </Panel>
         </Collapse>
         )
