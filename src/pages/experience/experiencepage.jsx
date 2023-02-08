@@ -29,9 +29,6 @@ const ExperiencePage = () =>{
         <Panel header="Languages" key="1">
           <h2>{temp.current}</h2>
         </Panel>
-        <Panel header="Languages" key="2">
-          <h2>{temp.current}</h2>
-        </Panel>
         </Collapse>
         )
     };
