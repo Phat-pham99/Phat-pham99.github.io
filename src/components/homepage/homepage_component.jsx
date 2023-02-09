@@ -3,12 +3,9 @@ import FacebookSquare from '@rsuite/icons/legacy/FacebookSquare';
 import LinkedinSquare from '@rsuite/icons/legacy/LinkedinSquare';
 import GithubSquare from '@rsuite/icons/legacy/GithubSquare';
 
-
 const HomePageComponent = () =>{
-
     return (
-    <div className=''>
-
+    <div className='Container_'>
         <div className='justify-center'>
             <h1 className="lg:text-4xl md:text-xl sm:text-base">Hi,I'm Phat</h1>
             <h1 className="lg:text-4xl md:text-xl sm:text-base">Welcome to my website !</h1>
