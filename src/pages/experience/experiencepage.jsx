@@ -19,30 +19,38 @@ const ExperiencePage = () =>{
             });
         setDataTotal(data.data);
         setDataBasic(data.data.basics);
-        data_language.current = data.data.languages;
-        temp.current = data_language.current[0]["language"];
-        console.log("BRuhhhhh",temp);
+        data_language.current = data.data;
+        temp.current = data.data;
+        console.log("BRuhhhhh",data_total.languages[0].language);
     };
+
     const Element = () => {
         return(
-        <Collapse className ="text-2xl" defaultActiveKey={['1']}>
+            <div className='flex flex-row justify-center'>
+        <Collapse className ="text-2xl w-[50%]" defaultActiveKey={['1']}>
         <Panel header="Languages" key="1">
           <h2>English</h2>
           <h2>Japanese</h2>
           <h2>Vietnamese</h2>
         </Panel>
         <Panel header="Skills" key="2">
-          <h2>Python</h2>
-          <h2>ReactJs</h2>
+            <Collapse className ="text-2xl">
+            <Panel header="Python">
+                <h2>Django</h2>
+                <h2>Selenium</h2>
+            </Panel>
+            </Collapse>
+            <Collapse className ="text-2xl">
+            <Panel header="Javascript">
+                <h2>ReactJs</h2>
+            </Panel>
+        </Collapse>
         </Panel>
-        <Panel header="Skills" key="3">
-          <h2>Python</h2>
-          <h2>ReactJs</h2>
-        </Panel>
-        <Panel header="Work" key="4">
+        <Panel header="Work" key="3">
           <h2>Terralogic Inc,</h2>
         </Panel>
         </Collapse>
+        </div>
         )
     };
 
