@@ -15,9 +15,9 @@ const HomePageComponent = () =>{
         <br/>
         <br/>
         <div className='flex flex-row justify-center space-x-3'>
-            <a href="https://www.facebook.com/hongphat.pham99/"><FacebookSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
-            <a href="https://www.linkedin.com/in/hphat99/"><LinkedinSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
-            <a href="https://github.com/Phat-pham99"><GithubSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
+            <a target="_blank" href="https://www.facebook.com/hongphat.pham99/"><FacebookSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
+            <a target="_blank" href="https://www.linkedin.com/in/hphat99/"><LinkedinSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
+            <a target="_blank" href="https://github.com/Phat-pham99"><GithubSquare className="h-[60px] w-[60px] p-[10px] hover:p-[0px]"/></a>
         </div>
     </div>
     );
