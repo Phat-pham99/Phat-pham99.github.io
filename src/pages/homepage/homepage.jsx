@@ -12,13 +12,13 @@ const HomePage = () =>{
             <div className="flex flex-row justify-center">
                 <HomePageComponent/>
             </div>
-            <div>
+            <div className="">
             <Button color="red" appearance="primary" className="bg-black">
                 <FacebookOfficialIcon fill="#4267B2"/> <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphat-pham99.github.io%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Chia sẻ</a>
             </Button>
             </div>
             <div className="flex flex-grow justify-center">
-                <img className=' h-[300px] w-[300px]' src={Phat}/>
+                <img className='lg:h-[500px] lg:w-[500px] md:h-[300px] md:w-[300px] sm:[50px] sm:[50px]'src={Phat}/>
             </div>
         </div>
         
