@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTypingEffect from 'react-typing-effect';
 import FacebookSquare from '@rsuite/icons/legacy/FacebookSquare';
 import LinkedinSquare from '@rsuite/icons/legacy/LinkedinSquare';
 import GithubSquare from '@rsuite/icons/legacy/GithubSquare';
@@ -7,7 +8,8 @@ const HomePageComponent = () =>{
     return (
     <div className='Container_'>
         <div className='justify-center'>
-            <h1 className="lg:text-4xl md:text-xl sm:text-base">Hi,I'm Phat</h1>
+            <h1 className="font-bold lg:text-5xl md:text-xl sm:text-base"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
+            <br/>
             <h1 className="lg:text-4xl md:text-xl sm:text-base">Welcome to my website !</h1>
         </div>
         <br/>
