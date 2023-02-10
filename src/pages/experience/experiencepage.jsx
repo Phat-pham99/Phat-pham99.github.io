@@ -26,8 +26,8 @@ const ExperiencePage = () =>{
 
     const Element = () => {
         return(
-            <div className='flex flex-row justify-center'>
-        <Collapse className ="lg:text-2xl md:text-xl sm:text-base lg:w-[50%] md:w-[70%] sm:w-[90%]" defaultActiveKey={['1']}>
+            <div className='collapse-container flex flex-row justify-center p-4'>
+        <Collapse className ="lg:text-2xl md:text-xl sm:text-base lg:w-[50%] md:w-[70%] sm:w-[90%]" style={{'background-color' : '#ccffe6'}} defaultActiveKey={['1']}>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Work}/><h1>Experience</h1></div>} showArrow={false} key="1">
           <div className='text-3xl'><Steps
     current={1}
@@ -54,11 +54,11 @@ const ExperiencePage = () =>{
           <h2><div className='flex space-x-[50px]'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px] "src={Vietnamese}/><h1>Vietnamese</h1></div></h2>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Coding}/><h1>Skills</h1></div>} showArrow={false} key="3">
-            <Collapse className ="lg:text-2xl md:text-xl sm:text-base">
+            <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'background-color' : '#ccffe6'}}>
             <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Python}/><h1>Python</h1></div>} showArrow={false} >
                 <h2><div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Django}/><h1>Django</h1></div></h2>
                 <h2>Selenium</h2>
-                <Collapse className ="lg:text-2xl md:text-xl sm:text-base">
+                <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'background-color' : '#ccffe6'}}>
                 <Panel header="Data science - Data Analysis" showArrow={false} >
                 <h2><div className='flex space-x-3'><Realtime/> <h1>TimeSeries Forecast</h1></div></h2>
                 <h2>Natural Language Processing</h2>
@@ -68,7 +68,7 @@ const ExperiencePage = () =>{
             </Collapse>
             </Panel>
             </Collapse>
-            <Collapse className ="lg:text-2xl md:text-xl sm:text-base">
+            <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'background-color' : '#ccffe6'}}>
             <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Javascript}/><h1>Javascript</h1></div>} showArrow={false} >
                 <h2>{<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={React_icon}/><h1>React</h1></div>}</h2>
             </Panel>
