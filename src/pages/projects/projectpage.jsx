@@ -17,7 +17,7 @@ const ProjectPage = () =>{
         console.log("data_total",data_total);
     };
     return (
-    <div className='w-full flex flex-row justify-center'>
+    <div className="h-full min-h-screen w-full min-w-screen flex flex-row justify-center">
        <h1>Project page</h1>
     </div>
     
