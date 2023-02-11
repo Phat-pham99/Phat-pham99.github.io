@@ -1,6 +1,4 @@
 import React from 'react';
-
-import ExperiencePageComponent from "../../components/experience/experiencepage_component.jsx";
 import Realtime from '@rsuite/icons/legacy/Realtime';
 import Work from "../../../Assets/work.png";
 import Terralogic from "../../../Assets/terralogic.jpeg";
@@ -79,13 +77,10 @@ const ExperiencePage = () =>{
         )
     };
     return (
-    <>
-    <div className='body_experience flex flex-row justify-center'>
-        <ExperiencePageComponent/>
-    </div>
+    <div className="min-h-screen h-max min-w-screen">
     <br/>
     <Element/>
-    </>
+    </div>
     );
 }
 export default ExperiencePage;

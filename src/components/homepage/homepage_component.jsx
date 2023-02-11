@@ -8,7 +8,7 @@ const HomePageComponent = () =>{
     return (
     <div className='Container_'>
         <div className='pt-5'>
-            <h1 className="flex justify-center font-bold lg:text-5xl md:text-xl sm:text-base"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
+            <h1 className="flex justify-center text-green font-bold lg:text-5xl md:text-xl sm:text-base"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
             <br/>
             <h1 className="flex justify-center lg:text-3xl md:text-2xl sm:text-base">Welcome to my website !</h1>
         </div>
