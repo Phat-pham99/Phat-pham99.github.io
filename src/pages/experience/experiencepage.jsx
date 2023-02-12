@@ -25,7 +25,7 @@ const ExperiencePage = () =>{
     const Element = () => {
         return(
             <div className='collapse-container flex flex-row justify-center p-4'>
-        <Collapse className ="lg:text-2xl md:text-xl sm:text-base lg:w-[50%] md:w-[70%] sm:w-[90%]" style={{'background-color' : '#ccffe6'}} defaultActiveKey={['1']}>
+        <Collapse className ="lg:text-2xl md:text-xl sm:text-base lg:w-[60%] md:w-[60%] sm:w-[60%]" style={{'background-color' : '#ccffe6'}} defaultActiveKey={['1']}>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Work}/><h1>Experience</h1></div>} showArrow={false} key="1">
           <div className='text-3xl'><Steps
     current={1}
@@ -68,7 +68,7 @@ const ExperiencePage = () =>{
             </Collapse>
             <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'background-color' : '#ccffe6'}}>
             <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Javascript}/><h1>Javascript</h1></div>} showArrow={false} >
-                <h2>{<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={React_icon}/><h1>React</h1></div>}</h2>
+                <h2>{<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={React_icon}/><h1>ReactJs</h1></div>}</h2>
             </Panel>
         </Collapse>
         </Panel>
