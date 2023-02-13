@@ -7,13 +7,14 @@ import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
+import "./App.css"
 
 const App = () => {
   return (
     <>
-      <div className="h-screen flex flex-col justify-between">
+      <div className="total-app-level h-screen flex flex-col justify-between">
         <Router>
-          <div className="">
+          <div className="mid-app-level">
             <NavBar />
             <Routes >
               <Route index element={<HomePage />} />
@@ -23,8 +24,8 @@ const App = () => {
               <Route path="projects" element={<ProjectPage />} />
               <Route path="contact" element={<ContactPage />} />
             </Routes>
+            <Footer />
           </div>
-          <Footer />
         </Router>
       </div>
     </>
