@@ -5,7 +5,6 @@ import Terralogic from "../../../Assets/terralogic.jpeg";
 
 
 const ProjectPage = () =>{
-
     const [data_total,setDataTotal] = useState([]);
     const temp = useRef([]);    
     const getData = async () =>{
@@ -18,7 +17,7 @@ const ProjectPage = () =>{
         console.log("data_total",data_total);
     };
     return (
-    <div className='w-full flex flex-row justify-center'>
+    <div className="min-h-screen h-max min-w-screen flex flex-row justify-center">
        <h1>Project page</h1>
     </div>
     
