@@ -16,7 +16,7 @@ const HomePage = () =>{
         <div className='body_home min-h-screen h-max  min-w-screen flex flew-col justify-between p-5'>
         <div className="left-component share_butt z-30">
             <Button type="dashed" className="text-black bg-white px-2 fixed">
-                <FacebookOfficialIcon className="h-[22px] w-[22px] "fill="#4267B2"/> <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphat-pham99.github.io%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">   Chia sẻ </a>
+                <FacebookOfficialIcon className="h-[22px] w-[22px] "fill="#4267B2"/> <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphat-pham99.github.io%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">   Share </a>
             </Button>
         </div>
             <div className="center-component h-max w-[60%] sm:w-[90%] bg-white justify-center space-x-5 rounded-2xl">
@@ -24,18 +24,18 @@ const HomePage = () =>{
       <div className="carousel-container w-[90%] h-[40%] ">
       <Carousel autoplay dotPosition={"bottom"} effect={"scrollx"} className="w-full h-[40%] flex flex-row justify-center">
       <div className='flex flex-row justify-center'>
-          <h1 className="p-4 w-full"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
+          <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.
           I'm proficient in Python, Javscript, ReactJs also having good knowledge of data science and having participated in several projects.
           </h1>
       </div>
       <div>
-      <h1 className="p-4 w-full"><img src={Phat_red} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_red} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I like to play piano. You can find some of my piano video on my facebook. 
           </h1>
       </div>
       <div>
-      <h1 className="p-4 w-full"><img src={Phat_yellow} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_yellow} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I love programming. I often spend time on fun projects after works.
           </h1>
       </div>

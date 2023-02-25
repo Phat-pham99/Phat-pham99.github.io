@@ -1,8 +1,6 @@
 import React,{useState, useRef} from 'react';
 import Axios from 'axios';
-import {Steps } from 'antd';
-import Terralogic from "../../../Assets/terralogic.jpeg";
-
+import inprogress from "../../../Assets/work-in-progress.png"
 
 const ProjectPage = () =>{
     const [data_total,setDataTotal] = useState([]);
@@ -18,7 +16,7 @@ const ProjectPage = () =>{
     };
     return (
     <div className="min-h-screen h-max min-w-screen flex flex-row justify-center">
-       <h1>Project page</h1>
+            <img src={inprogress} className="w-[50%] h-[50%] content-center	"></img>
     </div>
     
     );
