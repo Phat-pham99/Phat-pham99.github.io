@@ -1,8 +1,6 @@
 import React,{useState, useRef} from 'react';
 import Axios from 'axios';
-import {Steps } from 'antd';
-import Terralogic from "../../../Assets/terralogic.jpeg";
-
+import pdf from "../../../Assets/JavaScript.pdf"
 
 const ProjectPage = () =>{
     const [data_total,setDataTotal] = useState([]);
@@ -19,6 +17,7 @@ const ProjectPage = () =>{
     return (
     <div className="min-h-screen h-max min-w-screen flex flex-row justify-center">
        <h1>Project page</h1>
+       <a href={pdf}>ok</a>
     </div>
     
     );

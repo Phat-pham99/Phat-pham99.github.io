@@ -4,7 +4,7 @@ import {Link } from 'react-router-dom';
 const Footer = () =>{
 
     return (
-        <div className="relative bottom-0  backdrop-blur-sm hover:backdrop-blur bg-opacity-30  md:flex md:items-center md:justify-between md:p-3 border-[#f2f2f2] ">
+        <div className="relative bottom-0 backdrop-blur-sm hover:backdrop-blur bg-opacity-30  md:flex md:items-center md:justify-between md:p-3 border-[#f2f2f2] ">
         <div className="space-x-3">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 Powered by ReactJs</span>
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">Icons by <a className="hover:underline"target="_blank"href="https://icons8.com/">icons8</a></span>

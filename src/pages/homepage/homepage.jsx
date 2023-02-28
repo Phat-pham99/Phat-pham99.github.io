@@ -21,8 +21,8 @@ const HomePage = () =>{
         </div>
             <div className="center-component h-max w-[60%] sm:w-[90%] bg-white justify-center space-x-5 rounded-2xl">
                 <HomePageComponent/>
-      <div className="carousel-container w-[90%] h-[40%] ">
-      <Carousel autoplay dotPosition={"bottom"} effect={"scrollx"} className="w-full h-[40%] flex flex-row justify-center">
+      <div className="carousel-container w-[90%] h-[40%] flex flex-row justify-center ">
+      <Carousel autoplay dotPosition={"bottom"} effect={"scrollx"} className="lg:w-[500px] h-[40%] flex flex-row justify-center">
       <div className='flex flex-row justify-center'>
           <h1 className="p-4 w-full"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.
@@ -40,8 +40,8 @@ const HomePage = () =>{
           </h1>
       </div>
     </Carousel>
-    <iframe name="f24fa0407cf65b" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.5/plugins/comments.php?app_id=726204555155322&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26b57f7b013f78%26phat-pham99.github.io%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fdinhvanlanh.info%252Ff2f1a85e3fe5e54%26relation%3Dparent.parent&amp;container_width=790&amp;height=100&amp;href=https%3A%2F%2Fphat-pham99.github.io&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=" className="min-h-[300px] min-w-[100px] w-full"></iframe>
     </div>
+    <iframe name="f24fa0407cf65b" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.5/plugins/comments.php?app_id=726204555155322&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26b57f7b013f78%26phat-pham99.github.io%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fdinhvanlanh.info%252Ff2f1a85e3fe5e54%26relation%3Dparent.parent&amp;container_width=790&amp;height=100&amp;href=https%3A%2F%2Fphat-pham99.github.io&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5" className="min-h-[300px] min-w-[100px] lg:w-[500px] sm:w-full"></iframe>
         </div>
         <div>
 
