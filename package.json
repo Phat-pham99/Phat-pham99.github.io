@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-facebook": "^9.0.12",
     "react-helmet": "^6.1.0",
+    "react-moment": "^1.1.3",
     "react-router-dom": "^6.7.0",
     "react-typing-effect": "^2.0.5",
     "rsuite": "^5.25.0"

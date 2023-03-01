@@ -16,7 +16,7 @@ const ProjectPage = () =>{
     };
     return (
     <div className="min-h-screen h-max min-w-screen flex flex-row justify-center">
-            <img src={inprogress} className="w-[50%] h-[50%] content-center	"></img>
+            <img src={inprogress} className="lg:w-[40%] lg:h-[40%] xl:w-[40%] xl:h-[40%] sm:w-[50%] sm:h-[50%] content-center	"></img>
     </div>
     
     );
