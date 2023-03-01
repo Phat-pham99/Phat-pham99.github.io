@@ -61,8 +61,15 @@ module.exports = merge(common, {
                 ]
             },
             {
-                test: /\.(pdf|png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.(pdf)$/i,
+                type: 'asset/resource',
+                generator : {
+                    filename : 'documents/[name][ext][query]',
+                  }
             },
         ]
     },

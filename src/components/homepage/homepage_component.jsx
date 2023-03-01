@@ -5,7 +5,6 @@ import LinkedinSquare from '@rsuite/icons/legacy/LinkedinSquare';
 import GithubSquare from '@rsuite/icons/legacy/GithubSquare';
 import Detail from '@rsuite/icons/legacy/Detail';
 
-
 const HomePageComponent = () =>{
 
     return (
