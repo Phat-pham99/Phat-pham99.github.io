@@ -41,7 +41,7 @@ const HomePage = () =>{
       </div>
     </Carousel>
     </div>
-    <iframe name="f24fa0407cf65b" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowFullScreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.5/plugins/comments.php?app_id=726204555155322&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26b57f7b013f78%26phat-pham99.github.io%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fdinhvanlanh.info%252Ff2f1a85e3fe5e54%26relation%3Dparent.parent&amp;container_width=790&amp;height=100&amp;href=https%3A%2F%2Fphat-pham99.github.io&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5" className="min-h-[300px] min-w-[100px] lg:w-[500px] sm:w-full"></iframe>
+    <iframe name="f24fa0407cf65b" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" allowtransparency="true" allowFullScreen={true} scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.5/plugins/comments.php?app_id=726204555155322&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26b57f7b013f78%26phat-pham99.github.io%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fdinhvanlanh.info%252Ff2f1a85e3fe5e54%26relation%3Dparent.parent&amp;container_width=790&amp;height=100&amp;href=https%3A%2F%2Fphat-pham99.github.io&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5" className="min-h-[300px] min-w-[100px] lg:w-[500px] sm:w-full"></iframe>
         </div>
         <div>
 
