@@ -7,12 +7,14 @@ import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
+// import Cursor from "./components/cursor/cursor.jsx";
 import "./App.css"
 
 const App = () => {
   return (
     <>
       <div className="total-app-level h-screen flex flex-col justify-between">
+        {/* <Cursor/> */}
         <Router>
           <div className="mid-app-level">
             <NavBar />
