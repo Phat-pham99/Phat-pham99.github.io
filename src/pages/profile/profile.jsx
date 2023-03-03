@@ -1,5 +1,4 @@
 import React from 'react';
-import Realtime from '@rsuite/icons/legacy/Realtime';
 import Work from "../../../Assets/work.png";
 import Terralogic from "../../../Assets/terralogic.jpeg";
 import English from "../../../Assets/england.png";
@@ -14,6 +13,7 @@ import Javascript from "../../../Assets/javascript.svg";
 import Education from "../../../Assets/education.png"
 import BK from "../../../Assets/BK.png"
 import IELTS from "../../../Assets/My_IELTS_Certificate.pdf";
+import Tensorflow from "../../../Assets/tensorflow.svg";
 import "./profile.css"
 import {Steps } from 'antd';
 import { Collapse } from 'antd';
@@ -53,10 +53,10 @@ const ProfilePage = () =>{
   /></div>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={Education}/><h1>Education</h1></div>} showArrow={true} key="2">
-          <div className='text-lg pl-[3%]'>
-            <h2><div className='flex space-x-[50px]'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={BK}/><h1><a className='hover:font-bold hover:text-black' target="_blank" href='https://hcmut.edu.vn/'>HoChiMinh City University of Technology (HCMUT)</a></h1></div></h2>
+          <div className='text-sm pl-[3%]'>
+            <h2><div className='flex space-x-[50px] text-base'><img className=" lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={BK}/><h1><a className='hover:font-bold hover:text-black' target="_blank" href='https://hcmut.edu.vn/'>HoChiMinh City University of Technology (HCMUT)</a></h1></div></h2>
             <div className='flex flex-row space-x-3'>
-            <h2 className="font-bold"><a className='hover:font-bold hover:text-black' target="_blank" href='https://en.wikipedia.org/wiki/Biomedical_engineering'>Biomedical Engineering</a></h2> <h2 className="font-light">Fulltime</h2>
+            <h2 className="font-bold"> BE in <a className='' target="_blank" href='https://en.wikipedia.org/wiki/Biomedical_engineering'>Biomedical Engineering</a></h2> <h2 className="font-light">Fulltime</h2>
             </div>
             <h2 className='text-base font-light'>Ho Chi Minh City - Thu Duc city</h2>
             <h2 className='text-base font-medium'>Sep 2017 - November 2021 · <Moment diff="2017-09-01" unit="years">2021-11-01</Moment> years</h2>
@@ -75,7 +75,7 @@ const ProfilePage = () =>{
                 <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'backgroundColor' : '#ccffe6'}}>
                 <Panel header="Data science - Data Analysis" showArrow={true} >
                 {/* <h2><div className='flex space-x-3'><Realtime/> <h1>TimeSeries Forecast</h1></div></h2> */}
-                <h2>Tensorflow</h2>
+                <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px] "src={Tensorflow}/><h1>Tensorflow</h1></div></h2>
                 {/* <h2>Computer Vision</h2> */}
                 <h2>Data Visualization</h2>
             </Panel>
