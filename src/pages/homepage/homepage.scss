@@ -1,0 +1,12 @@
+.ant-carousel {
+  .slick-next {
+    &::before {
+      content: '';
+    }
+  }
+  .slick-prev { 
+    &::before {
+      content: '';
+    }
+  }
+}

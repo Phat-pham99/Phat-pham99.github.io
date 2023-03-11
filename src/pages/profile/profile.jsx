@@ -75,9 +75,8 @@ const ProfilePage = () =>{
                 <h2>Selenium</h2>
                 <Collapse className ="lg:text-2xl md:text-xl sm:text-base" style={{'backgroundColor' : '#ccffe6'}}>
                 <Panel header="Data science - Data Analysis" showArrow={true} >
-                {/* <h2><div className='flex space-x-3'><Realtime/> <h1>TimeSeries Forecast</h1></div></h2> */}
-                <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px] "src={Tensorflow}/><h1>Tensorflow</h1></div></h2>
-                {/* <h2>Computer Vision</h2> */}
+                <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[70px] lg:w-[70px] sm:h-[35px] sm:w-[35px] "src={Tensorflow}/><h1>Tensorflow</h1><a className="text-blue  sm:text-sm lg:text-base hover:underline" target="_blank" href={"https://www.coursera.org/account/accomplishments/verify/SLL28JQ9NVB7"}>
+                  Click to view certificate</a></div></h2>
                 <h2>Data Visualization</h2>
             </Panel>
             </Collapse>
