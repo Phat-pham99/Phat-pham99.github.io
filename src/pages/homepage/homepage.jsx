@@ -27,7 +27,7 @@ const HomePage = () =>{
       <div className='flex flex-row justify-center'>
           <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.
-          I'm proficient in Python, Javscript, ReactJs also having good knowledge of data science and having participated in several projects.
+          I'm proficient in Python, Javascript, ReactJs also having good knowledge of Data Science and having participated in several projects.
           </h1>
       </div>
       <div>
