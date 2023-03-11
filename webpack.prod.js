@@ -82,7 +82,8 @@ module.exports = merge(common, {
             },
             minify: true,
             showErrors: true,
-            template: path.resolve(__dirname, 'src/index.html')
+            template: path.resolve(__dirname, 'src/index.html'),
+            favicon: "./Assets/kaneki.png",
         }),
     ],
     optimization: {
