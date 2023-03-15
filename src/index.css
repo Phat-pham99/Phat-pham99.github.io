@@ -6,7 +6,7 @@
     background: #5bffa5;
 }
 
-body {
+/* body {
 	background: linear-gradient(-45deg, #aeff00, #00ff62, #6fff6f, #18ffc9, #00ffdd);
 	background-size: 600% 600%;
 	animation: gradient 5s ease infinite;
@@ -23,5 +23,5 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
