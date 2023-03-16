@@ -9,13 +9,13 @@ import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
 import "./App.css"
 
-import App_new from "./pages/new/new.jsx"
+import Particles from "./pages/particles/particles.jsx"
 
 const App = () => {
   return (
     <>
       <div className="total-app-level h-screen flex flex-col justify-between">
-      <App_new/>
+      <Particles/>
         <Router>
           <div className="mid-app-level">
             <NavBar />
