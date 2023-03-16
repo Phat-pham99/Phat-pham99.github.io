@@ -1,0 +1,23 @@
+// :where(.css-dev-only-do-not-override-ixblex).ant-switch.ant-switch-checked{
+//     background: #45ff16;
+// };
+//  :where(.css-dev-only-do-not-override-ixblex).ant-switch{
+//      background: #0011ff;
+// };
+:where(.css-dev-only-do-not-override-ixblex).ant-switch.ant-switch-inner {
+    display: block;
+    overflow: hidden;
+    background: rgb(156, 156, 156);
+}
+// :where(.css-dev-only-do-not-override-ixblex).ant-switch.ant-switch-unchecked{
+//     display: block;
+//     overflow: hidden;
+//     background: rgb(255, 255, 255);
+
+// }
+// :where(.css-dev-only-do-not-override-ixblex).ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+//     background: #bcffa8;
+// }
+// :where(.css-dev-only-do-not-override-ixblex).ant-switch:hover:not(.ant-switch-disabled) {
+//     background: rgba(234, 1, 255, 0.45);
+// }

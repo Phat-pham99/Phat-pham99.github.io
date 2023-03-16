@@ -73,7 +73,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "CISCO POC",
+            title: "Phat's portfolio",
             filename: "index.html",
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
@@ -94,7 +94,7 @@ module.exports = merge(common, {
             publicPath: "/"
         },
         historyApiFallback: true,
-        host: "0.0.0.0",
+        host: "127.0.0.1",
         port: 8080,
     }
 })
