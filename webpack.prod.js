@@ -2,7 +2,7 @@ const path = require('path');
 const {merge} = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackRootPlugin = require('html-webpack-root-plugin');
+// const HtmlWebpackRootPlugin = require('html-webpack-root-plugin');
 const fs = require('fs');
 const TerserPlugin = require("terser-webpack-plugin");
 
@@ -75,7 +75,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "CISCO POC",
+            title: "Phat's portfolio",
             filename: "index.html",
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'

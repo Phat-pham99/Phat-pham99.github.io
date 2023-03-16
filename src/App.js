@@ -9,17 +9,17 @@ import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
 import "./App.css"
 
-import Particles from "./pages/particles/particles.jsx"
+import ParticlesBackground from "./pages/particles/particles.jsx"
 
 const App = () => {
   return (
     <>
       <div className="total-app-level h-screen flex flex-col justify-between">
-      <Particles/>
+      <ParticlesBackground/>
         <Router>
           <div className="mid-app-level">
-            <NavBar />
-            <Routes >
+            <NavBar/>
+            <Routes>
               <Route index element={<HomePage />} />
               <Route path="home" element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />
