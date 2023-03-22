@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Navbar, Nav} from 'rsuite';
@@ -30,12 +31,12 @@ const NavBar = () =>{
                     <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/experience">Experience</Link></Nav.Item></div>
                     <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/projects">Projects</Link></Nav.Item></div>
                     <div className="Toggle-language">
-                    <Switch
+                    {/* <Switch
                         className="lg:h-[30px] lg:w-[100px] sm:h-[10px] sm:w-[10px] bg-green hover:bg-green"
                         checkedChildren={"Tiếng Việt"}
                         unCheckedChildren={"English"}
                         defaultunChecked
-                    />
+                    /> */}
                 </div>
                 </div>
             </div>
