@@ -6,22 +6,18 @@
     background: #5bffa5;
 }
 
-/* body {
-	background: linear-gradient(-45deg, #aeff00, #00ff62, #6fff6f, #18ffc9, #00ffdd);
-	background-size: 600% 600%;
-	animation: gradient 5s ease infinite;
-	height: 100vh;
+@font-face {
+    font-family: 'hacker';
+    src: url(../Assets/font/hacker.ttf);
+    font-display: swap;
 }
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
-
+@font-face {
+    font-family: 'pixel';
+    src: url(../Assets/font/pixel.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 'pixel_large';
+    src: url(../Assets/font/pixel_large.ttf);
+    font-display: swap;
+}
