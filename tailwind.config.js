@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
@@ -23,13 +25,15 @@ module.exports = {
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
       },
-    extend: {
-      animation: {
-        cursor: 'cursor .6s linear infinite alternate',
-        type: 'type 1.8s ease-out .8s 1 normal both',
-        'type-reverse': 'type 1.8s ease-out 0s infinite alternate-reverse both',
+      fontFamily: {
+        'mono':['ui-monospace'],
+        Hacker: ["hacker"],
+        Pixel: ["pixel"],
+        PixelLarge :["pixel_large"]
       },
-    },
+    extend: {
+
+      },
   },
   plugins: [],
 }
