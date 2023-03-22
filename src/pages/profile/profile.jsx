@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import Work from "../../../Assets/work.png";
 import Terralogic from "../../../Assets/terralogic.jpeg";
@@ -24,10 +25,10 @@ const { Panel } = Collapse;
 const ProfilePage = () =>{
 
     const start_date = new Date("2022-08-03");
-
+    
     const Element = () => {
         return(
-            <div className='collapse-container flex flex-row justify-center p-4'>
+            <div className='collapse-container flex flex-row justify-center p-4 font-Hacker'>
         <Collapse className ="lg:text-2xl md:text-xl sm:text-base lg:w-[60%] md:w-[60%] sm:w-[80%]" style={{'backgroundColor' : '#ffffff'}} defaultActiveKey={['1']}>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Work}/><h1>Experience</h1></div>} showArrow={true} key="1">
           <div ><Steps
@@ -45,7 +46,7 @@ const ProfilePage = () =>{
           <h2 className="font-bold">Associate Software Engineer</h2> <h2 className="font-light">Fulltime</h2>
           </div>
           <h2 className='text-base font-light'>Ho Chi Minh City Metropolitan Area</h2>
-          <h2 className='text-base font-medium'>Aug 2022 - Present · <Moment date={start_date} format="MM" durationFromNow /> months</h2>
+          <h2 className='text-base font-medium'>Aug 2022 - Present · <Moment date={start_date} format="YY [years] MM [months]" durationFromNow trim /> </h2>
         </>,
       },
       {},

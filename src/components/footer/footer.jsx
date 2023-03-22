@@ -1,8 +1,9 @@
+/* eslint-disable */
+
 import React from 'react';
-import {Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Footer = () =>{
-
     return (
         <div className="relative bottom-0 backdrop-filter backdrop-blur-sm hover:backdrop-blur-lg bg-opacity-30 md:flex md:items-center md:justify-between md:p-3 border">
         <div className="space-x-3">

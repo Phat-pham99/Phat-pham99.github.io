@@ -1,8 +1,10 @@
-import React from "react";
+/* eslint-disable */
+
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
-import HomePage from "./pages/homepage/homepage.jsx";
-import AboutPage from "./pages/about/aboutpage.jsx";
-import ProfilePage from "./pages/profile/profile.jsx";
+import HomePage from './pages/homepage/homepage.jsx';
+import AboutPage from './pages/about/aboutpage.jsx';
+import ProfilePage from './pages/profile/profile.jsx';
 import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
@@ -14,7 +16,7 @@ import ParticlesBackground from "./pages/particles/particles.jsx"
 const App = () => {
   return (
     <>
-      <div className="total-app-level h-screen flex flex-col justify-between">
+      <div className="total-app-level h-screen flex flex-col justify-between font-Hacker">
       <ParticlesBackground/>
         <Router>
           <div className="mid-app-level">
