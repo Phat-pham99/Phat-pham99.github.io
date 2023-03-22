@@ -28,6 +28,8 @@ module.exports = {
       fontFamily: {
         'mono':['ui-monospace'],
         Hacker: ["hacker"],
+        Pixel: ["pixel"],
+        PixelLarge :["pixel_large"]
       },
     extend: {
 
