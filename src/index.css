@@ -6,22 +6,8 @@
     background: #5bffa5;
 }
 
-/* body {
-	background: linear-gradient(-45deg, #aeff00, #00ff62, #6fff6f, #18ffc9, #00ffdd);
-	background-size: 600% 600%;
-	animation: gradient 5s ease infinite;
-	height: 100vh;
+@font-face {
+    font-family: 'Hacker';
+    src: url(../Assets//font/hacker.ttf);
+    font-display: swap;
 }
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
-
