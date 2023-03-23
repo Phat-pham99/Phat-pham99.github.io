@@ -68,7 +68,7 @@ const HomePage = () => {
         <div className="center-component min-h-screen h-max lg:w-[60%] sm:w-[90%] bg-white justify-center space-x-5 rounded-2xl">
             <HomePageComponent/>
       <div className="carousel-container w-[90%] h-[40%] flex flex-row justify-center">
-        <Carousel {...settings} arrows autoplay dots={false} effect={"scrollx"} className="lg:w-[500px] md:w-[400px] sm:w-[200px] h-[40%]  flex flex-row justify-center">
+        <Carousel {...settings} arrows autoplay dots={false} effect={"scrollx"} className="lg:w-[500px] md:w-[400px] sm:w-[200px] h-[40%] flex flex-row justify-center">
       <div className='flex flex-row justify-center font-Pixel'>
           <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.

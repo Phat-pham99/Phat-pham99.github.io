@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useCallback} from "react";
 import Particles from "react-particles";
 import {loadFull} from "tsparticles";
@@ -16,7 +17,7 @@ const ParticlesBackground = () => {
     }, []);
 
     return (
-        <div>
+        <div>;
         <Particles
             id="tsparticles"
             init={particlesInit}
