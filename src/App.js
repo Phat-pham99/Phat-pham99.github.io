@@ -16,7 +16,7 @@ import ParticlesBackground from "./pages/particles/particles.jsx"
 const App = () => {
   return (
     <>
-      <div className="total-app-level h-screen flex flex-col justify-between font-PixelLarge">
+      <div className="total-app-level h-screen flex flex-col justify-between font-Pixel">
       <ParticlesBackground/>
         <Router>
           <div className="mid-app-level">
