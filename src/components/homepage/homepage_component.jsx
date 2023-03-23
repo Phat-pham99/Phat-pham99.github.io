@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import FacebookSquare from '@rsuite/icons/legacy/FacebookSquare';
@@ -11,9 +12,9 @@ const HomePageComponent = () =>{
     <div className='Container_ px-4 h-max min-h-[100px] flex flew-col justify-center'>
         <div className=''>
         <div className='justify-center'>
-            <h1 className=" flex flex-row justify-center text-green font-bold lg:text-6xl md:text-4xl sm:text-3xl"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
+            <h1 className=" flex flex-row justify-center text-green font-bold lg:text-3xl md:text-xl sm:text-base"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
             <br/>
-            <h1 className="  flex flew-row justify-center lg:text-3xl md:text-2xl sm:text-xl">Welcome to my website !</h1>
+            <h1 className="  flex flew-row justify-center lg:text-2xl md:text-xl sm:text-base">Welcome to my website !</h1>
         </div>
         <div className='flex flex-row justify-center share_buttons lg:space-x-[50px] sm:space-x-[10px]'>
             <a target="_blank" href="https://www.facebook.com/hongphat.pham99/"><FacebookSquare fill="#4267B2" className="lg:h-[90px] lg:w-[90px] sm:h-[70px] sm:w-[70px] p-[10px] hover:p-[0px]"/></a>
