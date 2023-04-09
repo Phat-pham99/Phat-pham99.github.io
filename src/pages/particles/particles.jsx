@@ -18,7 +18,7 @@ export default function ParticlesBackground (){
     }, []);
 
     return (
-        <div>;
+        <div>
         <Particles
             id="tsparticles"
             init={particlesInit}

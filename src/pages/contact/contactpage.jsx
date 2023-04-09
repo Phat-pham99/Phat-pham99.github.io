@@ -6,7 +6,7 @@ import ContactPageComponent from '../../components/contact/contactpage_component
 export default function ContactPage (){
 
     return (
-        <div className='body_home w-screen h-screen'>
+        <div className='body_home w-screen h-screen font-Pixel'>
                 <ContactPageComponent/>
         </div>
     );

@@ -12,7 +12,7 @@ export default function HomePageComponent (){
     <div className='Container_ px-4 h-max min-h-[100px] flex flew-col justify-center'>
         <div className=''>
         <div className='justify-center'>
-            <h1 className=" flex flex-row justify-center text-green font-PixelLarge font-bold lg:text-5xl md:text-2xl sm:text-xl"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
+            <h1 className=" flex flex-row justify-center text-green font-Pixel font-bold lg:text-[60px] md:text-[50px] sm:text-[30px]"><ReactTypingEffect text={["Hi, I'm Phat"]}/></h1>
             <br/>
             <h1 className="  flex flew-row justify-center lg:text-3xl md:text-xl sm:text-base font-Pixel">Welcome to my website !</h1>
         </div>
