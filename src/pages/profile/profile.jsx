@@ -23,7 +23,7 @@ import Moment from 'react-moment';
 
 const { Panel } = Collapse;
 
-const ProfilePage = () =>{
+export default function ProfilePage (){
 
     const start_date = new Date("2022-08-03");
     
@@ -100,5 +100,4 @@ const ProfilePage = () =>{
     <Element/>
     </div>
     );
-}
-export default ProfilePage;
+};

@@ -4,7 +4,7 @@ import React,{useState, useRef} from 'react';
 import Axios from 'axios';
 import inprogress from "../../../Assets/work-in-progress.png"
 
-const ProjectPage = () =>{
+export default function ProjectPage (){
     const [data_total,setDataTotal] = useState([]);
     const temp = useRef([]);    
     const getData = async () =>{
@@ -22,5 +22,4 @@ const ProjectPage = () =>{
     </div>
     
     );
-}
-export default ProjectPage;
+};

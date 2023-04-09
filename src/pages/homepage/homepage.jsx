@@ -11,7 +11,7 @@ import Phat_red from "../../../Assets/phat_red.jpg";
 import Phat_yellow from "../../../Assets/phat_yellow.jpg";
 import "./homepage.scss"
 
-const HomePage = () => {
+export default function HomePage (){
 
   const SampleNextArrow = props => {
       const { className, style, onClick } = props
@@ -91,5 +91,4 @@ const HomePage = () => {
         </div>
         </div>
     );
-}
-export default HomePage;
+};
