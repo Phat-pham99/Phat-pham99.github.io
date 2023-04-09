@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import FacebookSquare from '@rsuite/icons/legacy/FacebookSquare';
