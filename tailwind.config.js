@@ -26,7 +26,7 @@ module.exports = {
         'gray-light': '#d3dce6',
       },
       fontFamily: {
-        'mono':['ui-monospace'],
+        mono:['ui-monospace'],
         Hacker: ["hacker"],
         Pixel: ["pixel"],
         PixelLarge :["pixel_large"]
