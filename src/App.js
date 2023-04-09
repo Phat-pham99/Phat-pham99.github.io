@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 import HomePage from './pages/homepage/homepage.jsx';
@@ -10,13 +9,16 @@ import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
 import "./App.css"
-
 import ParticlesBackground from "./pages/particles/particles.jsx"
 
 const App = () => {
   return (
     <>
+<<<<<<< HEAD
       <div className="total-app-level h-screen flex flex-col justify-between">
+=======
+      <div className="total-app-level h-screen flex flex-col justify-between font-Pixel">
+>>>>>>> a837da36172852e669d7a6650d10cad6ed5299a1
       <ParticlesBackground/>
         <Router>
           <div className="mid-app-level">

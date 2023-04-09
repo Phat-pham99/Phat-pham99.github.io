@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import React, {useState, useEffect} from 'react';
 import { Button } from 'antd';
 import FacebookOfficialIcon from '@rsuite/icons/legacy/FacebookOfficial';
@@ -53,31 +52,36 @@ export default function HomePage (){
     }
 
     return (
-        <div className='body_home min-h-screen h-max min-w-screen flex flew-col justify-between p-5'>
-        <div className="left-component min-h-screen h-max share_butt z-30">
-            <Button type="dashed" className="text-black bg-white px-2 fixed ">
-                <FacebookOfficialIcon className="h-[22px] w-[22px] "fill="#4267B2"/> <a target="_blank"
+        <div className='body_home min-h-screen h-max min-w-screen flex flew-col justify-between lg:p-5 sm:p-2'>
+        <div className="left-component min-h-screen h-max share_butt z-30 sm:pt-[20px]">
+            <Button type="dashed" className="text-black bg-white lg:px-2 sm:px-0 fixed lg:visible sm:invisible"> 
+                <FacebookOfficialIcon className="lg:h-[22px] lg:w-[22px] sm:h-[15px] sm:w-[15px]" fill="#4267B2"/> <a target="_blank"
                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphat-pham99.github.io%2F&amp;src=sdkpreparse"
-                 className="fb-xfbml-parse-ignore font-Pixel">   Share </a>
+                 className="fb-xfbml-parse-ignore font-Pixel">  Share </a>
+            </Button>
+            <Button type="" className="bg-white p-[0px] fixed lg:invisible sm:visible">
+                 <a target="_blank"
+                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphat-pham99.github.io%2F&amp;src=sdkpreparse"
+                 className="fb-xfbml-parse-ignore lg:invisible sm:visible"><FacebookOfficialIcon className="sm:h-[30px] sm:w-[30px] lg:invisible sm:visible" fill="#4267B2"/></a>
             </Button>
         </div>
-        <div className="center-component min-h-screen h-max w-[60%] sm:w-[90%] bg-white justify-center space-x-5 rounded-2xl">
+        <div className="center-component min-h-screen h-max lg:w-[60%] sm:w-[90%] bg-white justify-center space-x-5 rounded-2xl">
             <HomePageComponent/>
       <div className="carousel-container w-[90%] h-[40%] flex flex-row justify-center">
-        <Carousel {...settings} arrows autoplay dots={false} effect={"scrollx"} className="lg:w-[500px] md:w-[400px] sm:w-[200px] h-[40%]  flex flex-row justify-center">
+        <Carousel {...settings} arrows autoplay dots={false} effect={"scrollx"} className="lg:w-[500px] md:w-[400px] sm:w-[200px] h-[40%] flex flex-row justify-center">
       <div className='flex flex-row justify-center font-Pixel'>
-          <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
+          <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.
           I'm proficient in Python, ReactJs also having good knowledge of Data Science and having participated in several projects.
           </h1>
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
-      <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_red} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_red} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I like to play piano. You can find some of my piano video on my facebook. 
           </h1>
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
-      <h1 className="p-4 w-full lg:text-xl md:text-lg sm:text-base"><img src={Phat_yellow} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_yellow} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I love programming. I often spend time on fun projects after works.
           </h1>
       </div>
