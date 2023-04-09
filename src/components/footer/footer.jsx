@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 const Footer = () =>{
     return (
-        <div className="relative bottom-0 backdrop-filter backdrop-blur-sm hover:backdrop-blur-lg bg-opacity-30 md:flex md:items-center md:justify-between md:p-3 border">
+        <div className="font-Pixel relative bottom-0 backdrop-filter backdrop-blur-sm hover:backdrop-blur-lg bg-opacity-30 md:flex md:items-center md:justify-between md:p-3 border">
         <div className="lg:space-x-[40px] sm:space-x-[20px]">
         <span className="lg:text-sm sm:text-sxm sm:text-center text-white">©2023 Built with ReactJs</span>
         <span className="lg:text-sm sm:text-sxm sm:text-center text-white">Icons by <a className="hover:underline"target="_blank"href="https://icons8.com/">icons8</a></span>

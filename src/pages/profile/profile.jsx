@@ -66,9 +66,9 @@ export default function ProfilePage (){
       </div>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[70px] lg:w-[70px] sm:h-[30px] sm:w-[30px]"src={Language}/><h1>Language</h1></div>} showArrow={true} key="3"> 
-          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[70px] lg:w-[70px] sm:h-[35px] sm:w-[35px] "src={English}/><h1>English</h1><a className="text-blue  sm:text-sm lg:text-base hover:underline" target="_blank" href={IELTS}>Click to view certificate</a></div></h2>
-          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[70px] lg:w-[70px] sm:h-[35px] sm:w-[35px] "src={Japanese}/><h1>Japanese</h1><a className="text-blue  sm:text-sm lg:text-base hover:underline" target="_blank" href={N4}>Click to view certificate</a></div></h2>
-          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px] "src={Vietnamese}/><h1>Vietnamese</h1></div></h2>
+          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[70px] lg:w-[70px] sm:h-[35px] sm:w-[35px] "src={English}/><h1 className ="lg:text-base md:text-sm sm:text-sm">English</h1><a className="text-blue  sm:text-sm lg:text-base hover:underline" target="_blank" href={IELTS}>Click to view certificate</a></div></h2>
+          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[70px] lg:w-[70px] sm:h-[35px] sm:w-[35px] "src={Japanese}/><h1 className ="lg:text-base md:text-sm sm:text-sm">Japanese</h1><a className="text-blue  sm:text-sm lg:text-base hover:underline" target="_blank" href={N4}>Click to view certificate</a></div></h2>
+          <h2><div className='flex lg:space-x-[60px] sm:space-x-[20px]'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px] "src={Vietnamese}/><h1 className ="lg:text-base md:text-sm sm:text-sm">Vietnamese</h1></div></h2>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Coding}/><h1>Skills</h1></div>} showArrow={true} key="4">
             <Collapse className ="lg:text-base md:text-sm sm:text-sm font-Pixel" style={{'backgroundColor' : '#ffffff'}}>
