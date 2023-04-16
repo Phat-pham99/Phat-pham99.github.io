@@ -30,7 +30,7 @@ export default function NavBar() {
                 <div className="w-[30%]"></div>
                 <div className="NavBar-center w-full flex flex-row lg:justify-between sm:justify-between space-x-3">
                     <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/home">Home</Link></Nav.Item></div>
-                    <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/experience">Experience</Link></Nav.Item></div>
+                    <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/experience">Profile</Link></Nav.Item></div>
                     <div className="lg:text-2xl md:text-sm  hover:font-bold"><Nav.Item><Link to="/projects">Projects</Link></Nav.Item></div>
                 </div>
             </div>

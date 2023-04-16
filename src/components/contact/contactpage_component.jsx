@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-const ContactPageComponent = () =>{
+export default function ContactPageComponent (){
 
     return (
     <>
@@ -14,5 +14,4 @@ const ContactPageComponent = () =>{
         </div>
     </>
     );
-}
-export default ContactPageComponent;
+};
