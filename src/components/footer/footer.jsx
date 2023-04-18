@@ -3,7 +3,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Footer = () =>{
+export default function Footer (){
     return (
         <div className="font-Pixel relative bottom-0 backdrop-filter backdrop-blur-sm hover:backdrop-blur-lg bg-opacity-30 md:flex md:items-center md:justify-between md:p-3 border">
         <div className="lg:space-x-[40px] sm:space-x-[20px]">
@@ -20,6 +20,6 @@ const Footer = () =>{
         </ul>
         </div>
     );
-}
-export default Footer;
+};
+
 

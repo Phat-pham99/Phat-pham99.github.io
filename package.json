@@ -25,6 +25,7 @@
     "html-webpack-root-plugin": "^0.10.0",
     "Postcss": "npm:postcss@^8.4.21",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-facebook": "^9.0.12",
     "react-helmet": "^6.1.0",

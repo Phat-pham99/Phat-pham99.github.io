@@ -1,10 +1,9 @@
 import React from 'react';
 
-const ExperiencePageComponent = () =>{
+export default function ExperiencePageComponent (){
 
     return (
     <div className='flex flex-row justify-between'>
     </div>
     );
-}
-export default ExperiencePageComponent;
+};
