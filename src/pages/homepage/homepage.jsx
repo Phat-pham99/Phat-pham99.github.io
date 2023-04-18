@@ -70,18 +70,18 @@ export default function HomePage (){
       <div className="carousel-container w-[90%] h-[40%] flex flex-row justify-center">
         <Carousel {...settings} arrows autoplay dots={false} effect={"scrollx"} className="lg:w-[500px] md:w-[400px] sm:w-[200px] h-[40%] flex flex-row justify-center">
       <div className='flex flex-row justify-center font-Pixel'>
-          <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_blue} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
+          <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_blue} className="shadow-sl contrast-100 rounded-lg lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>I have bachelor degree
           in Biomedical Engineering but I want to turn my path toward programming.
           I'm proficient in Python, ReactJs also having good knowledge of Data Science and having participated in several projects.
           </h1>
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
-      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_red} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_red} className="shadow-xl contrast-100 rounded-lg lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I like to play piano. You can find some of my piano video on my facebook. 
           </h1>
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
-      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_yellow} className="lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
+      <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_yellow} className="shadow-xl contrast-100 rounded-lg lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
       I love programming. I often spend time on fun projects after works.
           </h1>
       </div>
