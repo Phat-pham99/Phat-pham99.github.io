@@ -12,10 +12,10 @@ export default function Footer (){
         </div>
         <ul className="flex flex-wrap items-center mt-3 sm:mt-0 lg:text-sm sm:text-sxm lg:space-x-[40px] sm:space-x-[20px]">
             <li>
-                <a target="_blank" href="https://github.com/Phat-pham99/Phat-pham99.github.io" className="mr-4 md:mr-6 hover:underline text-orange">This website Github repo</a>
+                <a target="_blank" href="https://github.com/Phat-pham99/Phat-pham99.github.io" className="mr-4 md:mr-6 hover:underline text-green">This website Github repo</a>
             </li>
             <li>
-                <a className="lg:text-sm sm:text-sxm hover:underline text-orange"><Link to="/contact">Contact</Link></a>
+                <a className="lg:text-sm sm:text-sxm hover:underline text-green"><Link to="/contact">Contact</Link></a>
             </li>
         </ul>
         </div>
