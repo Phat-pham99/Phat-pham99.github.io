@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, {useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/homepage/homepage.jsx';
 import AboutPage from './pages/about/aboutpage.jsx';
 import ProfilePage from './pages/profile/profile.jsx';
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <div className="total-app-level h-screen flex flex-col">
-      <CustomView condition={browserName === "Chrome"}>
+      <CustomView condition={browserName === "Chrome" || browserName === "Firefox"}>
         <ParticlesBackground/>
       </CustomView>
         <Router>
