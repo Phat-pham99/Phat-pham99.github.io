@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import { Button } from 'antd';
 import FacebookOfficialIcon from '@rsuite/icons/legacy/FacebookOfficial';
 import HomePageComponent from "../../components/homepage/homepage_component.jsx"
@@ -11,7 +12,6 @@ import Phat_yellow from "../../../Assets/phat_yellow.jpg";
 import "./homepage.scss"
 
 export default function HomePage (){
-
   const SampleNextArrow = props => {
       const { className, style, onClick } = props
       return (
@@ -77,7 +77,7 @@ export default function HomePage (){
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
       <h1 className="p-4 w-full lg:text-base md:text-lg sm:text-sm"><img src={Phat_red} className="shadow-xl contrast-100 rounded-lg lg:w-[300px] lg:h-[300px] sm: w-[150px] sm:h-[150px]"/>
-      I like to play piano. You can find some of <a className='hover:text-green' href='/#/piano'>piano videos</a> on my facebook. 
+      I like to play piano. You can find some of <Link className='font-bold hover:text-green' to='/piano'>piano videos</Link> on my facebook. 
           </h1>
       </div>
       <div className='flex flex-row justify-center font-Pixel'>
