@@ -23,45 +23,66 @@ import Moment from 'react-moment';
 
 export default function ProfilePage (){
     const { Panel } = Collapse;
-    const start_date = new Date("2022-08-03");
+    const start_date = new Date("2023-05-01");
     const Element = () => {
         return(
       <div className='collapse-container flex flex-row justify-center p-4 font-Pixel'>
         <div className='Collapse-container-inner lg:w-[60%] md:w-[70%] sm:w-[90%] border-[5px] border-green rounded-xl'>
         <Collapse className="font-Pixel lg:text-xl md:text-base sm:text-sm " style={{'backgroundColor' : '#ffffff'}} defaultActiveKey={['1']}>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[60px] lg:w-[60px] sm:h-[30px] sm:w-[30px]"src={Work}/><h1>Experience</h1></div>} showArrow={true} key="1">
-          <div><Steps
-        current={1}
-        direction="vertical"
-        size ="lg"
-        progressDot
-        responsive
-        className= "font-Pixel"
-        items={[
-          {
-            title:  <h2><div className='flex space-x-[50px]'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={Terralogic}/><h1><a className='lg:text-base sm:text-sm hover:text-green
-            ' target="_blank" href='https://terralogic.com/'>Terralogic Inc,</a></h1></div></h2>,
+          <div className='h-full'>
+            <Steps
+            current={0}
+            direction="vertical"
+            size ="lg"
+            progressDot
+            responsive
+            className= "font-Pixel"
+            items={[
+            {
+            title:<div className='flex flex-row lg:space-x-10 sm:space-x-5'>
+                    <img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={Terralogic}/>
+                    <div className='flex flex-col space-x-[10px]'>
+                      <div><h1><a className='lg:text-base sm:text-sm hover:text-green font-bold
+                        ' target="_blank" href='https://terralogic.com/'>Terralogic Inc,</a></h1>
+                      <h2 className="lg:text-base sm:text-sm font-thin	">Fulltime</h2></div>
+                      <h2 className='lg:text-base sm:text-sm font-thin'>Ho Chi Minh City Metropolitan Area</h2>
+                      <br/>
+                    </div>
+                  </div>
+                  ,
             description :
             <>
-              <div className='flex flex-row space-x-3'>
-              <h2 className="lg:text-base sm:text-sm font-bold">Associate Software Engineer</h2> <h2 className="lg:text-base sm:text-sm font-light">Fulltime</h2>
+              <div className='flex flex-row '>
+              <h2 className="lg:text-base sm:text-sm font-bold">Software Engineer</h2>
               </div>
-              <h2 className='lg:text-base sm:text-sm font-light'>Ho Chi Minh City Metropolitan Area</h2>
-              <h2 className='lg:text-base sm:text-sm font-medium'>Aug 2022 - Present · <Moment date={start_date} format="YY [years] MM [months]" durationFromNow trim /> </h2>
+              <h2 className='lg:text-base sm:text-sm'>Ho Chi Minh City Metropolitan Area</h2>
+              <h2 className='lg:text-base sm:text-sm'>May 2023 - Present · <Moment date={start_date} format="YY [years] MM [months]" durationFromNow trim /> </h2>
+              <br/>
             </>,
           },
-        {},
+          {
+          title: <></>,
+          description:
+          <>
+            <div className='flex flex-row'>
+            <h2 className="lg:text-base sm:text-sm font-bold">Associate Software Engineer</h2>
+            </div>
+            {/* <h2 className='lg:text-base sm:text-sm font-light'>Ho Chi Minh City Metropolitan Area</h2> */}
+            <h2 className='lg:text-base sm:text-sm font-medium'>Aug 2022 - Apr 2023 · 09 months </h2>
+          </>
+          },
       ]}
       /></div>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={Education}/><h1>Education</h1></div>} showArrow={true} key="2">
           <div className='text-sm pl-[3%]'>
-            <h2><div className='flex space-x-[50px] text-sm'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={BK}/><h1><a className='lg:text-base sm:text-sm hover:text-green' target="_blank" href='https://hcmut.edu.vn/'>HoChiMinh City University of Technology (HCMUT)</a></h1></div></h2>
+            <h2><div className='flex space-x-[50px] text-sm'><img className="lg:h-[80px] lg:w-[80px] sm:h-[35px] sm:w-[35px] "src={BK}/><h1><a className='lg:text-base sm:text-sm hover:text-green font-bold' target="_blank" href='https://hcmut.edu.vn/'>HoChiMinh City University of Technology (HCMUT)</a></h1></div></h2>
             <div className='flex flex-row space-x-3'>
-            <h2 className="lg:text-base sm:text-sm font-bold"> BE in <a className='hover:text-green' target="_blank" href='https://en.wikipedia.org/wiki/Biomedical_engineering'>Biomedical Engineering</a></h2> <h2 className="lg:text-base sm:text-sm font-light">Fulltime</h2>
+            <h2 className="lg:text-base sm:text-sm"> BE in <a className='hover:text-green' target="_blank" href='https://en.wikipedia.org/wiki/Biomedical_engineering'>Biomedical Engineering</a></h2> <h2 className="lg:text-base sm:text-sm font-light">Fulltime</h2>
             </div>
-            <h2 className='lg:text-base sm:text-sm font-light'>Ho Chi Minh City - Thu Duc city</h2>
-            <h2 className='lg:text-base sm:text-sm font-medium'>Sep 2017 - November 2021 · <Moment diff="2017-09-01" unit="years">2021-11-01</Moment> years</h2>
+            <h2 className='lg:text-base sm:text-sm'>Ho Chi Minh City - Thu Duc city</h2>
+            <h2 className='lg:text-base sm:text-sm'>Sep 2017 - November 2021 · <Moment diff="2017-09-01" unit="years">2021-11-01</Moment> years</h2>
       </div>
         </Panel>
         <Panel header={<div className='flex space-x-3'><img className="lg:h-[70px] lg:w-[70px] sm:h-[30px] sm:w-[30px]"src={Language}/><h1>Language</h1></div>} showArrow={true} key="3"> 
