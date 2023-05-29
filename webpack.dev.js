@@ -83,7 +83,7 @@ module.exports = merge(common, {
             minify: true,
             showErrors: true,
             template: path.resolve(__dirname, 'src/index.html'),
-            favicon: "./Assets/kaneki.png"
+            favicon: "./Assets/money_plant.png"
         }),
     ],
     devtool: "cheap-module-source-map",
