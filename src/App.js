@@ -7,14 +7,12 @@ import ProfilePage from './pages/profile/profile.jsx';
 import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
-import PianoPage from "./pages/piano/piano.jsx";
 import Footer from "./components/footer/footer.jsx";
 import "./App.css"
-import ParticlesBackground from "./pages/particles/particles.jsx";
 import { browserName, CustomView } from 'react-device-detect';
 
 const App = () => {
- 
+
   useEffect(() =>{
     console.log("browserName", browserName);
   },[]);
@@ -22,7 +20,6 @@ const App = () => {
     <>
       <div className="total-app-level h-screen flex flex-col">
       <CustomView condition={browserName === "Chrome" || browserName === "Firefox"}>
-        <ParticlesBackground/>
       </CustomView>
         <Router>
           <div className="mid-app-level">
@@ -34,7 +31,6 @@ const App = () => {
               <Route path="experience" element={<ProfilePage />} />
               <Route path="projects" element={<ProjectPage />} />
               <Route path="contact" element={<ContactPage />} />
-              <Route path="piano" element={<PianoPage />} />
             </Routes>
             <Footer />
           </div>
