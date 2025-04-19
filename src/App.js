@@ -8,19 +8,13 @@ import NavBar from "./pages/navpage/navpage.jsx";
 import ProjectPage from "./pages/projects/projectpage.jsx";
 import ContactPage from "./pages/contact/contactpage.jsx";
 import Footer from "./components/footer/footer.jsx";
-import "./App.css"
-import { browserName, CustomView } from 'react-device-detect';
+import "./App.css";
 
 const App = () => {
-
-  useEffect(() =>{
-    console.log("browserName", browserName);
-  },[]);
   return (
     <>
       <div className="total-app-level h-screen flex flex-col">
-      <CustomView condition={browserName === "Chrome" || browserName === "Firefox"}>
-      </CustomView>
+      <div className="Whole-app-background" style={{ backgroundImage: `url("https://www.pixelstalk.net/wp-content/uploads/2016/03/Free-Green-Backgrounds-free-download.png")` }}>
         <Router>
           <div className="mid-app-level">
             <NavBar/>
@@ -36,6 +30,7 @@ const App = () => {
           </div>
         </Router>
       </div>
+    </div>
     </>
   );
 };
