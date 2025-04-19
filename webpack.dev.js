@@ -69,7 +69,7 @@ module.exports = merge(common, {
                 type: 'asset/resource',
                 generator : {
                     filename : 'documents/[name][ext][query]',
-                  }
+                }
             },
         ]
     },

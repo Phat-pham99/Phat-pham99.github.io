@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {useEffect} from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/homepage/homepage.jsx';
 import AboutPage from './pages/about/aboutpage.jsx';
@@ -14,7 +14,8 @@ const App = () => {
   return (
     <>
       <div className="total-app-level h-screen flex flex-col">
-      <div className="Whole-app-background" style={{ backgroundImage: `url("https://www.pixelstalk.net/wp-content/uploads/2016/03/Free-Green-Backgrounds-free-download.png")` }}>
+      <div className="Whole-app-background" 
+      style={{ backgroundImage: `url("https://www.pixelstalk.net/wp-content/uploads/2016/03/Free-Green-Backgrounds-free-download.png")` }}>
         <Router>
           <div className="mid-app-level">
             <NavBar/>
