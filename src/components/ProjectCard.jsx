@@ -15,15 +15,17 @@ const LANG_COLORS = {
 export default function ProjectCard({ project }) {
   return (
     <article className="btop-row group flex flex-col border-b border-r border-zinc-800 bg-zinc-950/40 p-4 transition-colors hover:bg-zinc-900/40">
-      <h3 className="flex items-center gap-1 font-mono text-sm font-bold text-zinc-100">
-        <span className="text-zinc-600">├──</span>
-        {project.repo}
+      <h3 className="flex min-w-0 items-center gap-1 font-mono text-sm font-bold text-zinc-100">
+        <span className="shrink-0 text-zinc-600">├──</span>
+        <span className="min-w-0 truncate" title={project.repo}>
+          {project.repo}
+        </span>
         <a
           href={project.url}
           target="_blank"
           rel="noreferrer"
           aria-label={`Open ${project.repo}`}
-          className="ml-auto text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
+          className="ml-auto shrink-0 text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
         >
           <ArrowUpRightIcon className="h-4 w-4" />
         </a>
