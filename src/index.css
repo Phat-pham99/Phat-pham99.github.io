@@ -81,6 +81,11 @@ body {
   50% { border-color: rgba(234, 179, 8, 0.25); }
 }
 
+@keyframes coffee-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(3px); opacity: 1; }
+}
+
 .animate-coffee-shake {
   animation: coffee-shake 0.3s ease-in-out infinite;
 }
@@ -119,6 +124,10 @@ body {
   animation: coffee-panel-glow 1.5s ease-in-out infinite;
 }
 
+.animate-coffee-hint {
+  animation: coffee-hint 1.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-coffee-shake,
   .animate-coffee-steam,
@@ -128,7 +137,8 @@ body {
   .animate-coffee-shift,
   .animate-coffee-shift-delay,
   .coffee-stat-grid,
-  .coffee-active {
+  .coffee-active,
+  .animate-coffee-hint {
     animation: none;
   }
 }

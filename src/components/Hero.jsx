@@ -24,6 +24,7 @@ export default function Hero() {
   const repoCount = data?.projects?.length ?? 0;
 
   const [coffeeOn, setCoffeeOn] = useState(false);
+  const [showHint, setShowHint] = useState(true);
   const [netDown, setNetDown] = useState(NET_DATA.map((v) => v * 0.8));
   const [netUp, setNetUp] = useState(NET_DATA.map((v) => v * 0.4));
   const [speedDown, setSpeedDown] = useState('128 KB/s');
@@ -54,20 +55,28 @@ export default function Hero() {
   }, [coffeeOn, shuffleNetData]);
 
   const coffeeBtn = (
-    <button
-      type="button"
-      onClick={() => setCoffeeOn((prev) => !prev)}
-      className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
-        coffeeOn
-          ? 'border-yellow-500/60 bg-yellow-500/15 text-yellow-400 shadow-[0_0_8px_rgba(234,179,8,0.3)]'
-          : 'border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300'
-      } ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''}`}
-      aria-label={coffeeOn ? 'Coffee mode on' : 'Coffee mode off'}
-      title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
-    >
-      <CoffeeIcon className={`h-3.5 w-3.5 ${coffeeOn && tick % 4 < 2 ? 'animate-coffee-steam' : ''}`} />
-      <span>{coffeeOn ? 'caffeinated' : 'coffee'}</span>
-    </button>
+    <span className="relative inline-flex">
+      <button
+        type="button"
+        onClick={() => { setCoffeeOn((prev) => !prev); setShowHint(false); }}
+        className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
+          coffeeOn
+            ? 'border-yellow-500/60 bg-yellow-500/15 text-yellow-400 shadow-[0_0_8px_rgba(234,179,8,0.3)]'
+            : 'border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300'
+        } ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''}`}
+        aria-label={coffeeOn ? 'Coffee mode on' : 'Coffee mode off'}
+        title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
+      >
+        <CoffeeIcon className={`h-3.5 w-3.5 ${coffeeOn && tick % 4 < 2 ? 'animate-coffee-steam' : ''}`} />
+        <span>{coffeeOn ? 'caffeinated' : 'coffee'}</span>
+      </button>
+      {showHint && !coffeeOn && (
+        <span className="pointer-events-none absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] text-yellow-400 animate-coffee-hint">
+          Click here
+          <span className="ml-1">&#x2191;</span>
+        </span>
+      )}
+    </span>
   );
 
   return (
