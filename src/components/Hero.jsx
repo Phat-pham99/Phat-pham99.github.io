@@ -1,7 +1,8 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTypewriter from '../hooks/useTypewriter.js';
 import portrait from '../assets/portrait.webp';
-import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons.jsx';
+import { GitHubIcon, LinkedInIcon, MailIcon, CoffeeIcon } from './Icons.jsx';
 import { SITE } from '../data/site';
 import usePortfolio from '../hooks/usePortfolio.js';
 import BtopPanel from './BtopPanel.jsx';
@@ -15,12 +16,59 @@ const deleteMs = 50;
 const holdMs = 3000;
 
 export default function Hero() {
-  const typed = useTypewriter(ABOUTME, typeMs,deleteMs,holdMs);
+  const typed = useTypewriter(ABOUTME, typeMs, deleteMs, holdMs);
   const { data } = usePortfolio();
   const basics = data?.basics;
   const avatar = basics?.image || portrait;
   const skills = data?.skills ?? [];
   const repoCount = data?.projects?.length ?? 0;
+
+  const [coffeeOn, setCoffeeOn] = useState(false);
+  const [netDown, setNetDown] = useState(NET_DATA.map((v) => v * 0.8));
+  const [netUp, setNetUp] = useState(NET_DATA.map((v) => v * 0.4));
+  const [speedDown, setSpeedDown] = useState('128 KB/s');
+  const [speedUp, setSpeedUp] = useState('64 KB/s');
+  const [tick, setTick] = useState(0);
+  const intervalRef = useRef(null);
+
+  const shuffleNetData = useCallback(() => {
+    const fresh = NET_DATA.map((v) => v * (0.6 + Math.random() * 0.8));
+    setNetDown(fresh.map((v) => v * 0.8));
+    setNetUp(fresh.map((v) => v * 0.4));
+    setSpeedDown(`${Math.floor(Math.random() * 800 + 100)} KB/s`);
+    setSpeedUp(`${Math.floor(Math.random() * 400 + 50)} KB/s`);
+    setTick((t) => t + 1);
+  }, []);
+
+  useEffect(() => {
+    if (coffeeOn) {
+      intervalRef.current = setInterval(shuffleNetData, 150);
+    } else {
+      clearInterval(intervalRef.current);
+      setNetDown(NET_DATA.map((v) => v * 0.8));
+      setNetUp(NET_DATA.map((v) => v * 0.4));
+      setSpeedDown('128 KB/s');
+      setSpeedUp('64 KB/s');
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [coffeeOn, shuffleNetData]);
+
+  const coffeeBtn = (
+    <button
+      type="button"
+      onClick={() => setCoffeeOn((prev) => !prev)}
+      className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
+        coffeeOn
+          ? 'border-yellow-500/60 bg-yellow-500/15 text-yellow-400 shadow-[0_0_8px_rgba(234,179,8,0.3)]'
+          : 'border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300'
+      } ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''}`}
+      aria-label={coffeeOn ? 'Coffee mode on' : 'Coffee mode off'}
+      title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
+    >
+      <CoffeeIcon className={`h-3.5 w-3.5 ${coffeeOn && tick % 4 < 2 ? 'animate-coffee-steam' : ''}`} />
+      <span>{coffeeOn ? 'caffeinated' : 'coffee'}</span>
+    </button>
+  );
 
   return (
     <section id="hero" aria-label="Intro" className="mx-auto max-w-content border-x border-zinc-800">
@@ -146,35 +194,36 @@ export default function Hero() {
           <BtopPanel
             title="NET / ACTIVITY"
             titleRight="eth0 ↑↓"
+            titleActions={coffeeBtn}
             accent="net"
-            contentClassName="space-y-2 p-4"
+            contentClassName={`space-y-2 p-4 ${coffeeOn ? 'coffee-active' : ''}`}
             fullHeight
           >
             <div className="flex items-center gap-2 font-mono text-xs">
               <span className="w-12 text-zinc-500">down</span>
-              <BtopMiniGraph data={NET_DATA.map((v) => v * 0.8)} width={28} color="net" />
-              <span className="text-btop-net">128 KB/s</span>
+              <BtopMiniGraph data={netDown} width={28} color="net" />
+              <span className={`text-btop-net tabular-nums ${coffeeOn ? 'animate-coffee-speed' : ''}`}>{speedDown}</span>
             </div>
             <div className="flex items-center gap-2 font-mono text-xs">
               <span className="w-12 text-zinc-500">up</span>
-              <BtopMiniGraph data={NET_DATA.map((v) => v * 0.4)} width={28} color="cpu" />
-              <span className="text-btop-cpu">64 KB/s</span>
+              <BtopMiniGraph data={netUp} width={28} color="cpu" />
+              <span className={`text-btop-cpu tabular-nums ${coffeeOn ? 'animate-coffee-speed' : ''}`}>{speedUp}</span>
             </div>
             <div className="mt-4 border-t border-zinc-800 pt-3">
-              <div className="grid grid-cols-2 gap-2 font-mono text-xs">
-                <div className="border border-zinc-800 bg-zinc-900/40 p-2">
+              <div className={`grid grid-cols-2 gap-2 font-mono text-xs ${coffeeOn ? 'coffee-stat-grid' : ''}`}>
+                <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
                   <div className="text-zinc-500">total down</div>
-                  <div className="text-btop-net">42.7 GB</div>
+                  <div className="text-btop-net">{coffeeOn ? `${(42.7 + Math.random() * 10).toFixed(1)} GB` : '42.7 GB'}</div>
                 </div>
-                <div className="border border-zinc-800 bg-zinc-900/40 p-2">
+                <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
                   <div className="text-zinc-500">total up</div>
-                  <div className="text-btop-cpu">18.3 GB</div>
+                  <div className="text-btop-cpu">{coffeeOn ? `${(18.3 + Math.random() * 8).toFixed(1)} GB` : '18.3 GB'}</div>
                 </div>
-                <div className="border border-zinc-800 bg-zinc-900/40 p-2">
+                <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
                   <div className="text-zinc-500">commits</div>
-                  <div className="text-brand">1,247</div>
+                  <div className="text-brand">{coffeeOn ? `${Math.floor(1247 + Math.random() * 200)}` : '1,247'}</div>
                 </div>
-                <div className="border border-zinc-800 bg-zinc-900/40 p-2">
+                <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
                   <div className="text-zinc-500">repos</div>
                   <div className="text-btop-disk">{repoCount || '?'}</div>
                 </div>
@@ -182,27 +231,29 @@ export default function Hero() {
             </div>
 
             <div className="mt-2 border-t border-zinc-800 pt-3">
-              <div className="font-mono text-xs text-zinc-500">quick stats</div>
+              <div className={`font-mono text-xs text-zinc-500 ${coffeeOn ? 'animate-coffee-speed' : ''}`}>quick stats</div>
               <div className="mt-2 space-y-1 font-mono text-xs">
-                <div className="flex justify-between btop-row px-1">
+                <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift' : ''}`}>
                   <span className="text-zinc-400">location</span>
                   <span className="text-zinc-200">{basics?.location || 'Ho Chi Minh City, VN'}</span>
                 </div>
-                <div className="flex justify-between btop-row px-1">
+                <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift-delay' : ''}`}>
                   <span className="text-zinc-400">timezone</span>
                   <span className="text-zinc-200">UTC+7</span>
                 </div>
-                <div className="flex justify-between btop-row px-1">
+                <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift' : ''}`}>
                   <span className="text-zinc-400">editor</span>
-                  <span className="text-zinc-200">Neovim</span>
+                  <span className="text-zinc-200">{coffeeOn ? 'Neovim ⚡' : 'Neovim'}</span>
                 </div>
-                <div className="flex justify-between btop-row px-1">
+                <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift-delay' : ''}`}>
                   <span className="text-zinc-400">shell</span>
-                  <span className="text-zinc-200">zsh</span>
+                  <span className="text-zinc-200">{coffeeOn ? 'zsh ⚡' : 'zsh'}</span>
                 </div>
-                <div className="flex justify-between btop-row px-1">
+                <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift' : ''}`}>
                   <span className="text-zinc-400">distro</span>
-                  <span className="text-zinc-200">Arch (btw)</span>
+                  <span className={`text-zinc-200 ${coffeeOn ? 'animate-coffee-speed' : ''}`}>
+                    {coffeeOn ? 'Arch (btw) I use Arch btw' : 'Arch (btw)'}
+                  </span>
                 </div>
               </div>
             </div>
