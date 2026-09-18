@@ -47,14 +47,14 @@ export default function Hero() {
   }, [coffeeOn, shuffleActivity]);
 
   const coffeeBtn = (
-    <span className="relative inline-flex">
+    <span className="relative inline-flex coffeeBtn">
       <button
         type="button"
         onClick={() => { setCoffeeOn((prev) => !prev); setShowHint(false); }}
-        className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
+         className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
           coffeeOn
-            ? 'border-yellow-500/60 bg-yellow-500/15 text-yellow-400 shadow-[0_0_8px_rgba(234,179,8,0.3)]'
-            : 'border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300'
+            ? 'border-amber-700 bg-amber-900/70 text-amber-200 shadow-[0_0_8px_rgba(180,83,9,0.4)]'
+            : 'border-amber-800/60 bg-amber-950/60 text-amber-300 hover:border-amber-600 hover:text-amber-200'
         } ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''}`}
         aria-label={coffeeOn ? 'Coffee mode on' : 'Coffee mode off'}
         title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
@@ -166,7 +166,7 @@ export default function Hero() {
           </BtopPanel>
 
           {/* CPU cores / Skills meter */}
-          <BtopPanel
+          {/* <BtopPanel
             title="CPU / CORES"
             titleRight={`${skills.length}-Core @ 3.8GHz`}
             accent="cpu"
@@ -186,7 +186,7 @@ export default function Hero() {
             ) : (
               <div className="font-mono text-xs text-zinc-500">no skill data available</div>
             )}
-          </BtopPanel>
+          </BtopPanel> */}
         </div>
 
         {/* Right column */}
@@ -225,20 +225,20 @@ export default function Hero() {
             <div className="border-t border-zinc-800 pt-3">
               <div className={`grid grid-cols-2 gap-2 font-mono text-xs ${coffeeOn ? 'coffee-stat-grid' : ''}`}>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
-                  <div className="text-zinc-500">load avg</div>
-                  <div className="text-btop-cpu">{coffeeOn ? `${(Math.random() * 8 + 1).toFixed(2)}` : '0.42'}</div>
+                  <div className="text-zinc-500">Coffee drank ☕️</div>
+                  <div className="text-btop-cpu">{coffeeOn ? `${(Math.round(Math.random() * 8 + 1))}` : '0'}</div>
                 </div>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
                   <div className="text-zinc-500">uptime</div>
-                  <div className="text-btop-mem">{coffeeOn ? `${Math.floor(Math.random() * 48 + 1)}d ${Math.floor(Math.random() * 24)}h` : '14d 6h'}</div>
+                  <div className="text-btop-mem">{coffeeOn ? `${Math.floor(Math.random() * 2 + 1)}d ${Math.floor(Math.random() * 24)}h` : '18h'}</div>
                 </div>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
                   <div className="text-zinc-500">commits</div>
-                  <div className="text-brand">{coffeeOn ? `${Math.floor(1247 + Math.random() * 500)}` : '1,247'}</div>
+                  <div className="text-brand">{coffeeOn ? `${Math.floor(1247 + Math.random() * 500)}` : '10'}</div>
                 </div>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
-                  <div className="text-zinc-500">repos</div>
-                  <div className="text-btop-disk">{repoCount || '?'}</div>
+                  <div className="text-zinc-500">Money</div>
+                  <div className="text-btop-disk">${coffeeOn ? `${(Math.round(Math.random() * 10 + 1)) * 10000}` : '0'}</div>
                 </div>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function Hero() {
                 <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift' : ''}`}>
                   <span className="text-zinc-400">distro</span>
                   <span className={`text-zinc-200 ${coffeeOn ? 'animate-coffee-speed' : ''}`}>
-                    {coffeeOn ? 'Arch (btw) I use Arch btw' : 'Arch (btw)'}
+                    {coffeeOn ? 'Windows sucks 🪟' : 'Manjaro 🌿 & Xubuntu 🐁'}
                   </span>
                 </div>
               </div>
