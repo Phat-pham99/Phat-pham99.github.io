@@ -5,8 +5,8 @@ import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons.jsx';
 import { SITE } from '../data/site';
 import usePortfolio from '../hooks/usePortfolio.js';
 import BtopPanel from './BtopPanel.jsx';
-import BtopBar from './BtopBar.jsx';
-import BtopMiniGraph from './BtopMiniGraph.jsx';
+import BtopHeatGraph from './BtopHeatGraph.jsx';
+import CMatrix from './CMatrix.jsx';
 
 const ABOUTME = ['Software Developer 👨‍💻🐍 ', 'Linux enthusiast 🐧', 'FOSS advocate 🆓⛓️‍💥', 'Cat lover 😺🐈'];
 const NET_DATA = [12, 18, 25, 32, 28, 45, 38, 52, 48, 65, 58, 72, 68, 85, 78, 92, 88, 95, 82, 90, 85, 78, 65, 55, 42, 38, 45, 52, 48, 35];
@@ -116,27 +116,14 @@ export default function Hero() {
             </div>
           </BtopPanel>
 
-          {/* CPU cores / Skills meter */}
+          {/* Matrix rain */}
           <BtopPanel
-            title="CPU / CORES"
-            titleRight={`${skills.length}-Core @ 3.8GHz`}
+            title="Wake up, Neo 😎👨🏼‍💻"
+            titleRight={`${(skills.length || 0)} runs active`}
             accent="cpu"
-            contentClassName="space-y-1.5 p-4"
+            contentClassName="relative h-64 overflow-hidden"
           >
-            {skills.length > 0 ? (
-              skills.map((skill, i) => (
-                <BtopBar
-                  key={skill.name}
-                  label={skill.name}
-                  value={skill.value}
-                  max={100}
-                  width={24}
-                  color={['mem', 'cpu', 'net', 'disk', 'temp'][i % 5]}
-                />
-              ))
-            ) : (
-              <div className="font-mono text-xs text-zinc-500">no skill data available</div>
-            )}
+            <CMatrix className="absolute inset-0 h-full w-full" font_size={30} />
           </BtopPanel>
         </div>
 
