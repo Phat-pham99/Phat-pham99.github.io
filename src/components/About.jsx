@@ -39,9 +39,7 @@ export default function About() {
   const displayLines = summary ? wrapText(summary) : BIO_LINES;
   const infoItems = [
     ['based', basics?.location || 'Ho Chi Minh City, Vietnam'],
-    ['degree', 'BE Biomedical Engineering — HCMUT'],
-    ['dayjob', basics?.label || 'Software Engineer @ Terralogic'],
-    ['afterhours', 'piano · data tinkering · side projects'],
+    ['Title', 'Senior software engineer'],
     ['stack', 'Python · JS/TS · React · Node.js · Go'],
   ];
 

@@ -50,7 +50,7 @@ export default function Experience() {
             ) : jobs.length === 0 ? (
               <div className="px-3 py-4 font-mono text-xs text-zinc-500">no process data available</div>
             ) : (
-              
+
               <div className="font-mono text-xs">
                 {jobs.map((job, i) => {
                   const pid = 1000 + i;
@@ -105,34 +105,6 @@ export default function Experience() {
                 ))}
               </div>
             ) : null}
-          </BtopPanel>
-        </div>
-
-        <div className="lg:col-span-4">
-          <BtopPanel
-            title="MEM / STACK"
-            titleRight="heap"
-            accent="mem"
-            contentClassName="space-y-3 p-4"
-          >
-            <BtopBar label="Python" value={92} max={100} width={16} color="mem" />
-            <BtopBar label="JS/TS" value={88} max={100} width={16} color="cpu" />
-            <BtopBar label="React" value={85} max={100} width={16} color="net" />
-            <BtopBar label="Node.js" value={78} max={100} width={16} color="disk" />
-            <BtopBar label="Django" value={75} max={100} width={16} color="mem" />
-            <BtopBar label="Selenium" value={70} max={100} width={16} color="cpu" />
-            <BtopBar label="Data Viz" value={68} max={100} width={16} color="temp" />
-            <BtopBar label="Go" value={45} max={100} width={16} color="net" />
-
-            <div className="mt-4 border-t border-zinc-800 pt-3">
-              <div className="font-mono text-xs text-zinc-500">
-                <span className="text-brand">$</span> cat stack.txt
-              </div>
-              <p className="mt-2 text-xs leading-relaxed text-zinc-400">
-                Full-stack development: backend services in Python, web frontends
-                in JavaScript, plus automation and data work.
-              </p>
-            </div>
           </BtopPanel>
         </div>
       </div>
