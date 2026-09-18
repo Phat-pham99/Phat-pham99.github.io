@@ -37,6 +37,7 @@ function normalizeBasics(b) {
     image: b.image || '',
     email: b.email || '',
     url: b.url || '',
+    summary: b.summary || '',
     location: b.location?.city || '',
     profiles: (b.profiles || []).map((p) => ({
       network: p.network || '',
