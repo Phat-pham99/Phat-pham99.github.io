@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
+import { differenceInDays, differenceInYears, addYears } from 'date-fns';
 import { GitHubIcon, MenuIcon, CloseIcon } from './Icons.jsx';
 import { SITE, SECTIONS } from '../data/site';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+
+const BIRTH_DATE = new Date('1999-05-09');
 
 const LABELS = {
   about: 'About',
@@ -19,6 +22,12 @@ function linkClass({ isActive }) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const uptime = useMemo(() => {
+    const now = new Date();
+    const years = differenceInYears(now, BIRTH_DATE);
+    const days = differenceInDays(now, addYears(BIRTH_DATE, years));
+    return `${years}y ${days}d`;
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-btop-bg">
@@ -32,7 +41,7 @@ export default function Navbar() {
             </span>
           </div>
           <div className="hidden items-center gap-4 border-r border-zinc-800 px-3 py-2 font-mono text-xs text-zinc-600 md:flex">
-            <span>uptime: <span className="text-zinc-400">999d+</span></span>
+            <span>uptime: <span className="text-zinc-400">{uptime}</span></span>
             <span>load: <span className="text-btop-cpu">0.42</span> <span className="text-btop-mem">0.38</span> <span className="text-btop-disk">0.31</span></span>
           </div>
         </div>
