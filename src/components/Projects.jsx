@@ -37,9 +37,6 @@ export default function Projects() {
             </div>
 
             <div className="flex items-center justify-between border-t border-zinc-800 bg-zinc-900/20 px-4 py-2 font-mono text-xs">
-              <span className="text-zinc-500">
-                {status === 'ready' ? <span className="text-btop-disk">// sourced from gitconnected API </span> : null}
-              </span>
               <a
                 className="text-brand underline-offset-2 hover:underline"
                 href={SITE.github}

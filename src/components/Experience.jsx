@@ -50,6 +50,7 @@ export default function Experience() {
             ) : jobs.length === 0 ? (
               <div className="px-3 py-4 font-mono text-xs text-zinc-500">no process data available</div>
             ) : (
+              
               <div className="font-mono text-xs">
                 {jobs.map((job, i) => {
                   const pid = 1000 + i;

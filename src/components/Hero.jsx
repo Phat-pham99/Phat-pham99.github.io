@@ -8,12 +8,14 @@ import BtopPanel from './BtopPanel.jsx';
 import BtopBar from './BtopBar.jsx';
 import BtopMiniGraph from './BtopMiniGraph.jsx';
 
-const ROLES = ['Software Engineer', 'Python & JavaScript dev', 'ex-Biomedical engineer', 'occasional piano player'];
-
+const ABOUTME = ['Software Developer 👨‍💻🐍 ', 'Linux enthusiast 🐧', 'FOSS advocate 🆓⛓️‍💥', 'Cat lover 😺🐈'];
 const NET_DATA = [12, 18, 25, 32, 28, 45, 38, 52, 48, 65, 58, 72, 68, 85, 78, 92, 88, 95, 82, 90, 85, 78, 65, 55, 42, 38, 45, 52, 48, 35];
+const typeMs = 100;
+const deleteMs = 50;
+const holdMs = 3000;
 
 export default function Hero() {
-  const typed = useTypewriter(ROLES);
+  const typed = useTypewriter(ABOUTME, typeMs,deleteMs,holdMs);
   const { data } = usePortfolio();
   const basics = data?.basics;
   const avatar = basics?.image || portrait;
@@ -62,17 +64,13 @@ export default function Hero() {
                 <div className="font-mono text-lg font-bold text-zinc-100">
                   <span className="text-brand">phat</span><span className="text-zinc-500">@</span>phatpham.work
                 </div>
-                <div className="mt-1 font-mono text-sm text-zinc-400">
+                <div className="mt-1 font-mono text-l text-zinc-400">
                   <span className="text-zinc-600">» </span>
                   {typed}
                   <span className="cursor-blink text-brand" aria-hidden="true">
-                    ▍
+                    █
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                  Biomedical engineer turned software engineer. Building things with Python and JavaScript
-                  at Terralogic. Tinkering with data, terminals and fun side projects after hours.
-                </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   <Link
                     to="/projects"

@@ -2,22 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-    background: #5bffa5;
+:root {
+  color-scheme: dark;
 }
 
-@font-face {
-    font-family: 'hacker';
-    src: url(../Assets/font/hacker.ttf);
-    font-display: swap;
+html {
+  scroll-behavior: smooth;
 }
-@font-face {
-    font-family: 'pixel';
-    src: url(../Assets/font/pixel.ttf);
-    font-display: swap;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
-@font-face {
-    font-family: 'pixel_large';
-    src: url(../Assets/font/pixel_large.ttf);
-    font-display: swap;
+
+body {
+  @apply bg-btop-bg font-sans text-btop-fg antialiased;
+}
+
+::selection {
+  background: #13ce66;
+  color: #09090b;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink {
+    animation: none;
+  }
+}
+
+/* Btop scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border: 1px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #13ce66;
+}
+
+/* Btop panel hover effect */
+.btop-row {
+  transition: background-color 0.05s ease;
+}
+
+.btop-row:hover {
+  background-color: rgba(19, 206, 102, 0.08);
+}
+
+/* Btop grid lines */
+.btop-grid {
+  background-image:
+    linear-gradient(to right, rgba(51, 51, 51, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 51, 51, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
 }

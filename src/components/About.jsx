@@ -11,9 +11,32 @@ const BIO_LINES = [
   'piano, dig into data science, and ship small fun projects.',
 ];
 
+function wrapText(text, width = 50) {
+  if (!text) return [];
+  const paragraphs = text.split(/\n+/).filter(Boolean);
+  const lines = [];
+  for (const para of paragraphs) {
+    const words = para.split(/\s+/);
+    let current = '';
+    for (const word of words) {
+      if ((current + ' ' + word).trim().length > width) {
+        lines.push(current.trim());
+        current = word;
+      } else {
+        current = current ? `${current} ${word}` : word;
+      }
+    }
+    if (current) lines.push(current.trim());
+    lines.push('');
+  }
+  return lines;
+}
+
 export default function About() {
   const { data } = usePortfolio();
   const basics = data?.basics;
+  const summary = basics?.summary?.trim();
+  const displayLines = summary ? wrapText(summary) : BIO_LINES;
   const infoItems = [
     ['based', basics?.location || 'Ho Chi Minh City, Vietnam'],
     ['degree', 'BE Biomedical Engineering — HCMUT'],
@@ -33,15 +56,14 @@ export default function About() {
         >
           <div className="font-mono text-sm leading-relaxed">
             <div className="mb-2 text-zinc-600">
-              ─────────────────────────────────────────
             </div>
-            {BIO_LINES.map((line, i) => (
+            {displayLines.map((line, i) => (
               <div key={i} className={line === '' ? 'h-4' : 'text-zinc-300'}>
                 {line || '\u00A0'}
               </div>
             ))}
             <div className="mt-4 text-zinc-500">
-              <span className="text-brand">#</span> biomedical background + engineering habits = software built with care
+              <span className="text-brand">#</span> I do what I love and love what I do
             </div>
           </div>
         </BtopPanel>

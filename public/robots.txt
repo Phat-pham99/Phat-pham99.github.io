@@ -1,0 +1,12 @@
+# https://phatpham.work — Phat Pham's portfolio
+# Let all major crawlers index the site. Only block non-content paths.
+
+User-agent: *
+Allow: /
+
+Disallow: /404.html
+Disallow: /resume/
+
+Crawl-delay: 2
+
+Sitemap: https://phatpham.work/sitemap.xml
