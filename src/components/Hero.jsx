@@ -1,9 +1,9 @@
-import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import useTypewriter from '../hooks/useTypewriter.js';
 import portrait from '../assets/portrait.webp';
 import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons.jsx';
 import { SITE } from '../data/site';
+import usePortfolio from '../hooks/usePortfolio.js';
 import BtopPanel from './BtopPanel.jsx';
 import BtopBar from './BtopBar.jsx';
 import BtopMiniGraph from './BtopMiniGraph.jsx';
@@ -12,16 +12,13 @@ const ROLES = ['Software Engineer', 'Python & JavaScript dev', 'ex-Biomedical en
 
 const NET_DATA = [12, 18, 25, 32, 28, 45, 38, 52, 48, 65, 58, 72, 68, 85, 78, 92, 88, 95, 82, 90, 85, 78, 65, 55, 42, 38, 45, 52, 48, 35];
 
-const SKILLS_METER = [
-  { label: 'Python', value: 92, color: 'mem' },
-  { label: 'JavaScript', value: 88, color: 'cpu' },
-  { label: 'TypeScript', value: 80, color: 'net' },
-  { label: 'React', value: 85, color: 'disk' },
-  { label: 'Go', value: 45, color: 'temp' },
-];
-
 export default function Hero() {
   const typed = useTypewriter(ROLES);
+  const { data } = usePortfolio();
+  const basics = data?.basics;
+  const avatar = basics?.image || portrait;
+  const skills = data?.skills ?? [];
+  const repoCount = data?.projects?.length ?? 0;
 
   return (
     <section id="hero" aria-label="Intro" className="mx-auto max-w-content border-x border-zinc-800">
@@ -30,7 +27,7 @@ export default function Hero() {
         <div className="flex gap-4 text-zinc-500">
           <span>proc: <span className="text-btop-cpu">127</span></span>
           <span>threads: <span className="text-btop-mem">512</span></span>
-          <span>tasks: <span className="text-btop-disk">8</span> running</span>
+          <span>tasks: <span className="text-btop-disk">{repoCount || 0}</span> running</span>
         </div>
         <div className="flex gap-4 text-zinc-500">
           <span>mem: <span className="text-btop-mem">14.2</span> / 32.0 GB</span>
@@ -51,8 +48,8 @@ export default function Hero() {
               <div className="shrink-0">
                 <div className="border border-zinc-700 bg-zinc-900 p-1">
                   <img
-                    src={portrait}
-                    alt="Portrait of Phat Pham"
+                    src={avatar}
+                    alt={basics?.name ? `Portrait of ${basics.name}` : 'Portrait'}
                     width={96}
                     height={96}
                     className="h-24 w-24 object-cover"
@@ -109,7 +106,7 @@ export default function Hero() {
                       <LinkedInIcon className="h-4 w-4" />
                     </a>
                     <a
-                      href={`mailto:${SITE.email}`}
+                      href={`mailto:${basics?.email || SITE.email}`}
                       aria-label="Email"
                       className="px-1.5 py-1 text-zinc-500 transition-colors hover:text-brand"
                     >
@@ -124,20 +121,24 @@ export default function Hero() {
           {/* CPU cores / Skills meter */}
           <BtopPanel
             title="CPU / CORES"
-            titleRight="8-Core @ 3.8GHz"
+            titleRight={`${skills.length}-Core @ 3.8GHz`}
             accent="cpu"
             contentClassName="space-y-1.5 p-4"
           >
-            {SKILLS_METER.map((skill) => (
-              <BtopBar
-                key={skill.label}
-                label={skill.label}
-                value={skill.value}
-                max={100}
-                width={24}
-                color={skill.color}
-              />
-            ))}
+            {skills.length > 0 ? (
+              skills.map((skill, i) => (
+                <BtopBar
+                  key={skill.name}
+                  label={skill.name}
+                  value={skill.value}
+                  max={100}
+                  width={24}
+                  color={['mem', 'cpu', 'net', 'disk', 'temp'][i % 5]}
+                />
+              ))
+            ) : (
+              <div className="font-mono text-xs text-zinc-500">no skill data available</div>
+            )}
           </BtopPanel>
         </div>
 
@@ -153,12 +154,12 @@ export default function Hero() {
           >
             <div className="flex items-center gap-2 font-mono text-xs">
               <span className="w-12 text-zinc-500">down</span>
-              <BtopMiniGraph data={NET_DATA.map(v => v * 0.8)} width={28} color="net" />
+              <BtopMiniGraph data={NET_DATA.map((v) => v * 0.8)} width={28} color="net" />
               <span className="text-btop-net">128 KB/s</span>
             </div>
             <div className="flex items-center gap-2 font-mono text-xs">
               <span className="w-12 text-zinc-500">up</span>
-              <BtopMiniGraph data={NET_DATA.map(v => v * 0.4)} width={28} color="cpu" />
+              <BtopMiniGraph data={NET_DATA.map((v) => v * 0.4)} width={28} color="cpu" />
               <span className="text-btop-cpu">64 KB/s</span>
             </div>
             <div className="mt-4 border-t border-zinc-800 pt-3">
@@ -177,7 +178,7 @@ export default function Hero() {
                 </div>
                 <div className="border border-zinc-800 bg-zinc-900/40 p-2">
                   <div className="text-zinc-500">repos</div>
-                  <div className="text-btop-disk">24</div>
+                  <div className="text-btop-disk">{repoCount || '?'}</div>
                 </div>
               </div>
             </div>
@@ -187,7 +188,7 @@ export default function Hero() {
               <div className="mt-2 space-y-1 font-mono text-xs">
                 <div className="flex justify-between btop-row px-1">
                   <span className="text-zinc-400">location</span>
-                  <span className="text-zinc-200">Ho Chi Minh City, VN</span>
+                  <span className="text-zinc-200">{basics?.location || 'Ho Chi Minh City, VN'}</span>
                 </div>
                 <div className="flex justify-between btop-row px-1">
                   <span className="text-zinc-400">timezone</span>
