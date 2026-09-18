@@ -1,15 +1,31 @@
 import BtopPanel from './BtopPanel.jsx';
 import { GitHubIcon, LinkedInIcon, MailIcon, DownloadIcon } from './Icons.jsx';
 import { SITE } from '../data/site';
+import usePortfolio from '../hooks/usePortfolio.js';
 
-const CHANNELS = [
-  { label: 'email', href: `mailto:${SITE.email}`, display: SITE.email, Icon: MailIcon, external: false },
-  { label: 'github', href: SITE.github, display: 'Phat-pham99', Icon: GitHubIcon, external: true },
-  { label: 'linkedin', href: SITE.linkedin, display: 'hphat99', Icon: LinkedInIcon, external: true },
-  { label: 'resume', href: SITE.resumeUrl, display: 'Phat_Resume', Icon: DownloadIcon, external: true },
-];
+const ICON_MAP = {
+  GitHub: GitHubIcon,
+  LinkedIn: LinkedInIcon,
+};
 
 export default function Contact() {
+  const { data } = usePortfolio();
+  const basics = data?.basics;
+
+  const channels = [
+    { label: 'email', href: `mailto:${basics?.email || SITE.email}`, display: basics?.email || SITE.email, Icon: MailIcon, external: false },
+    ...(basics?.profiles || [])
+      .filter((p) => p.network.toLowerCase() !== 'gitconnected')
+      .map((p) => ({
+        label: p.network.toLowerCase(),
+        href: p.url,
+        display: p.username || p.network,
+        Icon: ICON_MAP[p.network] || null,
+        external: true,
+      })),
+    { label: 'resume', href: SITE.resumeUrl, display: 'Phat_Resume', Icon: DownloadIcon, external: true },
+  ];
+
   return (
     <section id="contact" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <BtopPanel
@@ -18,7 +34,6 @@ export default function Contact() {
         accent="net"
         fullHeight
       >
-        {/* Table header */}
         <div className="grid grid-cols-[2fr_3fr_4rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
           <span>proto</span>
           <span>address / endpoint</span>
@@ -26,7 +41,7 @@ export default function Contact() {
         </div>
 
         <div className="font-mono text-xs">
-          {CHANNELS.map(({ label, href, display, Icon, external }) => (
+          {channels.map(({ label, href, display, Icon, external }) => (
             <a
               key={label}
               href={href}
@@ -35,7 +50,7 @@ export default function Contact() {
               className="btop-row grid grid-cols-[2fr_3fr_4rem] gap-2 border-b border-zinc-800/40 px-4 py-3 last:border-0"
             >
               <span className="inline-flex items-center gap-2 text-zinc-400">
-                <Icon className="h-4 w-4" />
+                {Icon ? <Icon className="h-4 w-4" /> : <span className="inline-block h-4 w-4 text-zinc-600">?</span>}
                 <span className="uppercase">{label}</span>
               </span>
               <span className="truncate text-zinc-200 transition-colors group-hover:text-brand">

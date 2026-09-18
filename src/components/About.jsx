@@ -1,4 +1,5 @@
 import BtopPanel from './BtopPanel.jsx';
+import usePortfolio from '../hooks/usePortfolio.js';
 
 const BIO_LINES = [
   'I graduated from HCMUT with a degree in Biomedical Engineering — but',
@@ -10,15 +11,17 @@ const BIO_LINES = [
   'piano, dig into data science, and ship small fun projects.',
 ];
 
-const INFO_ITEMS = [
-  ['based', 'Ho Chi Minh City, Vietnam'],
-  ['degree', 'BE Biomedical Engineering — HCMUT'],
-  ['dayjob', 'Software Engineer @ Terralogic'],
-  ['afterhours', 'piano · data tinkering · side projects'],
-  ['stack', 'Python · JS/TS · React · Node.js · Go'],
-];
-
 export default function About() {
+  const { data } = usePortfolio();
+  const basics = data?.basics;
+  const infoItems = [
+    ['based', basics?.location || 'Ho Chi Minh City, Vietnam'],
+    ['degree', 'BE Biomedical Engineering — HCMUT'],
+    ['dayjob', basics?.label || 'Software Engineer @ Terralogic'],
+    ['afterhours', 'piano · data tinkering · side projects'],
+    ['stack', 'Python · JS/TS · React · Node.js · Go'],
+  ];
+
   return (
     <section id="about" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-2">
@@ -50,7 +53,7 @@ export default function About() {
           contentClassName="p-4"
         >
           <div className="space-y-0 font-mono text-sm">
-            {INFO_ITEMS.map(([key, value]) => (
+            {infoItems.map(([key, value]) => (
               <div
                 key={key}
                 className="btop-row flex items-center gap-2 border-b border-zinc-800/60 px-2 py-2 last:border-0"

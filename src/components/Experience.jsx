@@ -1,12 +1,14 @@
-import { differenceInMonths, differenceInYears, addYears } from 'date-fns';
+import { differenceInMonths, differenceInYears, addYears, format } from 'date-fns';
 import BtopPanel from './BtopPanel.jsx';
 import BtopBar from './BtopBar.jsx';
+import usePortfolio from '../hooks/usePortfolio.js';
 
-function tenureLabel(fromString) {
-  const from = new Date(fromString);
-  const now = new Date();
-  const years = differenceInYears(now, from);
-  const months = differenceInMonths(now, addYears(from, years));
+function durationLabel(startStr, endStr) {
+  if (!startStr) return '—';
+  const from = new Date(startStr);
+  const to = endStr ? new Date(endStr) : new Date();
+  const years = differenceInYears(to, from);
+  const months = differenceInMonths(to, addYears(from, years));
   if (years === 0 && months <= 0) return '0 mos';
   const parts = [];
   if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
@@ -14,54 +16,27 @@ function tenureLabel(fromString) {
   return parts.join(' ');
 }
 
-const JOBS = [
-  {
-    pid: '1337',
-    title: 'Software Engineer',
-    org: 'Terralogic Inc',
-    orgHref: 'https://terralogic.com/',
-    range: 'May 2023 – Present',
-    duration: tenureLabel('2023-05-01'),
-    cpu: 85,
-    mem: 70,
-    status: 'R',
-  },
-  {
-    pid: '0420',
-    title: 'Associate Software Engineer',
-    org: 'Terralogic Inc',
-    orgHref: 'https://terralogic.com/',
-    range: 'Aug 2022 – Apr 2023',
-    duration: '9 mos',
-    cpu: 72,
-    mem: 55,
-    status: 'S',
-  },
-  {
-    pid: '0001',
-    title: 'BE Biomedical Engineering',
-    org: 'HCMUT',
-    orgHref: 'https://hcmut.edu.vn/',
-    range: 'Sep 2017 – Nov 2021',
-    duration: '4 yrs',
-    cpu: 65,
-    mem: 45,
-    status: 'S',
-  },
-];
+function formatRange(startStr, endStr) {
+  if (!startStr) return '—';
+  const start = format(new Date(startStr), 'MMM yyyy');
+  const end = endStr ? format(new Date(endStr), 'MMM yyyy') : 'Present';
+  return `${start} – ${end}`;
+}
 
 export default function Experience() {
+  const { status, data } = usePortfolio();
+  const jobs = data?.work ?? [];
+
   return (
     <section id="experience" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <BtopPanel
             title="PROCESSES / CAREER"
-            titleRight={`${JOBS.length} tasks`}
+            titleRight={`${jobs.length} tasks`}
             accent="cpu"
             fullHeight
           >
-            {/* Table header */}
             <div className="grid grid-cols-[3rem_1fr_3rem_3rem_8rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
               <span>pid</span>
               <span>name / org</span>
@@ -70,43 +45,65 @@ export default function Experience() {
               <span className="text-right">time</span>
             </div>
 
-            {/* Process rows */}
-            <div className="font-mono text-xs">
-              {JOBS.map((job, i) => (
-                <div
-                  key={job.pid}
-                  className="btop-row grid grid-cols-[3rem_1fr_3rem_3rem_8rem] gap-2 border-b border-zinc-800/40 px-3 py-2.5 last:border-0"
-                >
-                  <span className="text-zinc-500">{job.pid}</span>
-                  <div className="min-w-0">
-                    <div className="truncate text-zinc-200">{job.title}</div>
-                    <div className="truncate text-[10px] text-zinc-500">
-                      {job.orgHref ? (
-                        <a href={job.orgHref} target="_blank" rel="noreferrer" className="text-brand underline-offset-1 hover:underline">
-                          {job.org}
-                        </a>
-                      ) : (
-                        job.org
-                      )}
+            {status === 'loading' ? (
+              <div className="px-3 py-4 font-mono text-xs text-zinc-500">fetching processes...</div>
+            ) : jobs.length === 0 ? (
+              <div className="px-3 py-4 font-mono text-xs text-zinc-500">no process data available</div>
+            ) : (
+              <div className="font-mono text-xs">
+                {jobs.map((job, i) => {
+                  const pid = 1000 + i;
+                  const cpu = 70 + i * 8;
+                  const mem = 55 + i * 7;
+                  const isRunning = job.isCurrentRole;
+                  return (
+                    <div
+                      key={pid}
+                      className="btop-row grid grid-cols-[3rem_1fr_3rem_3rem_8rem] gap-2 border-b border-zinc-800/40 px-3 py-2.5 last:border-0"
+                    >
+                      <span className="text-zinc-500">{pid}</span>
+                      <div className="min-w-0">
+                        <div className="truncate text-zinc-200">{job.position}</div>
+                        <div className="truncate text-[10px] text-zinc-500">
+                          {job.website ? (
+                            <a href={job.website} target="_blank" rel="noreferrer" className="text-brand underline-offset-1 hover:underline">
+                              {job.company}
+                            </a>
+                          ) : (
+                            job.company
+                          )}
+                        </div>
+                      </div>
+                      <span className={`text-right ${isRunning ? 'text-btop-cpu' : 'text-zinc-500'}`}>
+                        {cpu}%
+                      </span>
+                      <span className={`text-right ${isRunning ? 'text-btop-mem' : 'text-zinc-500'}`}>
+                        {mem}%
+                      </span>
+                      <span className="text-right text-zinc-400">
+                        {isRunning ? (
+                          <span className="text-btop-mem">●</span>
+                        ) : (
+                          <span className="text-zinc-600">○</span>
+                        )}{' '}
+                        {durationLabel(job.startDate, job.endDate)}
+                      </span>
                     </div>
-                  </div>
-                  <span className={`text-right ${job.status === 'R' ? 'text-btop-cpu' : 'text-zinc-500'}`}>
-                    {job.cpu}%
+                  );
+                })}
+              </div>
+            )}
+
+            {status === 'ready' && jobs.length > 0 ? (
+              <div className="border-t border-zinc-800 bg-zinc-900/20 px-3 py-1.5 font-mono text-[10px] text-zinc-600">
+                {jobs.map((job, i) => (
+                  <span key={i} className="mr-3">
+                    <span className="text-zinc-500">[{1000 + i}]</span>{' '}
+                    {formatRange(job.startDate, job.endDate)}
                   </span>
-                  <span className={`text-right ${job.status === 'R' ? 'text-btop-mem' : 'text-zinc-500'}`}>
-                    {job.mem}%
-                  </span>
-                  <span className="text-right text-zinc-400">
-                    {job.status === 'R' ? (
-                      <span className="text-btop-mem">●</span>
-                    ) : (
-                      <span className="text-zinc-600">○</span>
-                    )}{' '}
-                    {job.duration}
-                  </span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : null}
           </BtopPanel>
         </div>
 

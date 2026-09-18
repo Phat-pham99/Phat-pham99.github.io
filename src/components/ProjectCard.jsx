@@ -1,6 +1,5 @@
-import { formatDistanceToNow } from 'date-fns';
 import Badge from './Badge.jsx';
-import { StarIcon, ForkIcon, ArrowUpRightIcon } from './Icons.jsx';
+import { ArrowUpRightIcon } from './Icons.jsx';
 
 const LANG_COLORS = {
   Python: '#3572A5',
@@ -14,10 +13,6 @@ const LANG_COLORS = {
 };
 
 export default function ProjectCard({ project }) {
-  const updated = project.updated
-    ? `updated ${formatDistanceToNow(new Date(project.updated), { addSuffix: true })}`
-    : null;
-
   return (
     <article className="btop-row group flex flex-col border-b border-r border-zinc-800 bg-zinc-950/40 p-4 transition-colors hover:bg-zinc-900/40">
       <h3 className="flex items-center gap-1 font-mono text-sm font-bold text-zinc-100">
@@ -27,7 +22,7 @@ export default function ProjectCard({ project }) {
           href={project.url}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Open ${project.repo} on GitHub`}
+          aria-label={`Open ${project.repo}`}
           className="ml-auto text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
         >
           <ArrowUpRightIcon className="h-4 w-4" />
@@ -56,13 +51,7 @@ export default function ProjectCard({ project }) {
             {project.language}
           </span>
         ) : null}
-        <span className="inline-flex items-center gap-1">
-          <StarIcon className="h-3 w-3" /> {project.stars}
-        </span>
-        <span className="inline-flex items-center gap-1">
-          <ForkIcon className="h-3 w-3" /> {project.forks}
-        </span>
-        {updated ? <span className="ml-auto hidden sm:inline">{updated}</span> : null}
+        <span className="ml-auto hidden truncate sm:inline">{project.displayName}</span>
       </div>
     </article>
   );
