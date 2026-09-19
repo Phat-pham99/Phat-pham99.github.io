@@ -37,21 +37,21 @@ export default function Experience() {
             accent="cpu"
             fullHeight
           >
-            <div className="grid grid-cols-[3rem_1fr_3rem_3rem_8rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+            <div className="grid grid-cols-[3rem_1fr_6rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-3 py-2 font-mono text-xs uppercase tracking-wider text-zinc-500 sm:grid-cols-[3rem_1fr_3rem_3rem_8rem] sm:py-1.5 sm:text-[10px]">
               <span>pid</span>
               <span>name / org</span>
-              <span className="text-right">cpu</span>
-              <span className="text-right">mem</span>
+              <span className="hidden text-right sm:block">cpu</span>
+              <span className="hidden text-right sm:block">mem</span>
               <span className="text-right">time</span>
             </div>
 
             {status === 'loading' ? (
-              <div className="px-3 py-4 font-mono text-xs text-zinc-500">fetching processes...</div>
+              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">fetching processes...</div>
             ) : jobs.length === 0 ? (
-              <div className="px-3 py-4 font-mono text-xs text-zinc-500">no process data available</div>
+              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">no process data available</div>
             ) : (
 
-              <div className="font-mono text-xs">
+              <div className="font-mono text-sm sm:text-xs">
                 {jobs.map((job, i) => {
                   const pid = 1000 + i;
                   const cpu = 70 + i * 8;
@@ -60,12 +60,12 @@ export default function Experience() {
                   return (
                     <div
                       key={pid}
-                      className="btop-row grid grid-cols-[3rem_1fr_3rem_3rem_8rem] gap-2 border-b border-zinc-800/40 px-3 py-2.5 last:border-0"
+                      className="btop-row grid grid-cols-[3rem_1fr_6rem] gap-2 border-b border-zinc-800/40 px-3 py-3 last:border-0 sm:grid-cols-[3rem_1fr_3rem_3rem_8rem] sm:py-2.5"
                     >
                       <span className="text-zinc-500">{pid}</span>
                       <div className="min-w-0">
                         <div className="truncate text-zinc-200">{job.position}</div>
-                        <div className="truncate text-[10px] text-zinc-500">
+                        <div className="truncate text-xs text-zinc-500 sm:text-[10px]">
                           {job.website ? (
                             <a href={job.website} target="_blank" rel="noreferrer" className="text-brand underline-offset-1 hover:underline">
                               {job.company}
@@ -75,10 +75,10 @@ export default function Experience() {
                           )}
                         </div>
                       </div>
-                      <span className={`text-right ${isRunning ? 'text-btop-cpu' : 'text-zinc-500'}`}>
+                      <span className={`hidden text-right sm:block ${isRunning ? 'text-btop-cpu' : 'text-zinc-500'}`}>
                         {cpu}%
                       </span>
-                      <span className={`text-right ${isRunning ? 'text-btop-mem' : 'text-zinc-500'}`}>
+                      <span className={`hidden text-right sm:block ${isRunning ? 'text-btop-mem' : 'text-zinc-500'}`}>
                         {mem}%
                       </span>
                       <span className="text-right text-zinc-400">
@@ -96,7 +96,7 @@ export default function Experience() {
             )}
 
             {status === 'ready' && jobs.length > 0 ? (
-              <div className="border-t border-zinc-800 bg-zinc-900/20 px-3 py-1.5 font-mono text-[10px] text-zinc-600">
+              <div className="border-t border-zinc-800 bg-zinc-900/20 px-3 py-2 font-mono text-xs text-zinc-600 sm:py-1.5 sm:text-[10px]">
                 {jobs.map((job, i) => (
                   <span key={i} className="mr-3">
                     <span className="text-zinc-500">[{1000 + i}]</span>{' '}

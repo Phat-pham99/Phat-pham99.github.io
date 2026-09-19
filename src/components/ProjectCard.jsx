@@ -15,7 +15,7 @@ const LANG_COLORS = {
 export default function ProjectCard({ project }) {
   return (
     <article className="btop-row group flex flex-col border-b border-r border-zinc-800 bg-zinc-950/40 p-4 transition-colors hover:bg-zinc-900/40">
-      <h3 className="flex min-w-0 items-center gap-1 font-mono text-sm font-bold text-zinc-100">
+      <h3 className="flex min-w-0 items-center gap-1 font-mono text-base font-bold text-zinc-100 sm:text-sm">
         <span className="shrink-0 text-zinc-600">├──</span>
         <span className="min-w-0 truncate" title={project.repo}>
           {project.repo}
@@ -30,10 +30,10 @@ export default function ProjectCard({ project }) {
           <ArrowUpRightIcon className="h-4 w-4" />
         </a>
       </h3>
-      <p className="mt-2 flex-1 text-xs leading-relaxed text-zinc-400">{project.description}</p>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400 sm:text-xs">{project.description}</p>
 
       {project.tech.length > 0 ? (
-        <ul className="mt-3 flex flex-wrap gap-1.5">
+        <ul className="mt-3 flex flex-wrap gap-2 sm:gap-1.5">
           {project.tech.map((t) => (
             <li key={t}>
               <Badge>{t}</Badge>
@@ -42,7 +42,7 @@ export default function ProjectCard({ project }) {
         </ul>
       ) : null}
 
-      <div className="mt-3 flex items-center gap-3 font-mono text-[10px] text-zinc-500">
+      <div className="mt-3 flex items-center gap-3 font-mono text-xs text-zinc-500 sm:text-[10px]">
         {project.language ? (
           <span className="inline-flex items-center gap-1">
             <span

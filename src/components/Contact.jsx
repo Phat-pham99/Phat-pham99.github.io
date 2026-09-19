@@ -34,20 +34,20 @@ export default function Contact() {
         accent="net"
         fullHeight
       >
-        <div className="grid grid-cols-[2fr_3fr_4rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+        <div className="grid grid-cols-[2fr_4fr_3.5rem] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-4 py-2 font-mono text-xs uppercase tracking-wider text-zinc-500 sm:grid-cols-[2fr_3fr_4rem] sm:py-1.5 sm:text-[10px]">
           <span>proto</span>
           <span>address / endpoint</span>
           <span className="text-right">state</span>
         </div>
 
-        <div className="font-mono text-xs">
+        <div className="font-mono text-sm sm:text-xs">
           {channels.map(({ label, href, display, Icon, external }) => (
             <a
               key={label}
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer' : undefined}
-              className="btop-row grid grid-cols-[2fr_3fr_4rem] gap-2 border-b border-zinc-800/40 px-4 py-3 last:border-0"
+              className="btop-row grid grid-cols-[2fr_4fr_3.5rem] gap-2 border-b border-zinc-800/40 px-4 py-4 last:border-0 sm:grid-cols-[2fr_3fr_4rem] sm:py-3"
             >
               <span className="inline-flex items-center gap-2 text-zinc-400">
                 {Icon ? <Icon className="h-4 w-4" /> : <span className="inline-block h-4 w-4 text-zinc-600">?</span>}
@@ -64,8 +64,8 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="border-t border-zinc-800 bg-zinc-900/20 px-4 py-3">
-          <p className="font-mono text-xs text-zinc-500">
+        <div className="border-t border-zinc-800 bg-zinc-900/20 px-4 py-4 sm:py-3">
+          <p className="font-mono text-sm text-zinc-500 sm:text-xs">
             <span className="text-brand">$</span> ping -c 1 phat
             <span className="ml-4 text-zinc-400">Open to interesting problems, OSS collaboration and a good cup of coffee.</span>
           </p>

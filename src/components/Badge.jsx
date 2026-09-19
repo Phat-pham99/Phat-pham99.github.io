@@ -1,6 +1,6 @@
 export default function Badge({ children, as: Tag = 'span', href }) {
   const className =
-    'inline-flex items-center gap-1.5 border border-zinc-700 bg-zinc-900/60 px-2 py-0.5 font-mono text-[10px] text-zinc-300';
+    'inline-flex items-center gap-1.5 border border-zinc-700 bg-zinc-900/60 px-2.5 py-1 font-mono text-xs text-zinc-300 sm:px-2 sm:py-0.5 sm:text-[10px]';
   if (Tag === 'a') {
     return (
       <a

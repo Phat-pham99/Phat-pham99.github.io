@@ -81,7 +81,7 @@ export default function Navbar() {
 
       {open ? (
         <div id="mobile-menu" className="border-b border-zinc-800 bg-btop-bg md:hidden">
-          <div className="flex flex-col font-mono text-xs">
+          <div className="flex flex-col font-mono text-sm sm:text-xs">
             {SECTIONS.map((s) => (
               <NavLink key={s} to={`/${s}`} className={linkClass} onClick={() => setOpen(false)}>
                 {LABELS[s]}
@@ -91,7 +91,7 @@ export default function Navbar() {
               href={SITE.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 text-zinc-500 hover:text-brand"
+              className="inline-flex items-center gap-2 px-3 py-2.5 text-zinc-500 hover:text-brand sm:py-2"
             >
               <GitHubIcon className="h-4 w-4" /> GitHub
             </a>

@@ -51,7 +51,7 @@ export default function Hero() {
       <button
         type="button"
         onClick={() => { setCoffeeOn((prev) => !prev); setShowHint(false); }}
-         className={`flex items-center gap-1 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider transition-all duration-200 ${
+         className={`flex items-center gap-1 border px-2.5 py-1 font-mono text-xs uppercase tracking-wider transition-all duration-200 sm:px-2 sm:py-0.5 sm:text-[10px] ${
           coffeeOn
             ? 'border-amber-700 bg-amber-900/70 text-amber-200 shadow-[0_0_8px_rgba(180,83,9,0.4)]'
             : 'border-amber-800/60 bg-amber-950/60 text-amber-300 hover:border-amber-600 hover:text-amber-200'
@@ -63,7 +63,7 @@ export default function Hero() {
         <span>{coffeeOn ? 'caffeinated' : 'coffee'}</span>
       </button>
       {showHint && !coffeeOn && (
-        <span className="pointer-events-none absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] text-yellow-400 animate-coffee-hint">
+        <span className="pointer-events-none absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-xs text-yellow-400 animate-coffee-hint sm:text-[10px]">
           Click here
           <span className="ml-1">&#x2191;</span>
         </span>
@@ -107,13 +107,13 @@ export default function Hero() {
                     loading="lazy"
                   />
                 </div>
-                <div className="mt-1 text-center font-mono text-[10px] text-zinc-500">[avatar]</div>
+                <div className="mt-1 text-center font-mono text-xs text-zinc-500 sm:text-[10px]">[avatar]</div>
               </div>
               <div className="min-w-0 flex-1">
                 <div className="font-mono text-lg font-bold text-zinc-100">
                   <span className="text-brand">phat</span><span className="text-zinc-500">@</span>phatpham.work
                 </div>
-                <div className="mt-1 font-mono text-l text-zinc-400">
+                <div className="mt-1 font-mono text-lg text-zinc-400">
                   <span className="text-zinc-600">» </span>
                   {typed}
                   <span className="cursor-blink text-brand" aria-hidden="true">
@@ -123,13 +123,13 @@ export default function Hero() {
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   <Link
                     to="/projects"
-                    className="border border-brand/50 bg-brand/10 px-3 py-1 font-mono text-xs text-brand transition-colors hover:bg-brand/20"
+                    className="border border-brand/50 bg-brand/10 px-3.5 py-1.5 font-mono text-sm text-brand transition-colors hover:bg-brand/20 sm:px-3 sm:py-1 sm:text-xs"
                   >
                     [F1] Projects
                   </Link>
                   <Link
                     to="/contact"
-                    className="border border-zinc-700 px-3 py-1 font-mono text-xs text-zinc-400 transition-colors hover:border-brand hover:text-brand"
+                    className="border border-zinc-700 px-3.5 py-1.5 font-mono text-sm text-zinc-400 transition-colors hover:border-brand hover:text-brand sm:px-3 sm:py-1 sm:text-xs"
                   >
                     [F2] Contact
                   </Link>
@@ -172,7 +172,7 @@ export default function Hero() {
             accent="cpu"
             contentClassName="relative h-64 overflow-hidden"
           >
-            <CMatrix className="absolute inset-0 h-full w-full" font_size={30} />
+            <CMatrix className="absolute inset-0 h-full w-full" />
           </BtopPanel>
         </div>
 
@@ -187,7 +187,7 @@ export default function Hero() {
             contentClassName={`space-y-3 p-4 ${coffeeOn ? 'coffee-active' : ''}`}
             fullHeight
           >
-            <div className="flex items-center justify-between font-mono text-[10px] text-zinc-600">
+            <div className="flex items-center justify-between font-mono text-xs text-zinc-600 sm:text-[10px]">
               <span>idle</span>
               <div className="flex gap-px">
                 {Array.from({ length: 8 }, (_, i) => {
@@ -210,7 +210,7 @@ export default function Hero() {
             <BtopHeatGraph data={activityData} width={32} />
 
             <div className="border-t border-zinc-800 pt-3">
-              <div className={`grid grid-cols-2 gap-2 font-mono text-xs ${coffeeOn ? 'coffee-stat-grid' : ''}`}>
+              <div className={`grid grid-cols-2 gap-3 font-mono text-sm sm:gap-2 sm:text-xs ${coffeeOn ? 'coffee-stat-grid' : ''}`}>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
                   <div className="text-zinc-500">Coffee drank ☕️</div>
                   <div className="text-btop-cpu">{coffeeOn ? `${(Math.round(Math.random() * 8 + 1))}` : '0'}</div>
@@ -231,8 +231,8 @@ export default function Hero() {
             </div>
 
             <div className="border-t border-zinc-800 pt-3">
-              <div className={`font-mono text-xs text-zinc-500 ${coffeeOn ? 'animate-coffee-speed' : ''}`}>quick stats</div>
-              <div className="mt-2 space-y-1 font-mono text-xs">
+              <div className={`font-mono text-sm text-zinc-500 sm:text-xs ${coffeeOn ? 'animate-coffee-speed' : ''}`}>quick stats</div>
+              <div className="mt-2 space-y-1.5 font-mono text-sm sm:space-y-1 sm:text-xs">
                 <div className={`flex justify-between btop-row px-1 ${coffeeOn ? 'animate-coffee-shift' : ''}`}>
                   <span className="text-zinc-400">location</span>
                   <span className="text-zinc-200">{basics?.location || 'Ho Chi Minh City, VN'}</span>
