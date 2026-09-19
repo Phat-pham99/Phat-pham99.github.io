@@ -172,7 +172,7 @@ export default function Hero() {
             accent="cpu"
             contentClassName="relative h-64 overflow-hidden"
           >
-            <CMatrix className="absolute inset-0 h-full w-full" font_size={30} />
+            <CMatrix className="absolute inset-0 h-full w-full" />
           </BtopPanel>
         </div>
 
