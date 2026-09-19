@@ -28,7 +28,7 @@ const BtopPanel = memo(function BtopPanel({
     >
       {title && (
         <div
-          className={`flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-1.5 font-mono text-xs ${accentClass}`}
+          className={`flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-2 font-mono text-sm sm:py-1.5 sm:text-xs ${accentClass}`}
         >
           <span className="font-bold tracking-wide">{title}</span>
           <span className="flex items-center gap-2">

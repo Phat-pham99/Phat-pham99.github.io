@@ -20,7 +20,7 @@ export default function Skills() {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {apiSkills.map((skill, i) => (
               <div key={skill.name} className="border border-zinc-800 bg-zinc-900/40 p-3">
-                <div className="flex items-center justify-between font-mono text-sm">
+                <div className="flex items-center justify-between font-mono text-base sm:text-sm">
                   <span className="text-zinc-200">{skill.name}</span>
                   <span className="text-zinc-500">{skill.level}</span>
                 </div>
@@ -53,7 +53,7 @@ export default function Skills() {
                 key={lang.name}
                 className="border border-zinc-800 bg-zinc-900/40 p-3"
               >
-                <div className="flex items-center justify-between font-mono text-sm">
+                <div className="flex items-center justify-between font-mono text-base sm:text-sm">
                   <span className="text-zinc-200">{lang.name}</span>
                   <span className="text-zinc-500">{lang.fluency}</span>
                 </div>
@@ -70,7 +70,7 @@ export default function Skills() {
               </div>
             ))
           ) : (
-            <div className="font-mono text-xs text-zinc-500">no locale data available</div>
+            <div className="font-mono text-sm text-zinc-500 sm:text-xs">no locale data available</div>
           )}
         </div>
       </BtopPanel>

@@ -52,15 +52,15 @@ export default function About() {
           accent="mem"
           contentClassName="p-4"
         >
-          <div className="font-mono text-sm leading-relaxed">
+          <div className="font-mono text-base leading-relaxed sm:text-sm">
             <div className="mb-2 text-zinc-600">
             </div>
             {displayLines.map((line, i) => (
-              <div key={i} className={line === '' ? 'h-4' : 'text-zinc-300'}>
+              <div key={i} className={line === '' ? 'h-5' : 'text-zinc-300'}>
                 {line || '\u00A0'}
               </div>
             ))}
-            <div className="mt-4 text-zinc-500">
+            <div className="mt-4 text-sm text-zinc-500 sm:text-xs">
               <span className="text-brand">#</span> I do what I love and love what I do
             </div>
           </div>
@@ -72,11 +72,11 @@ export default function About() {
           accent="disk"
           contentClassName="p-4"
         >
-          <div className="space-y-0 font-mono text-sm">
+          <div className="space-y-0 font-mono text-base sm:text-sm">
             {infoItems.map(([key, value]) => (
               <div
                 key={key}
-                className="btop-row flex items-center gap-2 border-b border-zinc-800/60 px-2 py-2 last:border-0"
+                className="btop-row flex items-center gap-2 border-b border-zinc-800/60 px-2 py-2.5 last:border-0 sm:py-2"
               >
                 <span className="w-24 shrink-0 text-zinc-500">{key}</span>
                 <span className="text-brand">=</span>
@@ -85,10 +85,10 @@ export default function About() {
             ))}
           </div>
           <div className="mt-4 border border-zinc-800 bg-zinc-900/40 p-3">
-            <div className="font-mono text-xs text-zinc-500">
+            <div className="font-mono text-sm text-zinc-500 sm:text-xs">
               <span className="text-brand">$</span> echo $EDITOR $SHELL $DISTRO
             </div>
-            <div className="mt-1 font-mono text-sm text-zinc-300">
+            <div className="mt-1 font-mono text-base text-zinc-300 sm:text-sm">
               nvim zsh arch
             </div>
           </div>
