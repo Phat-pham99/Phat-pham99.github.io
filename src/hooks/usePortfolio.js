@@ -87,7 +87,7 @@ function normalizeProject(p) {
     description: p.summary || p.description || '',
     language: p.primaryLanguage || null,
     languages: p.languages || [],
-    tech: p.languages || [],
+    tech: p.keywords || [],
   };
 }
 
