@@ -16,7 +16,7 @@ A single-page, dark dev-terminal themed portfolio styled like a live `btop` / sy
 - **Skill project previews** - maps skill badges to public GitHub repositories by repository topics only, with paginated loading and an in-memory cache.
 - **Portfolio projects** - PACKAGES / PROJECTS displays the curated project list from gitconnected, independently of GitHub skill previews.
 - **Refresh-safe deep links** — `/about`, `/experience`, `/skills`, `/projects`, `/contact` scroll to sections and stay valid on refresh via a `404.html` redirect.
-- **Theme & font** — brand green `#13ce66`, Inter + JetBrains Mono via `@fontsource`, dark-only.
+- **Theme & font** - light/dark navbar toggle, theme-aware terminal colors, and Inter + JetBrains Mono via `@fontsource`. Follows the system appearance until a choice is saved in `localStorage` under `portfolio-theme`; saved choices apply before React starts and stay in sync across tabs. Switching still works when browser storage is unavailable.
 - **SEO & a11y** — OG tags, `og-cover.jpg`, `sitemap.xml`, `robots.txt`, favicon, reduced-motion support.
 - **Fast by default** — ~66 KB JS / ~25 KB CSS gzip.
 
