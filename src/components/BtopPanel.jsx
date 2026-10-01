@@ -6,6 +6,7 @@ const BtopPanel = memo(function BtopPanel({
   titleActions,
   children,
   className = '',
+  headerClassName = '',
   contentClassName = '',
   accent = 'brand',
   fullHeight = false,
@@ -28,7 +29,7 @@ const BtopPanel = memo(function BtopPanel({
     >
       {title && (
         <div
-          className={`flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-2 font-mono text-sm sm:py-1.5 sm:text-xs ${accentClass}`}
+          className={`flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-2 font-mono text-sm sm:py-1.5 sm:text-xs ${accentClass} ${headerClassName}`}
         >
           <span className="font-bold tracking-wide">{title}</span>
           <span className="flex items-center gap-2">
