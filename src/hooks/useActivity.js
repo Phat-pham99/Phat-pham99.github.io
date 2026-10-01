@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { usePrefersReducedMotion } from './useTypewriter.js';
 
 export const ACTIVITY_SAMPLES = 64;
-export const IDLE_MAX = 40; //Noice value
+export const IDLE_MAX = 25; //Noice value
 export const COFFEE_MAX = 100;
 export const HEARTBEAT = [
   0.11, 0.17, 0.22, 0.33, 0.5, 0.78, 1, 0.89, 0.61, 0.39,

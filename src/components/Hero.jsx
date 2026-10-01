@@ -33,7 +33,9 @@ export default function Hero() {
       <button
         type="button"
         onClick={() => { setCoffeeOn((prev) => !prev); setShowHint(false); }}
-         className={`flex w-36 items-center justify-center gap-1 border px-2.5 py-1 font-mono text-xs uppercase tracking-wider transition-all duration-200 sm:px-2 sm:py-0.5 sm:text-[10px] ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''} ${
+        role="switch"
+        aria-checked={coffeeOn}
+        className={`flex w-36 items-center justify-center gap-1.5 border px-2 py-1 font-mono text-xs uppercase tracking-wider transition-all duration-200 sm:py-0.5 sm:text-[10px] ${tick % 2 === 0 && coffeeOn ? 'animate-coffee-shake' : ''} ${
           coffeeOn
             ? 'border-amber-700 bg-amber-900/70 text-amber-200 shadow-[0_0_8px_rgba(180,83,9,0.4)]'
             : 'border-amber-800/60 bg-amber-950/60 text-amber-300 hover:border-amber-600 hover:text-amber-200'
@@ -42,12 +44,28 @@ export default function Hero() {
         title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
       >
         <CoffeeIcon className={`h-3.5 w-3.5 ${coffeeOn && tick % 4 < 2 ? 'animate-coffee-steam' : ''}`} />
-        <span>{coffeeOn ? 'caffeinated' : 'coffee'}</span>
+        <span>coffee</span>
+        <span
+          aria-hidden="true"
+          className={`relative h-4 w-7 rounded-full border transition-colors ${
+            coffeeOn ? 'border-amber-300 bg-amber-500/50' : 'border-amber-700 bg-zinc-950/70'
+          }`}
+        >
+          <span
+            className={`absolute left-0.5 top-0.5 h-3 w-3 rounded-full transition-transform ${
+              coffeeOn ? 'translate-x-3 bg-amber-100' : 'bg-amber-500'
+            }`}
+          />
+        </span>
+        <span className="w-[3ch] text-left" aria-hidden="true">{coffeeOn ? 'on' : 'off'}</span>
       </button>
       {showHint && !coffeeOn && (
-        <span className="pointer-events-none absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-xs text-yellow-400 animate-coffee-hint sm:text-[10px]">
-          Click here
-          <span className="ml-1">&#x2191;</span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-full z-10 flex -translate-x-1/2 flex-col items-center whitespace-nowrap font-mono text-xs text-yellow-400 sm:text-[10px]"
+        >
+          <span className="animate-coffee-hint text-sm leading-none">&#x2191;</span>
+          <span>Try boost</span>
         </span>
       )}
     </span>
