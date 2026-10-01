@@ -4,20 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: '#13ce66',
-        btop: {
-          bg: '#0a0a0a',
-          fg: '#e0e0e0',
-          border: '#333333',
-          panel: '#111111',
-          panelHeader: '#1a1a1a',
-          cpu: '#00d4ff',
-          mem: '#13ce66',
-          disk: '#f59e0b',
-          net: '#d946ef',
-          temp: '#ef4444',
-          dim: '#666666',
-        },
+        brand: 'rgb(var(--color-brand) / <alpha-value>)',
+        zinc: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => [shade, `rgb(var(--color-zinc-${shade}) / <alpha-value>)`])),
+        btop: Object.fromEntries(['bg', 'fg', 'border', 'panel', 'panelHeader', 'cpu', 'mem', 'disk', 'net', 'temp', 'dim'].map((name) => [name, `rgb(var(--color-${name}) / <alpha-value>)`])),
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

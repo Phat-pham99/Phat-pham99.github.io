@@ -13,6 +13,7 @@
   "dependencies": {
     "cmatrix": "^0.5.3",
     "date-fns": "^4.1.0",
+    "lucide-react": "^1.49.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.0",
