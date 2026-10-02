@@ -29,6 +29,7 @@
   --color-zinc-950: 9 9 11;
   --coffee-glow: 234 179 8;
   --coffee-hint-opacity: 0.6;
+  --color-star: 250 204 21;
 }
 
 :root[data-theme='light'] {
@@ -58,6 +59,7 @@
   --color-zinc-950: 255 255 255;
   --coffee-glow: 0 115 138;
   --coffee-hint-opacity: 1;
+  --color-star: 21 128 61;
 }
 
 :root[data-theme='light'] .coffeeBtn button {
@@ -107,6 +109,32 @@ body {
 
 .cursor-blink {
   animation: blink 1.1s step-end infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.star-twinkle {
+  animation: star-twinkle 1.8s ease-in-out infinite;
+}
+
+.construction-tape {
+  background: repeating-linear-gradient(135deg, rgb(var(--color-disk)) 0 9px, rgb(var(--color-zinc-950)) 9px 18px);
+}
+
+@keyframes construction-progress {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.construction-progress {
+  animation: construction-progress 1.2s ease-in-out infinite;
+}
+
+.project-stars {
+  color: rgb(var(--color-star));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -230,7 +258,9 @@ body {
   .coffee-row-stagger > *,
   .coffee-stat-grid,
   .coffee-active,
-  .animate-coffee-hint {
+  .animate-coffee-hint,
+  .star-twinkle,
+  .construction-progress {
     animation: none;
   }
 }

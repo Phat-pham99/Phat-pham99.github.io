@@ -240,32 +240,29 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="border-t border-zinc-800 pt-3">
-              <div className={`font-mono text-sm text-zinc-500 sm:text-xs ${coffeeOn ? 'animate-coffee-speed' : ''}`}>quick stats</div>
-              <div className={`mt-2 space-y-1.5 font-mono text-sm sm:space-y-1 sm:text-xs ${coffeeOn ? 'coffee-row-stagger' : ''}`}>
-                <div className="flex justify-between btop-row px-1">
-                  <span className="text-zinc-400">location</span>
-                  <span className="text-zinc-200">{basics?.location || 'Ho Chi Minh City, VN'}</span>
+            <div className="blog-construction overflow-hidden border-t border-zinc-800 font-mono">
+              <div className="construction-tape h-2" aria-hidden="true" />
+              <div className="px-3 py-3">
+                <div>
+                  <div className="flex items-center gap-2 text-xs uppercase text-btop-disk">
+                    <span className="h-2 w-2 animate-pulse bg-btop-disk" aria-hidden="true" />
+                    blog / under construction
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                    Building a place for engineering notes, experiments, and things learned the hard way.
+                  </p>
                 </div>
-                <div className="flex justify-between btop-row px-1">
-                  <span className="text-zinc-400">timezone</span>
-                  <span className="text-zinc-200">UTC+7</span>
-                </div>
-                <div className="flex justify-between btop-row px-1">
-                  <span className="text-zinc-400">editor</span>
-                  <span className="text-zinc-200">{coffeeOn ? 'Neovim ⚡' : 'Neovim'}</span>
-                </div>
-                <div className="flex justify-between btop-row px-1">
-                  <span className="text-zinc-400">shell</span>
-                  <span className="text-zinc-200">{coffeeOn ? 'zsh ⚡' : 'zsh'}</span>
-                </div>
-                <div className="flex justify-between btop-row px-1">
-                  <span className="text-zinc-400">distro</span>
-                  <span className={`text-zinc-200 ${coffeeOn ? 'animate-coffee-speed' : ''}`}>
-                    {coffeeOn ? 'Windows sucks 🪟' : 'Manjaro 🌿 & Xubuntu 🐁'}
-                  </span>
+                <div className="mt-3">
+                  <div className="mb-1 flex justify-between text-[10px] text-zinc-500">
+                    <span>compiling posts...</span>
+                    <span>37%</span>
+                  </div>
+                  <div className="h-1.5 border border-zinc-700 bg-zinc-950">
+                    <div className="construction-progress h-full w-[37%] bg-btop-disk" />
+                  </div>
                 </div>
               </div>
+              <div className="construction-tape h-2" aria-hidden="true" />
             </div>
           </BtopPanel>
         </div>
