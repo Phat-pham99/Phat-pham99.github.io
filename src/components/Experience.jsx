@@ -1,6 +1,7 @@
 import { differenceInMonths, differenceInYears, addYears, format } from 'date-fns';
 import BtopPanel from './BtopPanel.jsx';
 import BtopBar from './BtopBar.jsx';
+import Meme from './Meme.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
 
 function durationLabel(startStr, endStr) {
@@ -106,6 +107,10 @@ export default function Experience() {
               </div>
             ) : null}
           </BtopPanel>
+        </div>
+
+        <div className="lg:col-span-4">
+          <Meme />
         </div>
       </div>
     </section>
