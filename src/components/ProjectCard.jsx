@@ -1,5 +1,5 @@
 import Badge from './Badge.jsx';
-import { ArrowUpRightIcon } from './Icons.jsx';
+import { ArrowUpRightIcon, StarIcon } from './Icons.jsx';
 
 const LANG_COLORS = {
   Python: '#3572A5',
@@ -12,7 +12,7 @@ const LANG_COLORS = {
   Dockerfile: '#384d54',
 };
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, stars }) {
   return (
     <article className="btop-row group flex flex-col border-b border-r border-zinc-800 bg-zinc-950/40 p-4 transition-colors hover:bg-zinc-900/40">
       <h3 className="flex min-w-0 items-center gap-1 font-mono text-base font-bold text-zinc-100 sm:text-sm">
@@ -51,6 +51,12 @@ export default function ProjectCard({ project }) {
               aria-hidden="true"
             />
             {project.language}
+          </span>
+        ) : null}
+        {typeof stars === 'number' ? (
+          <span className="project-stars inline-flex items-center gap-1" title={`${stars} star${stars === 1 ? '' : 's'}`}>
+            <StarIcon className="star-twinkle h-3 w-3" />
+            {stars}
           </span>
         ) : null}
         <span className="ml-auto hidden truncate sm:inline">{project.displayName}</span>

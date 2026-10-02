@@ -4,7 +4,7 @@ import { fetchGitHubProjects } from './useGitHubProjects.js';
 
 test('fetches every page and preserves GitHub languages, topics, and links', async (context) => {
   const firstPage = Array.from({ length: 100 }, (_, index) => ({ name: `repo-${index}`, language: 'Python' }));
-  const lastPage = [{ name: 'react-app', html_url: 'https://github.com/example/react-app', language: 'TypeScript', topics: ['react', 'nestjs'], description: 'App', fork: true }];
+  const lastPage = [{ name: 'react-app', html_url: 'https://github.com/example/react-app', language: 'TypeScript', topics: ['react', 'nestjs'], description: 'App', fork: true, stargazers_count: 7 }];
   const requests = [];
   const controller = new AbortController();
   context.mock.method(globalThis, 'fetch', async (url, options) => {
@@ -22,10 +22,11 @@ test('fetches every page and preserves GitHub languages, topics, and links', asy
   assert.deepEqual(requests.map((url) => url.searchParams.get('page')), ['1', '2']);
   assert.deepEqual(projects[100], {
     repo: 'react-app', displayName: 'react-app', url: 'https://github.com/example/react-app',
-    description: 'App', language: 'TypeScript', tech: ['react', 'nestjs'],
+    description: 'App', language: 'TypeScript', tech: ['react', 'nestjs'], stars: 7,
   });
   assert.deepEqual(projects[0].tech, []);
   assert.equal(projects[0].description, '');
+  assert.equal(projects[0].stars, 0);
 });
 
 test('handles an account with no public repositories', async (context) => {

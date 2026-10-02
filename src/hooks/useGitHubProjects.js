@@ -26,6 +26,7 @@ export async function fetchGitHubProjects(username, { signal } = {}) {
       description: repository.description || '',
       language: repository.language || null,
       tech: repository.topics || [],
+      stars: repository.stargazers_count ?? 0,
     })));
 
     if (repositories.length < PAGE_SIZE) return projects;
