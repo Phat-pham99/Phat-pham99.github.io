@@ -1,6 +1,20 @@
 import BtopPanel from './BtopPanel.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
 
+function ExtLink({ href, title, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      title={title}
+      className="text-brand underline-offset-2 hover:underline"
+    >
+      {children}
+    </a>
+  );
+}
+
 const BIO_LINES = [
   'I graduated from HCMUT with a degree in Biomedical Engineering — but',
   'software pulled harder. Instead of medical devices, I ended up building',
@@ -38,9 +52,18 @@ export default function About() {
   const summary = basics?.summary?.trim();
   const displayLines = summary ? wrapText(summary) : BIO_LINES;
   const infoItems = [
-    ['based', basics?.location || 'Ho Chi Minh City, Vietnam'],
-    ['Title', 'Senior software engineer'],
-    ['stack', 'Python · JS/TS · React · Node.js · Go'],
+    ['LOCATION', basics?.location || 'Ho Chi Minh City, VN'],
+    ['TIMEZONE', 'UTC+7'],
+    ['EDITOR', <ExtLink href="https://micro-editor.github.io/" title="Micro — a modern, intuitive terminal-based text editor">Micro</ExtLink>],
+    ['SHELL', <ExtLink href="https://www.zsh.org/" title="Zsh — a powerful shell with scripting features and interactive customization">zsh</ExtLink>],
+    [
+      'DISTRO',
+      <>
+        <ExtLink href="https://manjaro.org/" title="Manjaro Linux — an accessible, user-friendly Linux distribution">Manjaro 🌿</ExtLink>
+        {' & '}
+        <ExtLink href="https://xubuntu.org/" title="Xubuntu — Ubuntu with the lightweight Xfce desktop">Xubuntu 🐁</ExtLink>
+      </>,
+    ],
   ];
 
   return (
@@ -86,10 +109,10 @@ export default function About() {
           </div>
           <div className="mt-4 border border-zinc-800 bg-zinc-900/40 p-3">
             <div className="font-mono text-sm text-zinc-500 sm:text-xs">
-              <span className="text-brand">$</span> echo $EDITOR $SHELL $DISTRO
+              <span className="text-brand">$</span> echo $FAVOURITE_QUOTE
             </div>
             <div className="mt-1 font-mono text-base text-zinc-300 sm:text-sm">
-              nvim zsh arch
+              micro zsh manjaro
             </div>
           </div>
         </BtopPanel>
