@@ -1,6 +1,11 @@
 import BtopPanel from './BtopPanel.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
 
+const SOME_TECH_QUOTE = {
+  text: "If the path to what you want seems too easy.. then you're on the wrong path",
+  author: 'Monkey D. Luffy ...or Shank ? Dunno, man',
+};
+
 function ExtLink({ href, title, children }) {
   return (
     <a
@@ -62,6 +67,8 @@ export default function About() {
         <ExtLink href="https://manjaro.org/" title="Manjaro Linux — an accessible, user-friendly Linux distribution">Manjaro 🌿</ExtLink>
         {' & '}
         <ExtLink href="https://xubuntu.org/" title="Xubuntu — Ubuntu with the lightweight Xfce desktop">Xubuntu 🐁</ExtLink>
+        {' & '}
+        <ExtLink href="https://mxlinux.org/" title="MX Linux — a fast, stable Debian-based Linux distribution">MX Linux 🌀</ExtLink>
       </>,
     ],
   ];
@@ -83,9 +90,6 @@ export default function About() {
                 {line || '\u00A0'}
               </div>
             ))}
-            <div className="mt-4 text-sm text-zinc-500 sm:text-xs">
-              <span className="text-brand">#</span> I do what I love and love what I do
-            </div>
           </div>
         </BtopPanel>
 
@@ -109,10 +113,11 @@ export default function About() {
           </div>
           <div className="mt-4 border border-zinc-800 bg-zinc-900/40 p-3">
             <div className="font-mono text-sm text-zinc-500 sm:text-xs">
-              <span className="text-brand">$</span> echo $FAVOURITE_QUOTE
+              <span className="text-brand">»</span> echo $FAVOURITE_QUOTE
             </div>
             <div className="mt-1 font-mono text-base text-zinc-300 sm:text-sm">
-              micro zsh manjaro
+              <span>“{SOME_TECH_QUOTE.text}”</span>
+              <span className="mt-1 block text-xs text-zinc-500">— {SOME_TECH_QUOTE.author}</span>
             </div>
           </div>
         </BtopPanel>
