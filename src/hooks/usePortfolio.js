@@ -57,6 +57,7 @@ function normalizeWork(w) {
     isCurrentRole: !!w.isCurrentRole,
     location: w.location || '',
     summary: w.summary || '',
+    highlights: Array.isArray(w.highlights) ? w.highlights : [],
   };
 }
 
