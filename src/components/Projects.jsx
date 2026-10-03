@@ -1,12 +1,29 @@
+import { useMemo } from 'react';
 import BtopPanel from './BtopPanel.jsx';
 import ProjectCard from './ProjectCard.jsx';
 import Skeleton from './Skeleton.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
+import useGitHubProjects from '../hooks/useGitHubProjects.js';
 import { SITE } from '../data/site';
+
+function repoSlug(url) {
+  try {
+    return new URL(url).pathname.split('/').filter(Boolean).pop()?.toLowerCase() ?? '';
+  } catch {
+    return '';
+  }
+}
 
 export default function Projects() {
   const { status, data } = usePortfolio();
+  const { projects: ghProjects } = useGitHubProjects();
   const projects = data?.projects ?? [];
+
+  const starsBySlug = useMemo(() => {
+    const map = new Map();
+    for (const p of ghProjects) map.set(p.repo.toLowerCase(), p.stars);
+    return map;
+  }, [ghProjects]);
 
   return (
     <section id="projects" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
@@ -32,7 +49,7 @@ export default function Projects() {
             </div>
             <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
-                <ProjectCard key={project.repo} project={project} />
+                <ProjectCard key={project.repo} project={project} stars={starsBySlug.get(repoSlug(project.url))} />
               ))}
             </div>
 

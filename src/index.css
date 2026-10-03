@@ -30,6 +30,7 @@
   --coffee-glow: 234 179 8;
   --coffee-hint-opacity: 0.6;
   --color-star: 250 204 21;
+  --color-star: 250 204 21;
 }
 
 :root[data-theme='light'] {
