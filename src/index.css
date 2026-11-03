@@ -63,6 +63,343 @@
   --color-star: 21 128 61;
 }
 
+/* Editor palettes: light variants avoid yellow/orange accents on pale backgrounds */
+:root[data-palette='monokai'][data-theme='dark'] {
+  --color-brand: 166 226 46;
+  --color-bg: 39 40 34;
+  --color-fg: 248 248 242;
+  --color-border: 73 72 62;
+  --color-panel: 46 47 40;
+  --color-panelHeader: 62 61 50;
+  --color-cpu: 102 217 239;
+  --color-mem: 166 226 46;
+  --color-disk: 253 151 31;
+  --color-net: 174 129 255;
+  --color-temp: 255 97 136;
+  --color-dim: 117 113 94;
+  --color-zinc-50: 248 248 242;
+  --color-zinc-100: 240 239 230;
+  --color-zinc-200: 230 228 216;
+  --color-zinc-300: 207 207 194;
+  --color-zinc-400: 168 166 150;
+  --color-zinc-500: 135 132 115;
+  --color-zinc-600: 117 113 94;
+  --color-zinc-700: 89 87 72;
+  --color-zinc-800: 62 61 50;
+  --color-zinc-900: 50 51 43;
+  --color-zinc-950: 30 31 26;
+  --coffee-glow: 230 219 116;
+  --color-star: 230 219 116;
+}
+
+:root[data-palette='monokai'][data-theme='light'] {
+  --color-brand: 29 122 82;
+  --color-bg: 250 244 242;
+  --color-fg: 41 36 42;
+  --color-border: 216 207 204;
+  --color-panel: 255 251 250;
+  --color-panelHeader: 240 232 229;
+  --color-cpu: 21 106 128;
+  --color-mem: 29 122 82;
+  --color-disk: 59 91 181;
+  --color-net: 112 88 190;
+  --color-temp: 184 50 90;
+  --color-dim: 112 102 105;
+  --color-zinc-50: 25 21 26;
+  --color-zinc-100: 41 36 42;
+  --color-zinc-200: 56 50 57;
+  --color-zinc-300: 76 69 76;
+  --color-zinc-400: 92 84 92;
+  --color-zinc-500: 106 98 104;
+  --color-zinc-600: 112 102 108;
+  --color-zinc-700: 168 158 162;
+  --color-zinc-800: 216 207 204;
+  --color-zinc-900: 240 232 229;
+  --color-zinc-950: 255 251 250;
+  --coffee-glow: 21 106 128;
+  --color-star: 29 122 82;
+}
+
+:root[data-palette='gruvbox'][data-theme='dark'] {
+  --color-brand: 184 187 38;
+  --color-bg: 40 40 40;
+  --color-fg: 235 219 178;
+  --color-border: 80 73 69;
+  --color-panel: 50 48 47;
+  --color-panelHeader: 60 56 54;
+  --color-cpu: 131 165 152;
+  --color-mem: 184 187 38;
+  --color-disk: 250 189 47;
+  --color-net: 211 134 155;
+  --color-temp: 251 100 80;
+  --color-dim: 146 131 116;
+  --color-zinc-50: 251 241 199;
+  --color-zinc-100: 242 229 188;
+  --color-zinc-200: 235 219 178;
+  --color-zinc-300: 213 196 161;
+  --color-zinc-400: 189 174 147;
+  --color-zinc-500: 168 153 132;
+  --color-zinc-600: 146 131 116;
+  --color-zinc-700: 102 92 84;
+  --color-zinc-800: 80 73 69;
+  --color-zinc-900: 60 56 54;
+  --color-zinc-950: 29 32 33;
+  --coffee-glow: 254 128 25;
+  --color-star: 250 189 47;
+}
+
+:root[data-palette='gruvbox'][data-theme='light'] {
+  --color-brand: 102 98 10;
+  --color-bg: 251 241 199;
+  --color-fg: 60 56 54;
+  --color-border: 213 196 161;
+  --color-panel: 249 245 215;
+  --color-panelHeader: 242 229 188;
+  --color-cpu: 7 102 120;
+  --color-mem: 102 98 10;
+  --color-disk: 54 104 74;
+  --color-net: 143 63 113;
+  --color-temp: 157 0 6;
+  --color-dim: 110 99 90;
+  --color-zinc-50: 40 40 40;
+  --color-zinc-100: 60 56 54;
+  --color-zinc-200: 80 73 69;
+  --color-zinc-300: 90 81 74;
+  --color-zinc-400: 102 92 84;
+  --color-zinc-500: 106 96 88;
+  --color-zinc-600: 110 99 90;
+  --color-zinc-700: 189 174 147;
+  --color-zinc-800: 213 196 161;
+  --color-zinc-900: 242 229 188;
+  --color-zinc-950: 249 245 215;
+  --coffee-glow: 7 102 120;
+  --color-star: 102 98 10;
+}
+
+:root[data-palette='ayu'][data-theme='dark'] {
+  --color-brand: 230 180 80;
+  --color-bg: 11 14 20;
+  --color-fg: 191 189 182;
+  --color-border: 36 41 54;
+  --color-panel: 13 16 23;
+  --color-panelHeader: 19 23 33;
+  --color-cpu: 89 194 255;
+  --color-mem: 170 217 76;
+  --color-disk: 255 180 84;
+  --color-net: 210 166 255;
+  --color-temp: 240 113 120;
+  --color-dim: 108 115 128;
+  --color-zinc-50: 230 225 207;
+  --color-zinc-100: 214 212 205;
+  --color-zinc-200: 191 189 182;
+  --color-zinc-300: 172 182 191;
+  --color-zinc-400: 140 147 158;
+  --color-zinc-500: 108 115 128;
+  --color-zinc-600: 86 93 106;
+  --color-zinc-700: 61 66 77;
+  --color-zinc-800: 36 41 54;
+  --color-zinc-900: 19 23 33;
+  --color-zinc-950: 8 10 15;
+  --coffee-glow: 255 143 64;
+  --color-star: 230 180 80;
+}
+
+:root[data-palette='ayu'][data-theme='light'] {
+  --color-brand: 74 120 0;
+  --color-bg: 248 249 250;
+  --color-fg: 92 97 102;
+  --color-border: 214 218 222;
+  --color-panel: 252 252 252;
+  --color-panelHeader: 239 241 243;
+  --color-cpu: 30 112 184;
+  --color-mem: 74 120 0;
+  --color-disk: 26 122 140;
+  --color-net: 122 82 168;
+  --color-temp: 196 56 56;
+  --color-dim: 108 114 120;
+  --color-zinc-50: 36 40 46;
+  --color-zinc-100: 52 57 62;
+  --color-zinc-200: 70 75 80;
+  --color-zinc-300: 82 87 92;
+  --color-zinc-400: 92 97 102;
+  --color-zinc-500: 100 106 112;
+  --color-zinc-600: 108 114 120;
+  --color-zinc-700: 168 174 180;
+  --color-zinc-800: 214 218 222;
+  --color-zinc-900: 239 241 243;
+  --color-zinc-950: 252 252 252;
+  --coffee-glow: 30 112 184;
+  --color-star: 74 120 0;
+}
+
+:root[data-palette='github'][data-theme='dark'] {
+  --color-brand: 63 185 80;
+  --color-bg: 13 17 23;
+  --color-fg: 230 237 243;
+  --color-border: 48 54 61;
+  --color-panel: 22 27 34;
+  --color-panelHeader: 33 38 45;
+  --color-cpu: 88 166 255;
+  --color-mem: 63 185 80;
+  --color-disk: 210 153 34;
+  --color-net: 188 140 255;
+  --color-temp: 248 81 73;
+  --color-dim: 125 133 144;
+  --color-zinc-50: 240 246 252;
+  --color-zinc-100: 230 237 243;
+  --color-zinc-200: 201 209 217;
+  --color-zinc-300: 177 186 196;
+  --color-zinc-400: 139 148 158;
+  --color-zinc-500: 125 133 144;
+  --color-zinc-600: 110 118 129;
+  --color-zinc-700: 72 79 88;
+  --color-zinc-800: 48 54 61;
+  --color-zinc-900: 33 38 45;
+  --color-zinc-950: 1 4 9;
+  --coffee-glow: 210 153 34;
+  --color-star: 227 179 65;
+}
+
+:root[data-palette='github'][data-theme='light'] {
+  --color-brand: 26 127 55;
+  --color-bg: 246 248 250;
+  --color-fg: 31 35 40;
+  --color-border: 208 215 222;
+  --color-panel: 255 255 255;
+  --color-panelHeader: 246 248 250;
+  --color-cpu: 9 105 218;
+  --color-mem: 26 127 55;
+  --color-disk: 27 124 131;
+  --color-net: 130 80 223;
+  --color-temp: 209 36 47;
+  --color-dim: 101 109 118;
+  --color-zinc-50: 1 4 9;
+  --color-zinc-100: 31 35 40;
+  --color-zinc-200: 50 56 62;
+  --color-zinc-300: 66 74 83;
+  --color-zinc-400: 87 96 106;
+  --color-zinc-500: 101 109 118;
+  --color-zinc-600: 101 109 118;
+  --color-zinc-700: 140 149 159;
+  --color-zinc-800: 208 215 222;
+  --color-zinc-900: 234 238 242;
+  --color-zinc-950: 255 255 255;
+  --coffee-glow: 9 105 218;
+  --color-star: 26 127 55;
+}
+
+:root[data-palette='green'][data-theme='dark'] {
+  --color-brand: 156 214 92;
+  --color-bg: 18 30 16;
+  --color-fg: 222 240 210;
+  --color-border: 52 78 46;
+  --color-panel: 24 38 22;
+  --color-panelHeader: 32 50 28;
+  --color-cpu: 110 200 230;
+  --color-mem: 156 214 92;
+  --color-disk: 220 200 110;
+  --color-net: 200 150 230;
+  --color-temp: 255 120 110;
+  --color-dim: 120 150 110;
+  --color-zinc-50: 240 250 232;
+  --color-zinc-100: 230 244 220;
+  --color-zinc-200: 222 240 210;
+  --color-zinc-300: 196 220 180;
+  --color-zinc-400: 160 190 145;
+  --color-zinc-500: 130 160 118;
+  --color-zinc-600: 110 138 100;
+  --color-zinc-700: 72 100 64;
+  --color-zinc-800: 52 78 46;
+  --color-zinc-900: 32 50 28;
+  --color-zinc-950: 12 22 10;
+  --coffee-glow: 156 214 92;
+  --color-star: 156 214 92;
+}
+
+:root[data-palette='green'][data-theme='light'] {
+  --color-brand: 56 118 29;
+  --color-bg: 234 245 222;
+  --color-fg: 34 52 30;
+  --color-border: 184 218 160;
+  --color-panel: 244 251 238;
+  --color-panelHeader: 214 236 196;
+  --color-cpu: 20 100 150;
+  --color-mem: 56 118 29;
+  --color-disk: 0 112 100;
+  --color-net: 120 60 160;
+  --color-temp: 185 30 30;
+  --color-dim: 80 105 75;
+  --color-zinc-50: 20 34 18;
+  --color-zinc-100: 34 52 30;
+  --color-zinc-200: 46 66 40;
+  --color-zinc-300: 58 80 52;
+  --color-zinc-400: 68 92 62;
+  --color-zinc-500: 76 100 70;
+  --color-zinc-600: 80 105 75;
+  --color-zinc-700: 160 200 140;
+  --color-zinc-800: 184 218 160;
+  --color-zinc-900: 214 236 196;
+  --color-zinc-950: 244 251 238;
+  --coffee-glow: 56 118 29;
+  --color-star: 56 118 29;
+}
+
+:root[data-palette='pink'][data-theme='dark'] {
+  --color-brand: 255 110 160;
+  --color-bg: 36 18 28;
+  --color-fg: 248 220 232;
+  --color-border: 92 44 68;
+  --color-panel: 46 24 36;
+  --color-panelHeader: 60 30 46;
+  --color-cpu: 120 190 255;
+  --color-mem: 255 110 160;
+  --color-disk: 200 150 255;
+  --color-net: 255 140 220;
+  --color-temp: 255 100 100;
+  --color-dim: 170 120 140;
+  --color-zinc-50: 255 240 246;
+  --color-zinc-100: 250 228 238;
+  --color-zinc-200: 248 220 232;
+  --color-zinc-300: 230 190 208;
+  --color-zinc-400: 200 150 172;
+  --color-zinc-500: 170 120 140;
+  --color-zinc-600: 140 96 116;
+  --color-zinc-700: 110 60 84;
+  --color-zinc-800: 92 44 68;
+  --color-zinc-900: 60 30 46;
+  --color-zinc-950: 26 12 20;
+  --coffee-glow: 255 110 160;
+  --color-star: 255 110 160;
+}
+
+:root[data-palette='pink'][data-theme='light'] {
+  --color-brand: 184 20 86;
+  --color-bg: 250 222 232;
+  --color-fg: 61 36 48;
+  --color-border: 240 190 210;
+  --color-panel: 253 240 245;
+  --color-panelHeader: 248 207 222;
+  --color-cpu: 30 100 170;
+  --color-mem: 184 20 86;
+  --color-disk: 110 70 180;
+  --color-net: 150 30 130;
+  --color-temp: 180 30 30;
+  --color-dim: 122 70 92;
+  --color-zinc-50: 40 20 30;
+  --color-zinc-100: 61 36 48;
+  --color-zinc-200: 78 48 62;
+  --color-zinc-300: 92 58 74;
+  --color-zinc-400: 104 66 84;
+  --color-zinc-500: 115 72 92;
+  --color-zinc-600: 122 70 92;
+  --color-zinc-700: 230 160 188;
+  --color-zinc-800: 240 190 210;
+  --color-zinc-900: 248 214 226;
+  --color-zinc-950: 253 240 245;
+  --coffee-glow: 184 20 86;
+  --color-star: 184 20 86;
+}
+
 :root[data-theme='light'] .coffeeBtn button {
   background-color: #451a03;
 }

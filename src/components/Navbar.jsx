@@ -1,10 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import { differenceInDays, differenceInYears, addYears } from 'date-fns';
-import { Moon, Sun } from 'lucide-react';
+import { Palette } from 'lucide-react';
 import { GitHubIcon, MenuIcon, CloseIcon } from './Icons.jsx';
 import { SITE, SECTIONS } from '../data/site';
 import { useState, useMemo } from 'react';
-import useTheme from '../hooks/useTheme.js';
+import useTheme, { PALETTES } from '../hooks/useTheme.js';
 
 const BIRTH_DATE = new Date('1999-05-09');
 
@@ -24,7 +24,9 @@ function linkClass({ isActive }) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, palette, selectTheme } = useTheme();
+  const paletteLabel = PALETTES.find((p) => p.id === palette)?.label;
+  const modeLabel = theme === 'dark' ? 'Dark' : 'Light';
   const uptime = useMemo(() => {
     const now = new Date();
     const years = differenceInYears(now, BIRTH_DATE);
@@ -60,17 +62,26 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex shrink-0 items-center">
-          <button
-            type="button"
-            role="switch"
-            aria-checked={theme === 'dark'}
-            aria-label="Dark mode"
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            onClick={toggleTheme}
-            className="inline-flex h-11 w-11 items-center justify-center border-l border-zinc-800 text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
+          {/* Transparent native select over the icon keeps keyboard and mobile pickers accessible */}
+          <label
+            title={`Theme: ${paletteLabel} · ${modeLabel}`}
+            className="relative inline-flex h-11 w-11 items-center justify-center border-l border-zinc-800 text-zinc-500 transition-colors hover:text-brand has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-brand"
           >
-            {theme === 'dark' ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
-          </button>
+            <Palette className="h-4 w-4" aria-hidden="true" />
+            <span className="sr-only">Theme</span>
+            <select
+              value={`${palette}:${theme}`}
+              onChange={(event) => selectTheme(...event.target.value.split(':'))}
+              className="absolute inset-0 cursor-pointer appearance-none opacity-0"
+            >
+              {PALETTES.map((p) => (
+                <optgroup key={p.id} label={p.label}>
+                  <option value={`${p.id}:dark`}>{p.label} Dark</option>
+                  <option value={`${p.id}:light`}>{p.label} Light</option>
+                </optgroup>
+              ))}
+            </select>
+          </label>
           <a
             href={SITE.github}
             target="_blank"
