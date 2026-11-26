@@ -442,10 +442,10 @@ const fi = {
 
 // Endonyms and greetings stay in their own language regardless of the active UI language.
 export const LOCALES = [
-  { code: 'en', locale: 'en_US', name: 'English', greeting: 'Hello' },
-  { code: 'vi', locale: 'vi_VN', name: 'Tiếng Việt', greeting: 'Xin chào' },
-  { code: 'ja', locale: 'ja_JP', name: '日本語', greeting: 'こんにちは' },
-  { code: 'fi', locale: 'fi_FI', name: 'Suomi', greeting: 'Hei' },
+  { code: 'en', locale: 'en_US', country: 'US', name: 'English', greeting: 'Hello' },
+  { code: 'vi', locale: 'vi_VN', country: 'VN', name: 'Tiếng Việt', greeting: 'Xin chào' },
+  { code: 'ja', locale: 'ja_JP', country: 'JP', name: '日本語', greeting: 'こんにちは' },
+  { code: 'fi', locale: 'fi_FI', country: 'FI', name: 'Suomi', greeting: 'Hei' },
 ];
 
 export const MESSAGES = { en, vi, ja, fi };
