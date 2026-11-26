@@ -10,10 +10,23 @@
       (function () {
         var theme;
         var palette;
+        var lang;
         try {
           theme = localStorage.getItem('portfolio-theme');
           palette = localStorage.getItem('portfolio-palette');
+          lang = localStorage.getItem('portfolio-lang');
         } catch {}
+        var languages = ['en', 'vi', 'ja', 'fi'];
+        if (languages.indexOf(lang) === -1) {
+          lang = (navigator.languages || [navigator.language])
+            .map(function (code) {
+              return (code || '').split('-')[0].toLowerCase();
+            })
+            .filter(function (code) {
+              return languages.indexOf(code) !== -1;
+            })[0] || 'en';
+        }
+        document.documentElement.lang = lang;
         if (theme !== 'light' && theme !== 'dark') {
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
