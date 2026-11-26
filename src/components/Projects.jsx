@@ -5,6 +5,7 @@ import Skeleton from './Skeleton.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
 import useGitHubProjects from '../hooks/useGitHubProjects.js';
 import { SITE } from '../data/site';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 function repoSlug(url) {
   try {
@@ -17,6 +18,7 @@ function repoSlug(url) {
 export default function Projects() {
   const { status, data } = usePortfolio();
   const { projects: ghProjects } = useGitHubProjects();
+  const { t } = useI18n();
   const projects = data?.projects ?? [];
 
   const starsBySlug = useMemo(() => {
@@ -28,18 +30,18 @@ export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <BtopPanel
-        title="PACKAGES / PROJECTS"
-        titleRight={status === 'loading' ? 'fetching...' : `${projects.length} items`}
+        title={t.projects.title}
+        titleRight={status === 'loading' ? t.projects.loading : t.projects.items(projects.length)}
         accent="disk"
         fullHeight
       >
         {status === 'loading' ? (
-          <div aria-busy="true" aria-label="Loading projects">
+          <div aria-busy="true" aria-label={t.projects.loadingLabel}>
             <Skeleton />
           </div>
         ) : status === 'error' ? (
           <div className="px-4 py-6 font-mono text-base text-btop-temp sm:text-sm">
-            <span className="text-btop-temp">✗</span> failed to fetch portfolio data — gitconnected API unreachable
+            <span className="text-btop-temp">✗</span> {t.projects.error}
           </div>
         ) : (
           <>
@@ -60,7 +62,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noreferrer"
               >
-                See all on GitHub →
+                {t.projects.seeAll}
               </a>
             </div>
           </>

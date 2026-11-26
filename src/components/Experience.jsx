@@ -4,6 +4,7 @@ import BtopPanel from './BtopPanel.jsx';
 import BtopBar from './BtopBar.jsx';
 import Meme from './Meme.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 function parseSummary(summary) {
   if (!summary) return [];
@@ -13,13 +14,13 @@ function parseSummary(summary) {
     .filter(Boolean);
 }
 
-function ExperiencePopup({ job, pid }) {
+function ExperiencePopup({ job, pid, t }) {
   const projects = parseSummary(job.summary);
   const tech = job.highlights ?? [];
   return (
     <div
       role="dialog"
-      aria-label={`${job.position} details`}
+      aria-label={t.experience.details(job.position)}
       className="absolute left-0 right-0 top-full z-50 mt-1 border border-btop-cpu/40 bg-zinc-950/95 font-mono shadow-xl shadow-black/60 backdrop-blur-sm sm:left-10 sm:right-2"
     >
       <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs text-btop-cpu">
@@ -39,13 +40,13 @@ function ExperiencePopup({ job, pid }) {
             <span className="text-zinc-300">{job.company}</span>
           )}
           {job.location ? <span className="text-zinc-600">· {job.location}</span> : null}
-          <span className="text-zinc-600">· {formatRange(job.startDate, job.endDate)}</span>
-          <span className="text-zinc-600">· {durationLabel(job.startDate, job.endDate)}</span>
+          <span className="text-zinc-600">· {formatRange(job.startDate, job.endDate, t)}</span>
+          <span className="text-zinc-600">· {durationLabel(job.startDate, job.endDate, t)}</span>
         </div>
 
         {projects.length > 0 ? (
           <div>
-            <div className="mb-1 text-[10px] uppercase tracking-wider text-zinc-500">// projects</div>
+            <div className="mb-1 text-[10px] uppercase tracking-wider text-zinc-500">{t.experience.projects}</div>
             <ul className="space-y-1 text-zinc-300">
               {projects.map((item, idx) => (
                 <li key={idx} className="flex gap-2">
@@ -59,7 +60,7 @@ function ExperiencePopup({ job, pid }) {
 
         {tech.length > 0 ? (
           <div>
-            <div className="mb-1 text-[10px] uppercase tracking-wider text-zinc-500">// stack</div>
+            <div className="mb-1 text-[10px] uppercase tracking-wider text-zinc-500">{t.experience.stack}</div>
             <div className="flex flex-wrap gap-1.5">
               {tech
                 .flatMap((t) => t.split(','))
@@ -78,28 +79,29 @@ function ExperiencePopup({ job, pid }) {
   );
 }
 
-function durationLabel(startStr, endStr) {
+function durationLabel(startStr, endStr, t) {
   if (!startStr) return '—';
   const from = new Date(startStr);
   const to = endStr ? new Date(endStr) : new Date();
   const years = differenceInYears(to, from);
   const months = differenceInMonths(to, addYears(from, years));
-  if (years === 0 && months <= 0) return '0 mos';
+  if (years === 0 && months <= 0) return t.experience.zero;
   const parts = [];
-  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
-  if (months > 0) parts.push(`${months} mo${months > 1 ? 's' : ''}`);
+  if (years > 0) parts.push(t.experience.years(years));
+  if (months > 0) parts.push(t.experience.months(months));
   return parts.join(' ');
 }
 
-function formatRange(startStr, endStr) {
+function formatRange(startStr, endStr, t) {
   if (!startStr) return '—';
-  const start = format(new Date(startStr), 'MMM yyyy');
-  const end = endStr ? format(new Date(endStr), 'MMM yyyy') : 'Present';
+  const start = format(new Date(startStr), t.experience.dateFormat);
+  const end = endStr ? format(new Date(endStr), t.experience.dateFormat) : t.experience.present;
   return `${start} – ${end}`;
 }
 
 export default function Experience() {
   const { status, data } = usePortfolio();
+  const { t } = useI18n();
   const jobs = data?.work ?? [];
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -110,8 +112,8 @@ export default function Experience() {
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <BtopPanel
-            title="PROCESSES / CAREER"
-            titleRight={`${jobs.length} tasks`}
+            title={t.experience.title}
+            titleRight={t.experience.tasks(jobs.length)}
             accent="cpu"
             fullHeight
           >
@@ -124,9 +126,9 @@ export default function Experience() {
             </div>
 
             {status === 'loading' ? (
-              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">fetching processes...</div>
+              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">{t.experience.loading}</div>
             ) : jobs.length === 0 ? (
-              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">no process data available</div>
+              <div className="px-3 py-4 font-mono text-sm text-zinc-500 sm:text-xs">{t.experience.empty}</div>
             ) : (
 
               <div className="font-mono text-sm sm:text-xs">
@@ -151,7 +153,7 @@ export default function Experience() {
                         role="button"
                         tabIndex={0}
                         aria-expanded={isOpen}
-                        aria-label={`${job.position} at ${job.company} — show details`}
+                        aria-label={t.experience.rowLabel(job.position, job.company)}
                         onClick={() => setOpenIndex((cur) => (cur === i ? null : i))}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
@@ -188,10 +190,10 @@ export default function Experience() {
                           ) : (
                             <span className="text-zinc-600">○</span>
                           )}{' '}
-                          {durationLabel(job.startDate, job.endDate)}
+                          {durationLabel(job.startDate, job.endDate, t)}
                         </span>
                       </div>
-                      {isOpen ? <ExperiencePopup job={job} pid={pid} /> : null}
+                      {isOpen ? <ExperiencePopup job={job} pid={pid} t={t} /> : null}
                     </div>
                   );
                 })}
@@ -203,7 +205,7 @@ export default function Experience() {
                 {jobs.map((job, i) => (
                   <span key={i} className="mr-3">
                     <span className="text-zinc-500">[{1000 + i}]</span>{' '}
-                    {formatRange(job.startDate, job.endDate)}
+                    {formatRange(job.startDate, job.endDate, t)}
                   </span>
                 ))}
               </div>

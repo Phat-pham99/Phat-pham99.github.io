@@ -9,14 +9,15 @@ import usePortfolio from '../hooks/usePortfolio.js';
 import BtopPanel from './BtopPanel.jsx';
 import BtopHeatGraph, { heatStyle } from './BtopHeatGraph.jsx';
 import CMatrix from './CMatrix.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
-const ABOUTME = ['Software Developer 👨‍💻🐍 ', 'Linux enthusiast 🐧', 'FOSS advocate 🆓⛓️‍💥', 'Cat lover 😺🐈'];
 const typeMs = 100;
 const deleteMs = 50;
 const holdMs = 3000;
 
 export default function Hero() {
-  const typed = useTypewriter(ABOUTME, typeMs, deleteMs, holdMs);
+  const { t } = useI18n();
+  const typed = useTypewriter(t.hero.aboutMe, typeMs, deleteMs, holdMs);
   const { data } = usePortfolio();
   const basics = data?.basics;
   const avatar = basics?.image || portrait;
@@ -40,11 +41,11 @@ export default function Hero() {
             ? 'border-amber-700 bg-amber-900/70 text-amber-200 shadow-[0_0_8px_rgba(180,83,9,0.4)]'
             : 'border-amber-800/60 bg-amber-950/60 text-amber-300 hover:border-amber-600 hover:text-amber-200'
         }`}
-        aria-label={coffeeOn ? 'Coffee mode on' : 'Coffee mode off'}
-        title={coffeeOn ? 'Coffee ON — running at full speed' : 'Coffee OFF — idle'}
+        aria-label={coffeeOn ? t.hero.coffeeOn : t.hero.coffeeOff}
+        title={coffeeOn ? t.hero.coffeeOnTitle : t.hero.coffeeOffTitle}
       >
         <CoffeeIcon className={`h-3.5 w-3.5 ${coffeeOn && tick % 4 < 2 ? 'animate-coffee-steam' : ''}`} />
-        <span>coffee</span>
+        <span>{t.hero.coffee}</span>
         <span
           aria-hidden="true"
           className={`relative h-4 w-7 rounded-full border transition-colors ${
@@ -57,7 +58,12 @@ export default function Hero() {
             }`}
           />
         </span>
-        <span className="w-[3ch] text-left" aria-hidden="true">{coffeeOn ? 'on' : 'off'}</span>
+        <span className="grid text-left" aria-hidden="true">
+          {/* Reserve the wider of the on/off labels so translations don't shift the switch */}
+          <span className="invisible col-start-1 row-start-1">{t.hero.on}</span>
+          <span className="invisible col-start-1 row-start-1">{t.hero.off}</span>
+          <span className="col-start-1 row-start-1">{coffeeOn ? t.hero.on : t.hero.off}</span>
+        </span>
       </button>
       {showHint && !coffeeOn && (
         <span
@@ -65,14 +71,14 @@ export default function Hero() {
           className="pointer-events-none absolute left-1/2 top-full z-10 flex -translate-x-1/2 flex-col items-center whitespace-nowrap font-mono text-xs text-yellow-400 sm:text-[10px]"
         >
           <span className="animate-coffee-hint text-sm leading-none">&#x2191;</span>
-          <span>Try boost</span>
+          <span>{t.hero.tryBoost}</span>
         </span>
       )}
     </span>
   );
 
   return (
-    <section id="hero" aria-label="Intro" className="mx-auto max-w-content border-x border-zinc-800">
+    <section id="hero" aria-label={t.hero.aria} className="mx-auto max-w-content border-x border-zinc-800">
       {/* Top bar inside hero */}
       <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/20 px-3 py-1 font-mono text-xs">
         <div className="flex gap-4 text-zinc-500">
@@ -90,7 +96,7 @@ export default function Hero() {
         {/* Left column - Main info */}
         <div className="lg:col-span-7">
           <BtopPanel
-            title="SYSTEM INFO"
+            title={t.hero.systemInfo}
             titleRight={`${new Date().toLocaleTimeString('en-US', { hour12: false })}`}
             accent="cpu"
             contentClassName="p-4"
@@ -100,7 +106,7 @@ export default function Hero() {
                 <div className="border border-zinc-700 bg-zinc-900 p-1">
                   <img
                     src={avatar}
-                    alt={basics?.name ? `Portrait of ${basics.name}` : 'Portrait'}
+                    alt={t.hero.portrait(basics?.name)}
                     width={96}
                     height={96}
                     className="h-24 w-24 object-cover"
@@ -114,7 +120,7 @@ export default function Hero() {
                   <span className="text-brand">phat</span><span className="text-zinc-500">@</span>phatpham.work
                 </div>
                 <div className="mt-1 grid break-words font-mono text-base leading-5 text-zinc-400">
-                  {ABOUTME.map((phrase) => (
+                  {t.hero.aboutMe.map((phrase) => (
                     <span key={phrase} className="invisible col-start-1 row-start-1" aria-hidden="true">
                       » {phrase}█
                     </span>
@@ -132,13 +138,13 @@ export default function Hero() {
                     to="/projects"
                     className="border border-brand/50 bg-brand/10 px-3.5 py-1.5 font-mono text-sm text-brand transition-colors hover:bg-brand/20 sm:px-3 sm:py-1 sm:text-xs"
                   >
-                    [F1] Projects
+                    [F1] {t.hero.projects}
                   </Link>
                   <Link
                     to="/contact"
                     className="border border-zinc-700 px-3.5 py-1.5 font-mono text-sm text-zinc-400 transition-colors hover:border-brand hover:text-brand sm:px-3 sm:py-1 sm:text-xs"
                   >
-                    [F2] Contact
+                    [F2] {t.hero.contact}
                   </Link>
                   <span className="flex items-center gap-1">
                     <a
@@ -174,8 +180,8 @@ export default function Hero() {
 
           {/* Matrix rain */}
           <BtopPanel
-            title="Wake up, Neo 😎👨🏼‍💻"
-            titleRight={`${(skills.length || 0)} runs active`}
+            title={t.hero.matrix}
+            titleRight={t.hero.runsActive(skills.length || 0)}
             accent="cpu"
             contentClassName="relative h-64 overflow-hidden"
           >
@@ -187,7 +193,7 @@ export default function Hero() {
         <div className="lg:col-span-5">
           {/* Network / Activity graph */}
           <BtopPanel
-            title="ACTIVITY"
+            title={t.hero.activity}
             titleRight={(
               <span className="inline-block w-[8ch] text-right tabular-nums">
                 CPU {cpuLoad}%
@@ -222,7 +228,7 @@ export default function Hero() {
             <div className="border-t border-zinc-800 pt-3">
               <div className={`grid grid-cols-2 gap-3 font-mono text-sm tabular-nums sm:gap-2 sm:text-xs ${coffeeOn ? 'coffee-stat-grid' : ''}`}>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse' : ''}`}>
-                  <div className="text-zinc-500">Coffee drank ☕️</div>
+                  <div className="text-zinc-500">{t.hero.coffeeDrank}</div>
                   <div className="text-btop-cpu">{coffeeOn ? `${Math.round(Math.random() * 8 + 1)}` : '0'}</div>
                 </div>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
@@ -234,7 +240,7 @@ export default function Hero() {
                   <div className="text-brand">{coffeeOn ? `${Math.floor(1247 + Math.random() * 500)}` : '10'}</div>
                 </div>
                 <div className={`border border-zinc-800 bg-zinc-900/40 p-2 ${coffeeOn ? 'animate-coffee-pulse-delay' : ''}`}>
-                  <div className="text-zinc-500">Money</div>
+                  <div className="text-zinc-500">{t.hero.money}</div>
                   <div className="text-btop-disk">${coffeeOn ? `${Math.round(Math.random() * 10 + 1) * 10000}` : '0'}</div>
                 </div>
               </div>
@@ -246,15 +252,15 @@ export default function Hero() {
                 <div>
                   <div className="flex items-center gap-2 text-xs uppercase text-btop-disk">
                     <span className="h-2 w-2 animate-pulse bg-btop-disk" aria-hidden="true" />
-                    blog / under construction
+                    {t.hero.blogTitle}
                   </div>
                   <p className="mt-2 text-xs leading-relaxed text-zinc-400">
-                    Building a place for engineering notes, experiments, and things learned the hard way.
+                    {t.hero.blogBody}
                   </p>
                 </div>
                 <div className="mt-3">
                   <div className="mb-1 flex justify-between text-[10px] text-zinc-500">
-                    <span>compiling posts...</span>
+                    <span>{t.hero.compiling}</span>
                     <span>37%</span>
                   </div>
                   <div className="h-1.5 border border-zinc-700 bg-zinc-950">

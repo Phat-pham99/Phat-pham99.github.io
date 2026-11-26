@@ -1,5 +1,6 @@
 import Badge from './Badge.jsx';
 import { ArrowUpRightIcon, StarIcon } from './Icons.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 const LANG_COLORS = {
   Python: '#3572A5',
@@ -13,6 +14,7 @@ const LANG_COLORS = {
 };
 
 export default function ProjectCard({ project, stars }) {
+  const { t } = useI18n();
   return (
     <article className="btop-row group flex flex-col border-b border-r border-zinc-800 bg-zinc-950/40 p-4 transition-colors hover:bg-zinc-900/40">
       <h3 className="flex min-w-0 items-center gap-1 font-mono text-base font-bold text-zinc-100 sm:text-sm">
@@ -24,7 +26,7 @@ export default function ProjectCard({ project, stars }) {
           href={project.url}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Open ${project.repo}`}
+          aria-label={t.projects.open(project.repo)}
           className="ml-auto shrink-0 text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
         >
           <ArrowUpRightIcon className="h-4 w-4" />
@@ -54,7 +56,7 @@ export default function ProjectCard({ project, stars }) {
           </span>
         ) : null}
         {typeof stars === 'number' ? (
-          <span className="project-stars inline-flex items-center gap-1" title={`${stars} star${stars === 1 ? '' : 's'}`}>
+          <span className="project-stars inline-flex items-center gap-1" title={t.projects.stars(stars)}>
             <StarIcon className="star-twinkle h-3 w-3" />
             {stars}
           </span>
