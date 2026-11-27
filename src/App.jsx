@@ -10,9 +10,11 @@ import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import { I18nProvider, useI18n } from './i18n/I18nContext.jsx';
 
 function Page() {
   const { section } = useParams();
+  const { t } = useI18n();
   const reduced = usePrefersReducedMotion();
   const valid = !section || SECTIONS.includes(section);
 
@@ -29,7 +31,7 @@ function Page() {
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-brand focus:bg-btop-bg focus:px-3 focus:py-2 focus:font-mono focus:text-sm focus:text-brand"
       >
-        Skip to content
+        {t.app.skip}
       </a>
       <Navbar />
       <main id="main">
@@ -47,12 +49,14 @@ function Page() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Page />} />
-        <Route path="/:section" element={<Page />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <I18nProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Page />} />
+          <Route path="/:section" element={<Page />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </I18nProvider>
   );
 }

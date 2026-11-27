@@ -32,6 +32,12 @@ export default function useTypewriter(phrases, { typeMs = 60, deleteMs = 35, hol
   const graphemeLists = useMemo(() => phrases.map(getGraphemes), [phrases]);
 
   useEffect(() => {
+    setIndex(0);
+    setLength(0);
+    setDeleting(false);
+  }, [phrases]);
+
+  useEffect(() => {
     if (reduced) return;
     const current = graphemeLists[index % graphemeLists.length];
 

@@ -5,16 +5,10 @@ import { GitHubIcon, MenuIcon, CloseIcon } from './Icons.jsx';
 import { SITE, SECTIONS } from '../data/site';
 import { useState, useMemo } from 'react';
 import useTheme, { PALETTES } from '../hooks/useTheme.js';
+import { useI18n } from '../i18n/I18nContext.jsx';
+import LanguagePicker from './LanguagePicker.jsx';
 
 const BIRTH_DATE = new Date('1999-05-09');
-
-const LABELS = {
-  about: 'About',
-  experience: 'Experience',
-  skills: 'Skills',
-  projects: 'Projects',
-  contact: 'Contact',
-};
 
 function linkClass({ isActive }) {
   return `px-3 py-1 font-mono text-xs transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand ${
@@ -25,8 +19,9 @@ function linkClass({ isActive }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { theme, palette, selectTheme } = useTheme();
+  const { t } = useI18n();
   const paletteLabel = PALETTES.find((p) => p.id === palette)?.label;
-  const modeLabel = theme === 'dark' ? 'Dark' : 'Light';
+  const modeLabel = theme === 'dark' ? t.nav.dark : t.nav.light;
   const uptime = useMemo(() => {
     const now = new Date();
     const years = differenceInYears(now, BIRTH_DATE);
@@ -36,7 +31,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-btop-bg">
-      <nav aria-label="Primary" className="mx-auto flex max-w-content items-center justify-between border-x border-zinc-800 px-0">
+      <nav aria-label={t.nav.primary} className="mx-auto flex max-w-content items-center justify-between border-x border-zinc-800 px-0">
         {/* Left status */}
         <div className="flex min-w-0 items-center">
           <div className="flex min-w-0 items-center gap-2 border-r border-zinc-800 bg-zinc-900/40 px-3 py-2">
@@ -55,20 +50,21 @@ export default function Navbar() {
         <div className="hidden items-center md:flex">
           {SECTIONS.map((s) => (
             <NavLink key={s} to={`/${s}`} className={linkClass} onClick={() => setOpen(false)}>
-              {LABELS[s]}
+              {t.nav.sections[s]}
             </NavLink>
           ))}
         </div>
 
         {/* Right */}
         <div className="flex shrink-0 items-center">
+          <LanguagePicker />
           {/* Transparent native select over the icon keeps keyboard and mobile pickers accessible */}
           <label
-            title={`Theme: ${paletteLabel} · ${modeLabel}`}
+            title={`${t.nav.theme}: ${paletteLabel} · ${modeLabel}`}
             className="relative inline-flex h-11 w-11 items-center justify-center border-l border-zinc-800 text-zinc-500 transition-colors hover:text-brand has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-brand"
           >
             <Palette className="h-4 w-4" aria-hidden="true" />
-            <span className="sr-only">Theme</span>
+            <span className="sr-only">{t.nav.theme}</span>
             <select
               value={`${palette}:${theme}`}
               onChange={(event) => selectTheme(...event.target.value.split(':'))}
@@ -76,8 +72,8 @@ export default function Navbar() {
             >
               {PALETTES.map((p) => (
                 <optgroup key={p.id} label={p.label}>
-                  <option value={`${p.id}:dark`}>{p.label} Dark</option>
-                  <option value={`${p.id}:light`}>{p.label} Light</option>
+                  <option value={`${p.id}:dark`}>{p.label} {t.nav.dark}</option>
+                  <option value={`${p.id}:light`}>{p.label} {t.nav.light}</option>
                 </optgroup>
               ))}
             </select>
@@ -86,7 +82,7 @@ export default function Navbar() {
             href={SITE.github}
             target="_blank"
             rel="noreferrer"
-            aria-label="GitHub profile"
+            aria-label={t.nav.githubProfile}
             className="border-l border-zinc-800 px-3 py-2 text-zinc-500 transition-colors hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand"
           >
             <GitHubIcon className="h-4 w-4" />
@@ -96,7 +92,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             className="border-l border-zinc-800 px-3 py-2 text-zinc-500 hover:text-brand focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand md:hidden"
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
@@ -109,7 +105,7 @@ export default function Navbar() {
           <div className="flex flex-col font-mono text-sm sm:text-xs">
             {SECTIONS.map((s) => (
               <NavLink key={s} to={`/${s}`} className={linkClass} onClick={() => setOpen(false)}>
-                {LABELS[s]}
+                {t.nav.sections[s]}
               </NavLink>
             ))}
             <a

@@ -2,6 +2,7 @@ import BtopPanel from './BtopPanel.jsx';
 import { GitHubIcon, LinkedInIcon, MailIcon, DownloadIcon } from './Icons.jsx';
 import { SITE } from '../data/site';
 import usePortfolio from '../hooks/usePortfolio.js';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 const ICON_MAP = {
   GitHub: GitHubIcon,
@@ -10,6 +11,7 @@ const ICON_MAP = {
 
 export default function Contact() {
   const { data } = usePortfolio();
+  const { t } = useI18n();
   const basics = data?.basics;
 
   const channels = [
@@ -23,13 +25,13 @@ export default function Contact() {
         Icon: ICON_MAP[p.network] || null,
         external: true,
       })),
-    { label: 'resume', href: SITE.resumeUrl, display: 'Phat_Resume', Icon: DownloadIcon, external: true },
+    { label: t.contact.resume, href: SITE.resumeUrl, display: 'Phat_Resume', Icon: DownloadIcon, external: true },
   ];
 
   return (
     <section id="contact" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <BtopPanel
-        title="NET / CONNECTIONS"
+        title={t.contact.title}
         titleRight="ESTABLISHED"
         accent="net"
         fullHeight
@@ -67,7 +69,7 @@ export default function Contact() {
         <div className="border-t border-zinc-800 bg-zinc-900/20 px-4 py-4 sm:py-3">
           <p className="font-mono text-sm text-zinc-500 sm:text-xs">
             <span className="text-brand">$</span> ping -c 1 phat
-            <span className="ml-4 text-zinc-400">Open to interesting problems, OSS collaboration and a good cup of coffee.</span>
+            <span className="ml-4 text-zinc-400">{t.contact.tagline}</span>
           </p>
         </div>
       </BtopPanel>

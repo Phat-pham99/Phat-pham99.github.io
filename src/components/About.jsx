@@ -1,10 +1,6 @@
 import BtopPanel from './BtopPanel.jsx';
 import usePortfolio from '../hooks/usePortfolio.js';
-
-const SOME_TECH_QUOTE = {
-  text: "If the path to what you want seems too easy.. then you're on the wrong path",
-  author: 'Monkey D. Luffy ...or Shank ? Dunno, man',
-};
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 function ExtLink({ href, title, children }) {
   return (
@@ -53,22 +49,23 @@ function wrapText(text, width = 50) {
 
 export default function About() {
   const { data } = usePortfolio();
+  const { t } = useI18n();
   const basics = data?.basics;
-  const summary = basics?.summary?.trim();
+  const summary = t.about.summary ?? basics?.summary?.trim();
   const displayLines = summary ? wrapText(summary) : BIO_LINES;
   const infoItems = [
     ['LOCATION', basics?.location || 'Ho Chi Minh City, VN'],
     ['TIMEZONE', 'UTC+7'],
-    ['EDITOR', <ExtLink href="https://micro-editor.github.io/" title="Micro — a modern, intuitive terminal-based text editor">Micro</ExtLink>],
-    ['SHELL', <ExtLink href="https://www.zsh.org/" title="Zsh — a powerful shell with scripting features and interactive customization">zsh</ExtLink>],
+    ['EDITOR', <ExtLink href="https://micro-editor.github.io/" title={t.about.editorTitle}>Micro</ExtLink>],
+    ['SHELL', <ExtLink href="https://www.zsh.org/" title={t.about.shellTitle}>zsh</ExtLink>],
     [
       'DISTRO',
       <>
-        <ExtLink href="https://manjaro.org/" title="Manjaro Linux — an accessible, user-friendly Linux distribution">Manjaro 🌿</ExtLink>
+        <ExtLink href="https://manjaro.org/" title={t.about.manjaroTitle}>Manjaro 🌿</ExtLink>
         {' & '}
-        <ExtLink href="https://xubuntu.org/" title="Xubuntu — Ubuntu with the lightweight Xfce desktop">Xubuntu 🐁</ExtLink>
+        <ExtLink href="https://xubuntu.org/" title={t.about.xubuntuTitle}>Xubuntu 🐁</ExtLink>
         {' & '}
-        <ExtLink href="https://mxlinux.org/" title="MX Linux — a fast, stable Debian-based Linux distribution">MX Linux 🌀</ExtLink>
+        <ExtLink href="https://mxlinux.org/" title={t.about.mxTitle}>MX Linux 🌀</ExtLink>
       </>,
     ],
   ];
@@ -77,7 +74,7 @@ export default function About() {
     <section id="about" className="mx-auto max-w-content border-x border-b border-zinc-800 scroll-mt-14">
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-2">
         <BtopPanel
-          title="BIO / README"
+          title={t.about.bio}
           titleRight="bio.md"
           accent="mem"
           contentClassName="p-4"
@@ -94,7 +91,7 @@ export default function About() {
         </BtopPanel>
 
         <BtopPanel
-          title="ENV / VARIABLES"
+          title={t.about.env}
           titleRight=".env"
           accent="disk"
           contentClassName="p-4"
@@ -116,8 +113,8 @@ export default function About() {
               <span className="text-brand">»</span> echo $FAVOURITE_QUOTE
             </div>
             <div className="mt-1 font-mono text-base text-zinc-300 sm:text-sm">
-              <span>“{SOME_TECH_QUOTE.text}”</span>
-              <span className="mt-1 block text-xs text-zinc-500">— {SOME_TECH_QUOTE.author}</span>
+              <span>“{t.about.quote}”</span>
+              <span className="mt-1 block text-xs text-zinc-500">— {t.about.quoteAuthor}</span>
             </div>
           </div>
         </BtopPanel>

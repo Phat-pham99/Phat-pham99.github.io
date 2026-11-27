@@ -1,19 +1,21 @@
 import { SITE } from '../data/site';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 export default function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="border-b border-zinc-800 bg-btop-bg">
       <div className="mx-auto flex max-w-content items-center justify-between border-x border-zinc-800 px-0 font-mono text-sm sm:text-xs">
         {/* Help bar - left */}
         <div className="flex items-center">
           <div className="border-r border-zinc-800 bg-zinc-900/40 px-3 py-3 text-zinc-500 sm:py-2">
-            <span className="text-brand">[esc]</span> menu
+            <span className="text-brand">[esc]</span> {t.footer.menu}
           </div>
           <div className="hidden border-r border-zinc-800 px-3 py-2 text-zinc-500 sm:block">
-            <span className="text-brand">[↑↓]</span> navigate
+            <span className="text-brand">[↑↓]</span> {t.footer.navigate}
           </div>
           <div className="hidden border-r border-zinc-800 px-3 py-2 text-zinc-500 md:block">
-            <span className="text-brand">[q]</span> quit
+            <span className="text-brand">[q]</span> {t.footer.quit}
           </div>
         </div>
 
@@ -30,13 +32,13 @@ export default function Footer() {
             rel="noreferrer"
             className="border-l border-zinc-800 px-3 py-3 text-zinc-500 transition-colors hover:text-brand sm:py-2"
           >
-            <span className="text-brand">[s]</span> source
+            <span className="text-brand">[s]</span> {t.footer.source}
           </a>
           <a
             href="#hero"
             className="border-l border-zinc-800 px-3 py-3 text-zinc-500 transition-colors hover:text-brand sm:py-2"
           >
-            <span className="text-brand">[t]</span> top
+            <span className="text-brand">[t]</span> {t.footer.top}
           </a>
         </div>
       </div>
